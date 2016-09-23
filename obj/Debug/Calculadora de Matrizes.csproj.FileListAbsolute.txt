@@ -18,3 +18,13 @@ C:\Users\Lucas.Soares\Downloads\Calculadora de Matrizes\obj\Debug\Calculadora_de
 C:\Users\Lucas.Soares\Downloads\Calculadora de Matrizes\obj\Debug\Calculadora_de_Matrizes.Properties.Resources.resources
 C:\Users\Lucas.Soares\Downloads\Calculadora de Matrizes\obj\Debug\Calculadora_de_Matrizes.Sobre.resources
 C:\Users\Lucas.Soares\Downloads\Calculadora de Matrizes\obj\Debug\Calculadora de Matrizes.csproj.GenerateResource.Cache
+C:\Users\Lucas.Soares\Desktop\GitHub\Calculadora-de-Matrizes\bin\Debug\Calculadora de Matrizes.exe.config
+C:\Users\Lucas.Soares\Desktop\GitHub\Calculadora-de-Matrizes\obj\Debug\Calculadora de Matrizes.exe
+C:\Users\Lucas.Soares\Desktop\GitHub\Calculadora-de-Matrizes\obj\Debug\Calculadora de Matrizes.pdb
+C:\Users\Lucas.Soares\Desktop\GitHub\Calculadora-de-Matrizes\bin\Debug\Calculadora de Matrizes.exe
+C:\Users\Lucas.Soares\Desktop\GitHub\Calculadora-de-Matrizes\bin\Debug\Calculadora de Matrizes.pdb
+C:\Users\Lucas.Soares\Desktop\GitHub\Calculadora-de-Matrizes\obj\Debug\Calculadora de Matrizes.csprojResolveAssemblyReference.cache
+C:\Users\Lucas.Soares\Desktop\GitHub\Calculadora-de-Matrizes\obj\Debug\Calculadora_de_Matrizes.Form1.resources
+C:\Users\Lucas.Soares\Desktop\GitHub\Calculadora-de-Matrizes\obj\Debug\Calculadora_de_Matrizes.Properties.Resources.resources
+C:\Users\Lucas.Soares\Desktop\GitHub\Calculadora-de-Matrizes\obj\Debug\Calculadora_de_Matrizes.Sobre.resources
+C:\Users\Lucas.Soares\Desktop\GitHub\Calculadora-de-Matrizes\obj\Debug\Calculadora de Matrizes.csproj.GenerateResource.Cache

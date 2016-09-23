@@ -26,6 +26,11 @@ namespace Calculadora_de_Matrizes
         private int linha1, coluna1;
         private int linha2, coluna2;
 
+        /// <summary>
+        /// Responsável por criar a segunda matriz
+        /// </summary>
+
+
         private void btn_criarMatriz2_Click(object sender, EventArgs e)
         {
             try
@@ -43,13 +48,14 @@ namespace Calculadora_de_Matrizes
                     for (int y = 0; y < Matriz2.GetLength(1); y++)
                     {
                         Matriz2[x, y] = new NumericUpDown();
-                        Matriz2[x, y].Text = "00";
-                        Matriz2[x, y].Font = new Font("Microsoft Sans Serif", 10f);
+                        Matriz2[x, y].Font = new Font("Microsoft Sans Serif", 12f);
                         Matriz2[x, y].BackColor = Color.LightGray;
                         Matriz2[x, y].Top = (x * Matriz2[x, y].Height) + 10;
+                        Matriz2[x, y].DecimalPlaces = 3;
                         Matriz2[x, y].Left = y * TamanhoText + 2;
-                        Matriz2[x, y].Width = 40;
-                        Matriz2[x, y].Height = 10;
+                        Matriz2[x, y].Width = 60;
+                        Matriz2[x, y].Height = 100;
+                        Matriz2[x, y].Value = 0;
                         panel2.Controls.Add(Matriz2[x, y]);
                     }
                 }
@@ -61,6 +67,10 @@ namespace Calculadora_de_Matrizes
             }
             
         }
+
+        /// <summary>
+        /// Responsável por somar as duas matrizes
+        /// </summary>
 
         private void btnSomar_Click(object sender, EventArgs e)
         {
@@ -121,6 +131,10 @@ namespace Calculadora_de_Matrizes
             }           
         }
 
+        /// <summary>
+        /// Responsável por subtrarir as duas matrizes
+        /// </summary>
+
         private void btnSubtrair_Click(object sender, EventArgs e)
         {
             try
@@ -180,6 +194,9 @@ namespace Calculadora_de_Matrizes
             
         }
 
+        /// <summary>
+        /// Responsável por multiplicar as duas matrizes
+        /// </summary>
         private void btnMultiplicar_Click(object sender, EventArgs e)
         {
             try
@@ -258,7 +275,7 @@ namespace Calculadora_de_Matrizes
                 float[,] tempMatrizResultante = Calculos.GerarTransposta(tempResultante);
                 int TamanhoText = groupBoxConfigurações.Width / Matriz1.GetLength(1);
                 Matriz1 = new NumericUpDown[tempMatrizResultante.GetLength(0), tempMatrizResultante.GetLength(1)];
-                groupBoxConfigurações.Controls.Clear();
+                panel3.Controls.Clear();
                 for (int x = 0; x < Matriz1.GetLength(0); x++)
                 {
                     for (int y = 0; y < Matriz1.GetLength(1); y++)
@@ -268,7 +285,7 @@ namespace Calculadora_de_Matrizes
                         Matriz1[x, y].Top = (x * Matriz1[x, y].Height) + 20;
                         Matriz1[x, y].Left = y * TamanhoText + 6;
                         Matriz1[x, y].Width = TamanhoText;
-                        groupBoxConfigurações.Controls.Add(Matriz1[x, y]);
+                        panel3.Controls.Add(Matriz1[x, y]);
                     }
                 }
             }
@@ -802,6 +819,7 @@ namespace Calculadora_de_Matrizes
                         Matriz1[x, y].Left = y * TamanhoText + 2;
                         Matriz1[x, y].Width = 40;
                         Matriz1[x, y].Height = 10;
+                        Matriz1[x, y].DecimalPlaces = 3;
                         panel1.Controls.Add(Matriz1[x, y]);
                     }
                 }

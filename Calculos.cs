@@ -6,18 +6,14 @@ using System.Threading.Tasks;
 
 namespace Calculadora_de_Matrizes
 {
-    /* Calculadora desenvolvida por Lucas Soares 2003 - NAVE RIO
-            a partir do projeto de "NUNO DUARTE"
-
-        - https://github.com/Nuno-Duarte/Calculadora-Matrizes---C-  projeto original
-
-        - Aplicando algumas mudanças e funções encontradas por meio de pesquisas na internet
-
-        - Pode apresentar alguns bug em seu funcionamento 
-    */
-
     class Calculos
     {
+        /// <summary>
+        /// Responsável por fazer os cálculos de soma das matrizes
+        /// </summary>
+        /// <param name="matriz1">Recebe os valores da Matriz1</param>
+        /// <param name="matriz2">Recebe os valores da Matriz2</param>
+        /// <returns>Retorna a Matriz Resultante</returns>
         public static float[,] SomandoMatrizes(float[,] matriz1, float[,] matriz2)
         {
             float[,] matrizResultado = new float[matriz1.GetLongLength(0), matriz1.GetLength(1)];
@@ -32,6 +28,12 @@ namespace Calculadora_de_Matrizes
             return matrizResultado;
         }
 
+        /// <summary>
+        /// Responsável por fazer os cálculos de subtração das matrizes
+        /// </summary>
+        /// <param name="matriz1">Recebe os valores da Matriz1</param>
+        /// <param name="matriz2">Recebe os valores da Matriz2</param>
+        /// <returns>Retorna a Matriz Resultante</returns>
         public static float[,] SubtraindoMatrizes(float[,] matriz1, float[,] matriz2)
         {
             float[,] matrizResultado = new float[matriz1.GetLongLength(0), matriz1.GetLength(1)];
@@ -44,6 +46,13 @@ namespace Calculadora_de_Matrizes
             }
             return matrizResultado;
         }
+
+        /// <summary>
+        /// Responsável por fazer os cálculos de multiplicação das matrizes
+        /// </summary>
+        /// <param name="matriz1">Recebe os valores da Matriz1</param>
+        /// <param name="matriz2">Recebe os valores da Matriz2</param>
+        /// <returns>Retorna a Matriz Resultante</returns>
 
         public static float[,] MultiplicandoMatrizes(float[,] matriz1, float[,] matriz2)
         {
@@ -62,6 +71,11 @@ namespace Calculadora_de_Matrizes
             return matrizResultado;
         }
 
+        /// <summary>
+        /// Gera a Matriz Cofatora
+        /// </summary>
+        /// <param name="matriz1"></param>
+        /// <returns></returns>
         public static float[,] GerarCofatora2x2(float[,] matriz1)
         {
             float[,] matrizCofatora = new float[matriz1.GetLength(0), matriz1.GetLength(1)];
