@@ -18,60 +18,31 @@ namespace Calculadora_de_Matrizes
             InitializeComponent();
         }
 
-        private NumericUpDown[,] Matriz1;
-        private NumericUpDown[,] Matriz2;
-        private NumericUpDown[,] matrizResultado;
+        private TextBox[,] Matriz1;
+        private TextBox[,] Matriz2;
+        private TextBox[,] matrizResultado;
         private float determinante;
 
         private int linha1, coluna1;
         private int linha2, coluna2;
 
         /// <summary>
-        /// Responsável por criar a segunda matriz
+        /// Clique no botão para gerar a segunda Matriz
         /// </summary>
-
-
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_criarMatriz2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                panel2.Controls.Clear();
-                panel3.Controls.Clear();
-                linha2 = Convert.ToInt32(numericUpDown3.Value);
-                coluna2 = Convert.ToInt32(numericUpDown4.Value);
-
-                int TamanhoText = panel2.Width / coluna2;
-                Matriz2 = new NumericUpDown[linha2, coluna2];
-                TamanhoText = panel2.Width / coluna2;
-                for (int x = 0; x < Matriz2.GetLength(0); x++)
-                {
-                    for (int y = 0; y < Matriz2.GetLength(1); y++)
-                    {
-                        Matriz2[x, y] = new NumericUpDown();
-                        Matriz2[x, y].Font = new Font("Microsoft Sans Serif", 12f);
-                        Matriz2[x, y].BackColor = Color.LightGray;
-                        Matriz2[x, y].Top = (x * Matriz2[x, y].Height) + 10;
-                        Matriz2[x, y].DecimalPlaces = 3;
-                        Matriz2[x, y].Left = y * TamanhoText + 2;
-                        Matriz2[x, y].Width = 60;
-                        Matriz2[x, y].Height = 100;
-                        Matriz2[x, y].Value = 0;
-                        panel2.Controls.Add(Matriz2[x, y]);
-                    }
-                }
-            }
-
-            catch(Exception)
-            {
-                mensagem();
-            }
-            
+            panel2.Controls.Clear();
+            panel3.Controls.Clear();
+            coluna2 = (int)numericUpDown3.Value;
+            linha2 = (int)numericUpDown4.Value;
+            MatrizesInterface.instanciarTextBox(linha2, coluna2, panel2);
         }
 
         /// <summary>
         /// Responsável por somar as duas matrizes
         /// </summary>
-
         private void btnSomar_Click(object sender, EventArgs e)
         {
             try
@@ -104,14 +75,14 @@ namespace Calculadora_de_Matrizes
                 }
 
                 float[,] tempMatrizResultante = Calculos.SomandoMatrizes(tempMatriz1, tempMatriz2);
-                matrizResultado = new NumericUpDown[tempMatrizResultante.GetLength(0), tempMatrizResultante.GetLength(1)];
+                matrizResultado = new TextBox[tempMatrizResultante.GetLength(0), tempMatrizResultante.GetLength(1)];
                 int TamanhoText = panel3.Width / matrizResultado.GetLength(1);
                 panel3.Controls.Clear();
                 for (int x = 0; x < matrizResultado.GetLength(0); x++)
                 {
                     for (int y = 0; y < matrizResultado.GetLength(1); y++)
                     {
-                        matrizResultado[x, y] = new NumericUpDown();
+                        matrizResultado[x, y] = new TextBox();
                         matrizResultado[x, y].Text = tempMatrizResultante[x, y].ToString();
                         matrizResultado[x, y].Top = (x * matrizResultado[x, y].Height) + 20;
                         matrizResultado[x, y].Left = y * TamanhoText + 6;
@@ -167,14 +138,14 @@ namespace Calculadora_de_Matrizes
                 }
 
                 float[,] tempMatrizResultante = Calculos.SubtraindoMatrizes(tempMatriz1, tempMatriz2);
-                matrizResultado = new NumericUpDown[tempMatrizResultante.GetLength(0), tempMatrizResultante.GetLength(1)];
+                matrizResultado = new TextBox[tempMatrizResultante.GetLength(0), tempMatrizResultante.GetLength(1)];
                 int TamanhoText = groupBoxResultado.Width / matrizResultado.GetLength(1);
                 panel3.Controls.Clear();
                 for (int x = 0; x < matrizResultado.GetLength(0); x++)
                 {
                     for (int y = 0; y < matrizResultado.GetLength(1); y++)
                     {
-                        matrizResultado[x, y] = new NumericUpDown();
+                        matrizResultado[x, y] = new TextBox();
                         matrizResultado[x, y].Text = tempMatrizResultante[x, y].ToString();
                         matrizResultado[x, y].Top = (x * matrizResultado[x, y].Height) + 20;
                         matrizResultado[x, y].Left = y * TamanhoText + 6;
@@ -229,14 +200,14 @@ namespace Calculadora_de_Matrizes
                 }
 
                 float[,] tempMatrizResultante = Calculos.MultiplicandoMatrizes(tempMatriz1, tempMatriz2);
-                matrizResultado = new NumericUpDown[tempMatrizResultante.GetLength(0), tempMatrizResultante.GetLength(1)];
+                matrizResultado = new TextBox[tempMatrizResultante.GetLength(0), tempMatrizResultante.GetLength(1)];
                 int TamanhoText = groupBoxResultado.Width / matrizResultado.GetLength(1);
                 panel3.Controls.Clear();
                 for (int x = 0; x < matrizResultado.GetLength(0); x++)
                 {
                     for (int y = 0; y < matrizResultado.GetLength(1); y++)
                     {
-                        matrizResultado[x, y] = new NumericUpDown();
+                        matrizResultado[x, y] = new TextBox();
                         matrizResultado[x, y].Text = tempMatrizResultante[x, y].ToString();
                         matrizResultado[x, y].Top = (x * matrizResultado[x, y].Height) + 20;
                         matrizResultado[x, y].Left = y * TamanhoText + 6;
@@ -274,13 +245,13 @@ namespace Calculadora_de_Matrizes
 
                 float[,] tempMatrizResultante = Calculos.GerarTransposta(tempResultante);
                 int TamanhoText = groupBoxConfigurações.Width / Matriz1.GetLength(1);
-                Matriz1 = new NumericUpDown[tempMatrizResultante.GetLength(0), tempMatrizResultante.GetLength(1)];
+                Matriz1 = new TextBox[tempMatrizResultante.GetLength(0), tempMatrizResultante.GetLength(1)];
                 panel3.Controls.Clear();
                 for (int x = 0; x < Matriz1.GetLength(0); x++)
                 {
                     for (int y = 0; y < Matriz1.GetLength(1); y++)
                     {
-                        Matriz1[x, y] = new NumericUpDown();
+                        Matriz1[x, y] = new TextBox();
                         Matriz1[x, y].Text = tempMatrizResultante[x, y].ToString();
                         Matriz1[x, y].Top = (x * Matriz1[x, y].Height) + 20;
                         Matriz1[x, y].Left = y * TamanhoText + 6;
@@ -451,13 +422,13 @@ namespace Calculadora_de_Matrizes
 
                 float[,] tempMatrizResultante = Calculos.GerarTransposta(tempResultante);
                 int TamanhoText = groupBox1.Width / Matriz2.GetLength(1);
-                Matriz2 = new NumericUpDown[tempMatrizResultante.GetLength(0), tempMatrizResultante.GetLength(1)];
+                Matriz2 = new TextBox[tempMatrizResultante.GetLength(0), tempMatrizResultante.GetLength(1)];
                 groupBox1.Controls.Clear();
                 for (int x = 0; x < Matriz2.GetLength(0); x++)
                 {
                     for (int y = 0; y < Matriz2.GetLength(1); y++)
                     {
-                        Matriz2[x, y] = new NumericUpDown();
+                        Matriz2[x, y] = new TextBox();
                         Matriz2[x, y].Text = tempMatrizResultante[x, y].ToString();
                         Matriz2[x, y].Top = (x * Matriz2[x, y].Height) + 20;
                         Matriz2[x, y].Left = y * TamanhoText + 6;
@@ -734,13 +705,13 @@ namespace Calculadora_de_Matrizes
 
                 float[,] tempMatrizResultante = Calculos.GerarTransposta(tempResultante);
                 int TamanhoText = groupBoxResultado.Width / matrizResultado.GetLength(1);
-                matrizResultado = new NumericUpDown[tempMatrizResultante.GetLength(0), tempMatrizResultante.GetLength(1)];
+                matrizResultado = new TextBox[tempMatrizResultante.GetLength(0), tempMatrizResultante.GetLength(1)];
                 groupBoxResultado.Controls.Clear();
                 for (int x = 0; x < matrizResultado.GetLength(0); x++)
                 {
                     for (int y = 0; y < matrizResultado.GetLength(1); y++)
                     {
-                        matrizResultado[x, y] = new NumericUpDown();
+                        matrizResultado[x, y] = new TextBox();
                         matrizResultado[x, y].Text = tempMatrizResultante[x, y].ToString();
                         matrizResultado[x, y].Top = (x * matrizResultado[x, y].Height) + 20;
                         matrizResultado[x, y].Left = y * TamanhoText + 6;
@@ -795,40 +766,19 @@ namespace Calculadora_de_Matrizes
             }
         }
 
+
+        /// <summary>
+        /// Clique do botão para gerar a MATRIZ A
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_criarMatriz1_Click(object sender, EventArgs e)
         {
-            try
-            {
                 panel1.Controls.Clear();
                 panel3.Controls.Clear();
-                linha1 = Convert.ToInt32(numericUpDown1.Value);
-                coluna1 = Convert.ToInt32(numericUpDown2.Value);
-                int tamanhoLargura = coluna1 * 2;
-
-                Matriz1 = new NumericUpDown[linha1, coluna1];
-                int TamanhoText = panel1.Width / coluna1 + tamanhoLargura;
-                for (int x = 0; x < Matriz1.GetLength(0); x++)
-                {
-                    for (int y = 0; y < Matriz1.GetLength(1); y++)
-                    {
-                        Matriz1[x, y] = new NumericUpDown();
-                        Matriz1[x, y].Font = new Font("Microsoft Sans Serif", 10f);
-                        Matriz1[x, y].Text = "00";
-                        Matriz1[x, y].BackColor = Color.LightGray;
-                        Matriz1[x, y].Top = (x * Matriz1[x, y].Height) + 10;
-                        Matriz1[x, y].Left = y * TamanhoText + 2;
-                        Matriz1[x, y].Width = 40;
-                        Matriz1[x, y].Height = 10;
-                        Matriz1[x, y].DecimalPlaces = 3;
-                        panel1.Controls.Add(Matriz1[x, y]);
-                    }
-                }
-            }
-
-            catch(Exception)
-            {
-                mensagem();
-            }         
+                coluna1 = (int) numericUpDown1.Value;
+                linha1 = (int)numericUpDown2.Value;
+                MatrizesInterface.instanciarTextBox(linha1, coluna1, panel1);                 
         }
 
         private void btnOpostaMatriz1_Click(object sender, EventArgs e)
@@ -880,5 +830,9 @@ namespace Calculadora_de_Matrizes
         {
 
         }
+
+
+        
     }
 }
+
