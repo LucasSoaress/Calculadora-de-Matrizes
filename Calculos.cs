@@ -53,7 +53,6 @@ namespace Calculadora_de_Matrizes
         /// <param name="matriz1">Recebe os valores da Matriz1</param>
         /// <param name="matriz2">Recebe os valores da Matriz2</param>
         /// <returns>Retorna a Matriz Resultante</returns>
-
         public static float[,] MultiplicandoMatrizes(float[,] matriz1, float[,] matriz2)
         {
             float[,] matrizResultado = new float[matriz1.GetLength(0), matriz2.GetLength(1)];

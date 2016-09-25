@@ -26,6 +26,9 @@ namespace Calculadora_de_Matrizes
         private int linha1, coluna1;
         private int linha2, coluna2;
 
+        public static float[,] matriz1, matriz2, matrizResultante;
+
+
         /// <summary>
         /// Clique no botão para gerar a segunda Matriz
         /// </summary>
@@ -33,79 +36,57 @@ namespace Calculadora_de_Matrizes
         /// <param name="e"></param>
         private void btn_criarMatriz2_Click(object sender, EventArgs e)
         {
-            panel2.Controls.Clear();
-            panel3.Controls.Clear();
             coluna2 = (int)numericUpDown3.Value;
             linha2 = (int)numericUpDown4.Value;
-            MatrizesInterface.instanciarTextBox(linha2, coluna2, panel2);
+            if (linha2 == 0 || coluna2 == 0)
+            {
+                MessageBox.Show("Digite os valores de linhas e colunas para Matriz B", "Aviso Importante");
+            }
+            else
+            {
+                panel2.Controls.Clear();
+                panel3.Controls.Clear();
+                MatrizesInterface.instanciarTextBox(linha2, coluna2, panel2);
+                MatrizesInterface.nomeDosGroupBox(groupBox2, "B", linha2, coluna2);
+            }
         }
 
         /// <summary>
-        /// Responsável por somar as duas matrizes
+        /// Clique no botão somar
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSomar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                float[,] tempMatriz1 = new float[Matriz1.GetLength(0), Matriz1.GetLength(1)];
-                float[,] tempMatriz2 = new float[Matriz2.GetLength(0), Matriz2.GetLength(1)];
-                if (tempMatriz1.GetLength(0) != tempMatriz2.GetLength(0) || tempMatriz1.GetLength(1) != tempMatriz2.GetLength(1))
-                {
-                    MessageBox.Show("Só é possível somar matrizes de mesma ordem !", "Erro - Soma Matrizes");
-                    return;
-                }
+                //resgata os numeros digitados pelo usuario
+                matriz1 = MatrizesInterface.resgatarNumeros(panel1, linha1, coluna1);
+                matriz2 = MatrizesInterface.resgatarNumeros(panel2, linha2, coluna2);
 
-                for (int x = 0; x < Matriz1.GetLength(0); x++)
+                if (matriz1.Length == 0 || matriz2.Length == 0)
                 {
-                    for (int y = 0; y < Matriz1.GetLength(1); y++)
+                    MessageBox.Show("Não há matrizes para somar", "Aviso Importante");
+                }
+                else if (matriz1.Length == matriz2.Length)
+                {
+                    matrizResultante = Calculos.SomandoMatrizes(matriz1, matriz2);
+                    MatrizesInterface.instanciarTextBoxMatrizResultante(panel3, matrizResultante);
+                    groupBoxResultado.Text = "Soma das Matrizes A e B";
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("As matrizes não tem ordens iguais", "Aviso Importante");
+                    if (result == DialogResult.OK)
                     {
-                        float n = 0;
-                        float.TryParse(Matriz1[x, y].Text, out n);
-                        tempMatriz1[x, y] = n;
+                        MatrizesInterface.limparMatrizes(panel1, numericUpDown1, numericUpDown2, groupBox1, "Matriz A");
+                        MatrizesInterface.limparMatrizes(panel2, numericUpDown3, numericUpDown4, groupBox2, "Matriz B");
+                        groupBoxResultado.Text = "Matriz Resultante";
                     }
                 }
-                for (int x = 0; x < Matriz2.GetLength(0); x++)
-                {
-                    for (int y = 0; y < Matriz2.GetLength(1); y++)
-                    {
-                        float n = 0;
-                        float.TryParse(Matriz2[x, y].Text, out n);
-                        tempMatriz2[x, y] = n;
-                    }
-                }
-
-                float[,] tempMatrizResultante = Calculos.SomandoMatrizes(tempMatriz1, tempMatriz2);
-                matrizResultado = new TextBox[tempMatrizResultante.GetLength(0), tempMatrizResultante.GetLength(1)];
-                int TamanhoText = panel3.Width / matrizResultado.GetLength(1);
-                panel3.Controls.Clear();
-                for (int x = 0; x < matrizResultado.GetLength(0); x++)
-                {
-                    for (int y = 0; y < matrizResultado.GetLength(1); y++)
-                    {
-                        matrizResultado[x, y] = new TextBox();
-                        matrizResultado[x, y].Text = tempMatrizResultante[x, y].ToString();
-                        matrizResultado[x, y].Top = (x * matrizResultado[x, y].Height) + 20;
-                        matrizResultado[x, y].Left = y * TamanhoText + 6;
-                        matrizResultado[x, y].Width = 40;
-                        matrizResultado[x, y].Height = 10;
-                        matrizResultado[x, y].BackColor = Color.LightGray;
-                        matrizResultado[x, y].Font = new Font("Microsoft Sans Serif", 10f);
-
-                        panel3.Controls.Add(matrizResultado[x, y]);
-                    }
-                }
-            }
-
-            catch(Exception)
-            {
-                mensagem();
-            }           
         }
 
         /// <summary>
         /// Responsável por subtrarir as duas matrizes
         /// </summary>
-
         private void btnSubtrair_Click(object sender, EventArgs e)
         {
             try
@@ -727,45 +708,35 @@ namespace Calculadora_de_Matrizes
             
         }
 
+        /// <summary>
+        /// Limpa o painel da Matriz A
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLimparMatriz1_Click(object sender, EventArgs e)
         {
-            if (Matriz1 == null)
-            {
-                MessageBox.Show("Não há oque limpar", "Aviso Importante");
-            }
-            else
-            {
-                panel1.Controls.Clear();
-            }           
+            MatrizesInterface.limparMatrizes(panel1, numericUpDown1, numericUpDown2, groupBox1, "Matriz A");      
         }
 
+        /// <summary>
+        /// Limpa o painel da Matriz B
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLimparMatriz2_Click(object sender, EventArgs e)
         {
-            if (Matriz2 == null)
-            {
-                MessageBox.Show("Não há oque limpar", "Aviso Importante");
-            }
-
-            else
-            {
-                panel2.Controls.Clear();
-            }
-            
+            MatrizesInterface.limparMatrizes(panel2, numericUpDown3, numericUpDown4, groupBox2, "Matriz B");
         }
 
+        /// <summary>
+        /// Limpa o painel da Matriz Resultante
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLimparMatriz3_Click(object sender, EventArgs e)
         {
-            if (matrizResultado == null)
-            {
-                MessageBox.Show("Não há oque limpar", "Aviso Importante");
-            }
-
-            else
-            {
                 panel3.Controls.Clear();
-            }
         }
-
 
         /// <summary>
         /// Clique do botão para gerar a MATRIZ A
@@ -774,11 +745,20 @@ namespace Calculadora_de_Matrizes
         /// <param name="e"></param>
         private void btn_criarMatriz1_Click(object sender, EventArgs e)
         {
+            coluna1 = (int)numericUpDown2.Value;
+            linha1 = (int)numericUpDown1.Value;
+
+            if (coluna1 == 0 || linha1 == 0)
+            {
+                MessageBox.Show("Digite os valores de linha e colunas para Matriz A", "Aviso Importante");
+            }
+            else
+            {
                 panel1.Controls.Clear();
                 panel3.Controls.Clear();
-                coluna1 = (int) numericUpDown1.Value;
-                linha1 = (int)numericUpDown2.Value;
-                MatrizesInterface.instanciarTextBox(linha1, coluna1, panel1);                 
+                MatrizesInterface.instanciarTextBox(coluna1, linha1, panel1);
+                MatrizesInterface.nomeDosGroupBox(groupBox1, "A", linha1, coluna1);
+            }             
         }
 
         private void btnOpostaMatriz1_Click(object sender, EventArgs e)
