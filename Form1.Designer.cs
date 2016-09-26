@@ -74,6 +74,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.numericUpDownMultiplicar = new System.Windows.Forms.NumericUpDown();
+            this.btnMultiplicarNumero = new System.Windows.Forms.Button();
+            this.btnElevar = new System.Windows.Forms.Button();
             this.groupBoxConfigurações.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -88,6 +91,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMultiplicar)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxConfigurações
@@ -295,9 +299,13 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox6.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.groupBox6.Controls.Add(this.btnElevar);
+            this.groupBox6.Controls.Add(this.btnMultiplicarNumero);
+            this.groupBox6.Controls.Add(this.numericUpDownMultiplicar);
             this.groupBox6.Controls.Add(this.btnLimparMatriz1);
             this.groupBox6.Controls.Add(this.btnTranspostaMatriz1);
             this.groupBox6.Controls.Add(this.btnDeterminandeMatriz1);
@@ -305,7 +313,7 @@
             this.groupBox6.Controls.Add(this.btnOpostaMatriz1);
             this.groupBox6.Location = new System.Drawing.Point(210, 551);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(349, 93);
+            this.groupBox6.Size = new System.Drawing.Size(349, 161);
             this.groupBox6.TabIndex = 12;
             this.groupBox6.TabStop = false;
             // 
@@ -629,6 +637,43 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Matriz B";
             // 
+            // numericUpDownMultiplicar
+            // 
+            this.numericUpDownMultiplicar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.numericUpDownMultiplicar.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.numericUpDownMultiplicar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDownMultiplicar.Location = new System.Drawing.Point(25, 106);
+            this.numericUpDownMultiplicar.Name = "numericUpDownMultiplicar";
+            this.numericUpDownMultiplicar.Size = new System.Drawing.Size(69, 26);
+            this.numericUpDownMultiplicar.TabIndex = 17;
+            // 
+            // btnMultiplicarNumero
+            // 
+            this.btnMultiplicarNumero.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnMultiplicarNumero.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnMultiplicarNumero.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnMultiplicarNumero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMultiplicarNumero.Location = new System.Drawing.Point(221, 91);
+            this.btnMultiplicarNumero.Name = "btnMultiplicarNumero";
+            this.btnMultiplicarNumero.Size = new System.Drawing.Size(104, 23);
+            this.btnMultiplicarNumero.TabIndex = 17;
+            this.btnMultiplicarNumero.Text = "Multiplicar";
+            this.btnMultiplicarNumero.UseVisualStyleBackColor = true;
+            this.btnMultiplicarNumero.Click += new System.EventHandler(this.btnMultiplicarNumero_Click);
+            // 
+            // btnElevar
+            // 
+            this.btnElevar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnElevar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnElevar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnElevar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnElevar.Location = new System.Drawing.Point(221, 120);
+            this.btnElevar.Name = "btnElevar";
+            this.btnElevar.Size = new System.Drawing.Size(104, 23);
+            this.btnElevar.TabIndex = 18;
+            this.btnElevar.Text = "Elevar";
+            this.btnElevar.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -669,6 +714,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMultiplicar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -720,6 +766,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btn_criarMatriz2;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.NumericUpDown numericUpDownMultiplicar;
+        private System.Windows.Forms.Button btnMultiplicarNumero;
+        private System.Windows.Forms.Button btnElevar;
     }
 }
 

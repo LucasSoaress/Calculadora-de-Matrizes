@@ -64,11 +64,11 @@ namespace Calculadora_de_Matrizes
                 {
                     matrizResultado[x, y] = new TextBox();
                     matrizResultado[x, y].Font = new Font("Microsoft Sans Serif", 10f);
-                    matrizResultado[x, y].Text = "0";
                     matrizResultado[x, y].BackColor = Color.LightGray;
                     matrizResultado[x, y].Location = new Point((40) * x, (30) * y);
                     matrizResultado[x, y].KeyPress += new KeyPressEventHandler(naoMostrarLetras);
                     matrizResultado[x, y].Size = new Size(altura, largura);
+                    matrizResultado[x,y].Text = ((float)matriz[x, y]).ToString();
                     panel.Controls.Add(matrizResultado[x, y]);
                 }
             }

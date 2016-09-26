@@ -85,127 +85,29 @@ namespace Calculadora_de_Matrizes
         }
 
         /// <summary>
-        /// Responsável por subtrarir as duas matrizes
+        /// Clique no botão de subtrair matrizes
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSubtrair_Click(object sender, EventArgs e)
         {
-            try
-            {
-                float[,] tempMatriz1 = new float[Matriz1.GetLength(0), Matriz1.GetLength(1)];
-                float[,] tempMatriz2 = new float[Matriz2.GetLength(0), Matriz2.GetLength(1)];
-                if (tempMatriz1.GetLength(0) != tempMatriz2.GetLength(0) || tempMatriz1.GetLength(1) != tempMatriz2.GetLength(1))
-                {
-                    MessageBox.Show("Somente é possível a subtração de matrizes de mesma ordem !", "Erro - Soma Matrizes");
-                    return;
-                }
-
-                for (int x = 0; x < Matriz1.GetLength(0); x++)
-                {
-                    for (int y = 0; y < Matriz1.GetLength(1); y++)
-                    {
-                        float n = 0;
-                        float.TryParse(Matriz1[x, y].Text, out n);
-                        tempMatriz1[x, y] = n;
-                    }
-                }
-                for (int x = 0; x < Matriz2.GetLength(0); x++)
-                {
-                    for (int y = 0; y < Matriz2.GetLength(1); y++)
-                    {
-                        float n = 0;
-                        float.TryParse(Matriz2[x, y].Text, out n);
-                        tempMatriz2[x, y] = n;
-                    }
-                }
-
-                float[,] tempMatrizResultante = Calculos.SubtraindoMatrizes(tempMatriz1, tempMatriz2);
-                matrizResultado = new TextBox[tempMatrizResultante.GetLength(0), tempMatrizResultante.GetLength(1)];
-                int TamanhoText = groupBoxResultado.Width / matrizResultado.GetLength(1);
-                panel3.Controls.Clear();
-                for (int x = 0; x < matrizResultado.GetLength(0); x++)
-                {
-                    for (int y = 0; y < matrizResultado.GetLength(1); y++)
-                    {
-                        matrizResultado[x, y] = new TextBox();
-                        matrizResultado[x, y].Text = tempMatrizResultante[x, y].ToString();
-                        matrizResultado[x, y].Top = (x * matrizResultado[x, y].Height) + 20;
-                        matrizResultado[x, y].Left = y * TamanhoText + 6;
-                        matrizResultado[x, y].Width = 40;
-                        matrizResultado[x, y].Height = 10;
-                        matrizResultado[x, y].BackColor = Color.LightGray;
-                        matrizResultado[x, y].Font = new Font("Microsoft Sans Serif", 10f);
-                        panel3.Controls.Add(matrizResultado[x, y]);
-                    }
-                }
-            }
-
-            catch(Exception)
-            {
-                mensagem();
-            }
-            
+            matriz1 = MatrizesInterface.resgatarNumeros(panel1, linha1, coluna1);
+            matriz2 = MatrizesInterface.resgatarNumeros(panel2, linha2, coluna2);
+            matrizResultante = Calculos.SubtraindoMatrizes(matriz1, matriz2);
+            MatrizesInterface.instanciarTextBoxMatrizResultante(panel3, matrizResultante);
         }
 
         /// <summary>
-        /// Responsável por multiplicar as duas matrizes
+        /// Clique no botão de multiplicar as matrizes
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMultiplicar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                float[,] tempMatriz1 = new float[Matriz1.GetLength(0), Matriz1.GetLength(1)];
-                float[,] tempMatriz2 = new float[Matriz2.GetLength(0), Matriz2.GetLength(1)];
-                if (tempMatriz1.GetLength(1) != tempMatriz2.GetLength(0))
-                {
-                    MessageBox.Show("Só é possível a multiplicação de matrizes onde, a coluna da matriz 1 e igual a linha da matriz 2  !", "Erro - Multiplicação Matrizes");
-                    return;
-                }
-
-                for (int x = 0; x < Matriz1.GetLength(0); x++)
-                {
-                    for (int y = 0; y < Matriz1.GetLength(1); y++)
-                    {
-                        float n = 0;
-                        float.TryParse(Matriz1[x, y].Text, out n);
-                        tempMatriz1[x, y] = n;
-                    }
-                }
-                for (int x = 0; x < Matriz2.GetLength(0); x++)
-                {
-                    for (int y = 0; y < Matriz2.GetLength(1); y++)
-                    {
-                        float n = 0;
-                        float.TryParse(Matriz2[x, y].Text, out n);
-                        tempMatriz2[x, y] = n;
-                    }
-                }
-
-                float[,] tempMatrizResultante = Calculos.MultiplicandoMatrizes(tempMatriz1, tempMatriz2);
-                matrizResultado = new TextBox[tempMatrizResultante.GetLength(0), tempMatrizResultante.GetLength(1)];
-                int TamanhoText = groupBoxResultado.Width / matrizResultado.GetLength(1);
-                panel3.Controls.Clear();
-                for (int x = 0; x < matrizResultado.GetLength(0); x++)
-                {
-                    for (int y = 0; y < matrizResultado.GetLength(1); y++)
-                    {
-                        matrizResultado[x, y] = new TextBox();
-                        matrizResultado[x, y].Text = tempMatrizResultante[x, y].ToString();
-                        matrizResultado[x, y].Top = (x * matrizResultado[x, y].Height) + 20;
-                        matrizResultado[x, y].Left = y * TamanhoText + 6;
-                        matrizResultado[x, y].Width = 40;
-                        matrizResultado[x, y].Height = 10;
-                        matrizResultado[x, y].BackColor = Color.LightGray;
-                        matrizResultado[x, y].Font = new Font("Microsoft Sans Serif", 10f);
-                        panel3.Controls.Add(matrizResultado[x, y]);
-                    }
-                }
-            }
-
-            catch(Exception)
-            {
-                mensagem();
-            }
-            
+            float[,] matriz1 = MatrizesInterface.resgatarNumeros(panel1, linha1, coluna1);
+            float[,] matriz2 = MatrizesInterface.resgatarNumeros(panel2, linha2, coluna2);
+            matrizResultante = Calculos.MultiplicandoMatrizes(matriz1, matriz2);
+            MatrizesInterface.instanciarTextBoxMatrizResultante(panel3, matrizResultante);
         }
 
         private void btnTranspostaMatriz1_Click(object sender, EventArgs e)
@@ -759,6 +661,19 @@ namespace Calculadora_de_Matrizes
                 MatrizesInterface.instanciarTextBox(coluna1, linha1, panel1);
                 MatrizesInterface.nomeDosGroupBox(groupBox1, "A", linha1, coluna1);
             }             
+        }
+
+        /// <summary>
+        /// Clique no botão de multiplicar por número qualquer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnMultiplicarNumero_Click(object sender, EventArgs e)
+        {
+            matriz1 = MatrizesInterface.resgatarNumeros(panel1, linha1, coluna1);
+            float valor = (float)numericUpDownMultiplicar.Value;
+            matrizResultante = Calculos.multiplicarPorNumeroQualquer(matriz1, valor);
+            MatrizesInterface.instanciarTextBoxMatrizResultante(panel3, matrizResultante);
         }
 
         private void btnOpostaMatriz1_Click(object sender, EventArgs e)

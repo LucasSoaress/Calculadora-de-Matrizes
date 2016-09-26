@@ -71,7 +71,48 @@ namespace Calculadora_de_Matrizes
         }
 
         /// <summary>
-        /// Gera a Matriz Cofatora
+        /// Método para multiplicar matriz por um número qualquer
+        /// </summary>
+        /// <param name="matriz">Recebe a matriz para ser calculada</param>
+        /// <param name="numeroQualquer">Recebe o valor pelo qual a matriz será multiplicada</param>
+        /// <returns>Retorna a matriz resultante</returns>
+        public static float[,] multiplicarPorNumeroQualquer(float[,] matriz, float numeroQualquer)
+        {
+            int linhas = matriz.GetLength(0);
+            int colunas = matriz.GetLength(1);
+            float[,] matrizResultado = new float[linhas, colunas];
+
+            for (int x = 0; x < linhas; x++)
+            {
+                for (int y = 0; y < colunas; y++)
+                {
+                    matrizResultado[x, y] = matriz[x, y] * numeroQualquer;
+                }
+            }
+
+            return matrizResultado;
+        }
+
+        /// <summary>
+        /// Método para elevar a matriz a qualquer número
+        /// </summary>
+        /// <param name="matriz">Recebe a matriz que será elevada</param>
+        /// <param name="expoente">Recebe o valor do seu expoente ao qual será elevada</param>
+        /// <returns>Retorna a matriz resultante</returns>
+        public static float[,] elevarMatrizNumeroQualquer(float[,] matriz, float expoente)
+        {
+            float[,] matrizResultado = matriz;
+
+                for (int i = 1; i < expoente; i++)
+                {
+                    matrizResultado = MultiplicandoMatrizes(matrizResultado, matriz);
+                }
+            return matrizResultado;
+        }
+
+
+        /// <summary>
+        /// Gera a Matriz Cofator
         /// </summary>
         /// <param name="matriz1"></param>
         /// <returns></returns>
