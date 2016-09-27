@@ -64,7 +64,7 @@ namespace Calculadora_de_Matrizes
 
                 if (matriz1.Length == 0 || matriz2.Length == 0)
                 {
-                    MessageBox.Show("Não há matrizes para somar", "Aviso Importante");
+                    MessageBox.Show("Não há matrizes para somar", "Aviso Importante", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                 }
                 else if (matriz1.Length == matriz2.Length)
                 {
@@ -74,7 +74,7 @@ namespace Calculadora_de_Matrizes
                 }
                 else
                 {
-                    DialogResult result = MessageBox.Show("As matrizes não tem ordens iguais", "Aviso Importante");
+                    DialogResult result = MessageBox.Show("As matrizes não tem ordens iguais", "Aviso Importante", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     if (result == DialogResult.OK)
                     {
                         MatrizesInterface.limparMatrizes(panel1, numericUpDown1, numericUpDown2, groupBox1, "Matriz A");
@@ -110,45 +110,17 @@ namespace Calculadora_de_Matrizes
             MatrizesInterface.instanciarTextBoxMatrizResultante(panel3, matrizResultante);
         }
 
+        /// <summary>
+        /// Clique no botão de gerar transposta da Matriz 1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnTranspostaMatriz1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                float[,] tempResultante = new float[Matriz1.GetLength(0), Matriz1.GetLength(1)];
-
-                for (int x = 0; x < Matriz1.GetLength(0); x++)
-                {
-                    for (int y = 0; y < Matriz1.GetLength(1); y++)
-                    {
-                        float n = 0;
-                        float.TryParse(Matriz1[x, y].Text, out n);
-                        tempResultante[x, y] = n;
-                    }
-                }
-
-                float[,] tempMatrizResultante = Calculos.GerarTransposta(tempResultante);
-                int TamanhoText = groupBoxConfigurações.Width / Matriz1.GetLength(1);
-                Matriz1 = new TextBox[tempMatrizResultante.GetLength(0), tempMatrizResultante.GetLength(1)];
-                panel3.Controls.Clear();
-                for (int x = 0; x < Matriz1.GetLength(0); x++)
-                {
-                    for (int y = 0; y < Matriz1.GetLength(1); y++)
-                    {
-                        Matriz1[x, y] = new TextBox();
-                        Matriz1[x, y].Text = tempMatrizResultante[x, y].ToString();
-                        Matriz1[x, y].Top = (x * Matriz1[x, y].Height) + 20;
-                        Matriz1[x, y].Left = y * TamanhoText + 6;
-                        Matriz1[x, y].Width = TamanhoText;
-                        panel3.Controls.Add(Matriz1[x, y]);
-                    }
-                }
-            }
-
-            catch(Exception)
-            {
-                mensagem();
-            }
-            
+            float[,] matriz1 = MatrizesInterface.resgatarNumeros(panel1, linha1, coluna1);
+            float [,] resultado =  Calculos.GerarTransposta(matriz1);
+            MatrizesInterface.instanciarTextBoxMatrizResultante(panel3, resultado);
+            groupBoxResultado.Text = ("Resultado da transposta da Matriz 1");
         }
 
         private void btnDeterminandeMatriz1_Click(object sender, EventArgs e)
@@ -253,360 +225,63 @@ namespace Calculadora_de_Matrizes
             
         }
 
+
+        /// <summary>
+        /// Clique no boão de gerar oposta da matriz 2 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOpostaMatriz2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                float[,] tempResultante = new float[Matriz2.GetLength(0), Matriz2.GetLength(1)];
-
-                for (int x = 0; x < Matriz2.GetLength(0); x++)
-                {
-                    for (int y = 0; y < Matriz2.GetLength(1); y++)
-                    {
-                        float n = 0;
-                        float.TryParse(Matriz2[x, y].Text, out n);
-                        tempResultante[x, y] = n;
-                    }
-                }
-
-                float[,] tempMatrizResultante = Calculos.GerarOposta(tempResultante);
-                int TamanhoText = groupBox1.Width / Matriz2.GetLength(1);
-                for (int x = 0; x < Matriz2.GetLength(0); x++)
-                {
-                    for (int y = 0; y < Matriz2.GetLength(1); y++)
-                    {
-                        Matriz2[x, y].Text = tempMatrizResultante[x, y].ToString();
-                    }
-                }
-            }
-
-            catch(Exception)
-            {
-                mensagem();
-            }
-            
+            float[,] matriz2 = MatrizesInterface.resgatarNumeros(panel2, linha2, coluna2);
+            float[,] matrizOposta = Calculos.GerarOposta(matriz2);
+            MatrizesInterface.instanciarTextBoxMatrizResultante(panel3, matrizOposta);
+            groupBoxResultado.Text = "Resultado da oposta da matriz 2";
         }
 
+        /// <summary>
+        /// Clique no botão para gerar transposta da matriz 2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnTranspostaMatriz2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                float[,] tempResultante = new float[Matriz2.GetLength(0), Matriz2.GetLength(1)];
-
-                for (int x = 0; x < Matriz2.GetLength(0); x++)
-                {
-                    for (int y = 0; y < Matriz2.GetLength(1); y++)
-                    {
-                        float n = 0;
-                        float.TryParse(Matriz2[x, y].Text, out n);
-                        tempResultante[x, y] = n;
-                    }
-                }
-
-                float[,] tempMatrizResultante = Calculos.GerarTransposta(tempResultante);
-                int TamanhoText = groupBox1.Width / Matriz2.GetLength(1);
-                Matriz2 = new TextBox[tempMatrizResultante.GetLength(0), tempMatrizResultante.GetLength(1)];
-                groupBox1.Controls.Clear();
-                for (int x = 0; x < Matriz2.GetLength(0); x++)
-                {
-                    for (int y = 0; y < Matriz2.GetLength(1); y++)
-                    {
-                        Matriz2[x, y] = new TextBox();
-                        Matriz2[x, y].Text = tempMatrizResultante[x, y].ToString();
-                        Matriz2[x, y].Top = (x * Matriz2[x, y].Height) + 20;
-                        Matriz2[x, y].Left = y * TamanhoText + 6;
-                        Matriz2[x, y].Width = TamanhoText;
-                        groupBox1.Controls.Add(Matriz2[x, y]);
-                    }
-                }
-            }
-            catch(Exception)
-            {
-                mensagem();
-            }
-            
+            float[,] matriz2 = MatrizesInterface.resgatarNumeros(panel2, linha2, coluna2);
+            float[,] resultado = Calculos.GerarTransposta(matriz2);
+            MatrizesInterface.instanciarTextBoxMatrizResultante(panel3, resultado);
+            groupBoxResultado.Text = ("Resultado da transposta da Matriz 2");
         }
 
         private void btnDeterminanteMatriz2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                float[,] tempResultante = new float[Matriz2.GetLength(0), Matriz2.GetLength(1)];
-
-                for (int x = 0; x < Matriz2.GetLength(0); x++)
-                {
-                    for (int y = 0; y < Matriz2.GetLength(1); y++)
-                    {
-                        float n = 0;
-                        float.TryParse(Matriz2[x, y].Text, out n);
-                        tempResultante[x, y] = n;
-                    }
-                }
-                if (tempResultante.GetLength(0) == 2 && tempResultante.GetLength(1) == 2)
-                {
-                    determinante = Calculos.GerarDeterminante2x2(tempResultante);
-                    MessageBox.Show("" + determinante, "Determinante...");
-                }
-                else if (tempResultante.GetLength(0) == 3 && tempResultante.GetLength(1) == 3)
-                {
-                    determinante = Calculos.GerarDeterminante3x3(tempResultante);
-                    MessageBox.Show("" + determinante, "Determinante...");
-                }
-                else
-                {
-                    MessageBox.Show("Não é possével gerar determinante !", "Error - Matriz invalida ");
-                }
-            }
-            catch(Exception)
-            {
-                mensagem();
-            }
+            
             
         }
 
         private void btnInversoMatriz2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                float[,] tempResultante = new float[Matriz2.GetLength(0), Matriz2.GetLength(1)];
-                float[,] matrizAdjunta = new float[Matriz2.GetLength(0), Matriz2.GetLength(1)];
-                float[,] matrizCofatora = new float[Matriz2.GetLength(0), Matriz2.GetLength(1)];
-                float determinante = 0;
-                if (tempResultante.GetLength(0) != 2 || tempResultante.GetLength(1) != 2)
-                {
-                    if (tempResultante.GetLength(0) != 3 || tempResultante.GetLength(1) != 3)
-                    {
-                        MessageBox.Show("Matriz invalida !", "Error - Matriz");
-                        return;
-                    }
-                }
-
-                for (int x = 0; x < Matriz2.GetLength(0); x++)
-                {
-                    for (int y = 0; y < Matriz2.GetLength(1); y++)
-                    {
-                        float n = 0;
-                        float.TryParse(Matriz2[x, y].Text, out n);
-                        tempResultante[x, y] = n;
-
-                    }
-                }
-
-                if (tempResultante.GetLength(0) == 2 && tempResultante.GetLength(1) == 2)
-                {
-                    matrizCofatora = Calculos.GerarCofatora2x2(tempResultante);
-                    matrizAdjunta = Calculos.GerarTransposta(matrizCofatora);
-                    determinante = Calculos.GerarDeterminante2x2(tempResultante);
-                }
-                else if (tempResultante.GetLength(0) == 3 && tempResultante.GetLength(1) == 3)
-                {
-                    matrizCofatora = Calculos.GerarCofatora3x3(tempResultante);
-                    matrizAdjunta = Calculos.GerarTransposta(matrizCofatora);
-                    determinante = Calculos.GerarDeterminante3x3(tempResultante);
-                }
-                else
-                {
-                    MessageBox.Show("Matriz invalida !", "Error - Matriz");
-                    return;
-                }
-                if (determinante == 0)
-                {
-                    MessageBox.Show("Matriz invalida, determinante igual a 0 !", "Error - Matriz");
-                    return;
-                }
-                float[,] tempMatrizResultante = Calculos.GerarInversa(determinante, matrizAdjunta);
-                int TamanhoText = groupBox1.Width / Matriz2.GetLength(1);
-                for (int x = 0; x < Matriz2.GetLength(0); x++)
-                {
-                    for (int y = 0; y < Matriz2.GetLength(1); y++)
-                    {
-                        Matriz2[x, y].Text = tempMatrizResultante[x, y].ToString();
-                    }
-                }
-            }
-
-            catch(Exception)
-            {
-                mensagem();
-            }
             
         }
 
         private void btnInversoMatriz3_Click(object sender, EventArgs e)
         {
-            try
-            {
-                float[,] tempResultante = new float[matrizResultado.GetLength(0), matrizResultado.GetLength(1)];
-                float[,] matrizAdjunta = new float[matrizResultado.GetLength(0), matrizResultado.GetLength(1)];
-                float[,] matrizCofatora = new float[matrizResultado.GetLength(0), matrizResultado.GetLength(1)];
-                float determinante = 0;
-                if (tempResultante.GetLength(0) != 2 || tempResultante.GetLength(1) != 2)
-                {
-                    if (tempResultante.GetLength(0) != 3 || tempResultante.GetLength(1) != 3)
-                    {
-                        MessageBox.Show("Matriz invalida !", "Error - Matriz");
-                        return;
-                    }
-                }
-
-                for (int x = 0; x < matrizResultado.GetLength(0); x++)
-                {
-                    for (int y = 0; y < matrizResultado.GetLength(1); y++)
-                    {
-                        float n = 0;
-                        float.TryParse(matrizResultado[x, y].Text, out n);
-                        tempResultante[x, y] = n;
-
-                    }
-                }
-
-                if (tempResultante.GetLength(0) == 2 && tempResultante.GetLength(1) == 2)
-                {
-                    matrizCofatora = Calculos.GerarCofatora2x2(tempResultante);
-                    matrizAdjunta = Calculos.GerarTransposta(matrizCofatora);
-                    determinante = Calculos.GerarDeterminante2x2(tempResultante);
-                }
-                else if (tempResultante.GetLength(0) == 3 && tempResultante.GetLength(1) == 3)
-                {
-                    matrizCofatora = Calculos.GerarCofatora3x3(tempResultante);
-                    matrizAdjunta = Calculos.GerarTransposta(matrizCofatora);
-                    determinante = Calculos.GerarDeterminante3x3(tempResultante);
-                }
-                else
-                {
-                    MessageBox.Show("Matriz invalida 2!", "Error - Matriz");
-                    return;
-                }
-                if (determinante == 0)
-                {
-                    MessageBox.Show("Matriz invalida, determinante igual a 0 !", "Error - Matriz");
-                    return;
-                }
-                float[,] tempMatrizResultante = Calculos.GerarInversa(determinante, matrizAdjunta);
-                int TamanhoText = groupBoxResultado.Width / matrizResultado.GetLength(1);
-                for (int x = 0; x < matrizResultado.GetLength(0); x++)
-                {
-                    for (int y = 0; y < matrizResultado.GetLength(1); y++)
-                    {
-                        matrizResultado[x, y].Text = tempMatrizResultante[x, y].ToString();
-                    }
-                }
-            }
-
-            catch(Exception)
-            {
-                mensagem();
-            }
+            
             
         }
         private void btnGerarOposta_Click(object sender, EventArgs e)
         {
-            if (matrizResultado == null)
-            {
-                MessageBox.Show("Matriz nula !", "Error - Matriz");
-                return;
-            }
-            float[,] tempResultante = new float[matrizResultado.GetLength(0), matrizResultado.GetLength(1)];
-
-            for (int x = 0; x < matrizResultado.GetLength(0); x++)
-            {
-                for (int y = 0; y < matrizResultado.GetLength(1); y++)
-                {
-                    float n = 0;
-                    float.TryParse(matrizResultado[x, y].Text, out n);
-                    tempResultante[x, y] = n;
-
-                }
-            }
-
-            float[,] tempMatrizResultante = Calculos.GerarOposta(tempResultante);
-            int TamanhoText = groupBoxResultado.Width / matrizResultado.GetLength(1);
-            for (int x = 0; x < matrizResultado.GetLength(0); x++)
-            {
-                for (int y = 0; y < matrizResultado.GetLength(1); y++)
-                {
-                    matrizResultado[x, y].Text = tempMatrizResultante[x, y].ToString();
-                }
-            }
+            
         }
 
         private void btnDeterminanteMatriz3_Click(object sender, EventArgs e)
         {
-            try
-            {
-                float[,] tempResultante = new float[Matriz1.GetLength(0), Matriz1.GetLength(1)];
-
-                for (int x = 0; x < Matriz1.GetLength(0); x++)
-                {
-                    for (int y = 0; y < Matriz1.GetLength(1); y++)
-                    {
-                        float n = 0;
-                        float.TryParse(Matriz1[x, y].Text, out n);
-                        tempResultante[x, y] = n;
-
-                    }
-                }
-                if (tempResultante.GetLength(0) == 2 && tempResultante.GetLength(1) == 2)
-                {
-                    determinante = Calculos.GerarDeterminante2x2(tempResultante);
-                    MessageBox.Show("" + determinante, "Determinante...");
-                }
-                else if (tempResultante.GetLength(0) == 3 && tempResultante.GetLength(1) == 3)
-                {
-                    determinante = Calculos.GerarDeterminante3x3(tempResultante);
-                    MessageBox.Show("" + determinante, "Determinante...");
-                }
-                else
-                {
-                    MessageBox.Show("Não é possível gerar determinante !", "Error - Matriz invalida ");
-                }
-            }
-
-            catch(Exception)
-            {
-                mensagem();
-            }
+           
             
         }
 
         private void btnTranspostaMatriz3_Click(object sender, EventArgs e)
         {
-            try
-            {
-                float[,] tempResultante = new float[matrizResultado.GetLength(0), matrizResultado.GetLength(1)];
-
-                for (int x = 0; x < matrizResultado.GetLength(0); x++)
-                {
-                    for (int y = 0; y < matrizResultado.GetLength(1); y++)
-                    {
-                        float n = 0;
-                        float.TryParse(matrizResultado[x, y].Text, out n);
-                        tempResultante[x, y] = n;
-
-                    }
-                }
-
-                float[,] tempMatrizResultante = Calculos.GerarTransposta(tempResultante);
-                int TamanhoText = groupBoxResultado.Width / matrizResultado.GetLength(1);
-                matrizResultado = new TextBox[tempMatrizResultante.GetLength(0), tempMatrizResultante.GetLength(1)];
-                groupBoxResultado.Controls.Clear();
-                for (int x = 0; x < matrizResultado.GetLength(0); x++)
-                {
-                    for (int y = 0; y < matrizResultado.GetLength(1); y++)
-                    {
-                        matrizResultado[x, y] = new TextBox();
-                        matrizResultado[x, y].Text = tempMatrizResultante[x, y].ToString();
-                        matrizResultado[x, y].Top = (x * matrizResultado[x, y].Height) + 20;
-                        matrizResultado[x, y].Left = y * TamanhoText + 6;
-                        matrizResultado[x, y].Width = TamanhoText;
-                        groupBoxResultado.Controls.Add(matrizResultado[x, y]);
-                    }
-                }
-            }
-            catch(Exception)
-            {
-                mensagem();
-            }
+            
             
         }
 
@@ -674,44 +349,26 @@ namespace Calculadora_de_Matrizes
             float valor = (float)numericUpDownMultiplicar.Value;
             matrizResultante = Calculos.multiplicarPorNumeroQualquer(matriz1, valor);
             MatrizesInterface.instanciarTextBoxMatrizResultante(panel3, matrizResultante);
+            groupBoxResultado.Text = "Resultado da multiplicação por um número qualquer";
         }
 
+
+        /// <summary>
+        /// Clique no botão para gerar oposta da matriz 1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOpostaMatriz1_Click(object sender, EventArgs e)
         {
-
+            float[,] matriz1 = MatrizesInterface.resgatarNumeros(panel1, linha1, coluna1);
+            float[,] matrizOposta = Calculos.GerarOposta(matriz1);
+            MatrizesInterface.instanciarTextBoxMatrizResultante(panel3, matrizOposta);
+            groupBoxResultado.Text = "Resultado da oposta da matriz 1";
         }
 
         private void btnOpostaMatriz3_Click(object sender, EventArgs e)
         {
-            try
-            {
-                float[,] tempResultante = new float[Matriz1.GetLength(0), Matriz1.GetLength(1)];
-
-                for (int x = 0; x < Matriz1.GetLength(0); x++)
-                {
-                    for (int y = 0; y < Matriz1.GetLength(1); y++)
-                    {
-                        float n = 0;
-                        float.TryParse(Matriz1[x, y].Text, out n);
-                        tempResultante[x, y] = n;
-                    }
-                }
-
-                float[,] tempMatrizResultante = Calculos.GerarOposta(tempResultante);
-                int TamanhoText = groupBoxConfigurações.Width / Matriz1.GetLength(1);
-                for (int x = 0; x < Matriz1.GetLength(0); x++)
-                {
-                    for (int y = 0; y < Matriz1.GetLength(1); y++)
-                    {
-                        Matriz1[x, y].Text = tempMatrizResultante[x, y].ToString();
-                    }
-                }
-            }
-
-            catch (Exception)
-            {
-                mensagem();
-            }
+            
         }
 
         

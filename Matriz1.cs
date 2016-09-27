@@ -13,5 +13,20 @@ namespace Calculadora_de_Matrizes
             
             
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // Matriz1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.ClientSize = new System.Drawing.Size(1354, 724);
+            this.Location = new System.Drawing.Point(0, 0);
+            this.Name = "Matriz1";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
     }
 }

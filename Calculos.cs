@@ -215,6 +215,8 @@ namespace Calculadora_de_Matrizes
             return matrizInversa;
         }
 
+
+
         public static float[,] GerarTransposta(float[,] matriz)
         {
             float[,] matrizTransposta = new float[matriz.GetLength(1), matriz.GetLength(0)];
@@ -320,6 +322,12 @@ namespace Calculadora_de_Matrizes
 
 
        
+
+        /// <summary>
+        /// Método para calcular a matriz oposta
+        /// </summary>
+        /// <param name="matriz">Recebe a matriz que será calculada</param>
+        /// <returns>A matriz oposta</returns>
         public static float[,] GerarOposta(float[,] matriz)
         {
             float[,] matrizOposta = new float[matriz.GetLength(0), matriz.GetLength(1)];

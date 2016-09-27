@@ -38,3 +38,4 @@ C:\Users\LUCAS\Documents\GitHub\Calculadora-de-Matrizes\obj\Debug\Calculadora_de
 C:\Users\LUCAS\Documents\GitHub\Calculadora-de-Matrizes\obj\Debug\Calculadora_de_Matrizes.Properties.Resources.resources
 C:\Users\LUCAS\Documents\GitHub\Calculadora-de-Matrizes\obj\Debug\Calculadora_de_Matrizes.Sobre.resources
 C:\Users\LUCAS\Documents\GitHub\Calculadora-de-Matrizes\obj\Debug\Calculadora de Matrizes.csproj.GenerateResource.Cache
+C:\Users\Lucas.Soares\Desktop\GitHub\Calculadora-de-Matrizes\obj\Debug\Calculadora_de_Matrizes.Matriz1.resources
