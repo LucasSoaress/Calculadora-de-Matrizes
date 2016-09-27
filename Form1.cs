@@ -59,8 +59,8 @@ namespace Calculadora_de_Matrizes
         private void btnSomar_Click(object sender, EventArgs e)
         {
                 //resgata os numeros digitados pelo usuario
-                matriz1 = MatrizesInterface.resgatarNumeros(panel1, linha1, coluna1);
-                matriz2 = MatrizesInterface.resgatarNumeros(panel2, linha2, coluna2);
+                float [,] matriz1 = MatrizesInterface.resgatarNumeros(panel1, linha1, coluna1);
+                float [,] matriz2 = MatrizesInterface.resgatarNumeros(panel2, linha2, coluna2);
 
                 if (matriz1.Length == 0 || matriz2.Length == 0)
                 {
@@ -68,6 +68,7 @@ namespace Calculadora_de_Matrizes
                 }
                 else if (matriz1.Length == matriz2.Length)
                 {
+                    panel3.Controls.Clear();
                     matrizResultante = Calculos.SomandoMatrizes(matriz1, matriz2);
                     MatrizesInterface.instanciarTextBoxMatrizResultante(panel3, matrizResultante);
                     groupBoxResultado.Text = "Soma das Matrizes A e B";
@@ -91,9 +92,9 @@ namespace Calculadora_de_Matrizes
         /// <param name="e"></param>
         private void btnSubtrair_Click(object sender, EventArgs e)
         {
-            matriz1 = MatrizesInterface.resgatarNumeros(panel1, linha1, coluna1);
-            matriz2 = MatrizesInterface.resgatarNumeros(panel2, linha2, coluna2);
-            matrizResultante = Calculos.SubtraindoMatrizes(matriz1, matriz2);
+            float[,] matriz1 = MatrizesInterface.resgatarNumeros(panel1, linha1, coluna1);
+            float[,] matriz2 = MatrizesInterface.resgatarNumeros(panel2, linha2, coluna2);
+            float[,] matrizResultante = Calculos.SubtraindoMatrizes(matriz1, matriz2);
             MatrizesInterface.instanciarTextBoxMatrizResultante(panel3, matrizResultante);
         }
 
