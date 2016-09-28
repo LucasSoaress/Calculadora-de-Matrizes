@@ -16,6 +16,14 @@ namespace Calculadora_de_Matrizes
         public Form1()
         {
             InitializeComponent();
+            textBoxNumeroMatriz1.KeyPress += new KeyPressEventHandler(MatrizesInterface.naoMostrarLetras);
+            textBoxNumeroMatriz1.Visible = false;
+
+            textBoxNumeroMatriz2.KeyPress += new KeyPressEventHandler(MatrizesInterface.naoMostrarLetras);
+            textBoxNumeroMatriz2.Visible = false;
+
+            textBoxNumeroMatriz3.KeyPress += new KeyPressEventHandler(MatrizesInterface.naoMostrarLetras);
+            textBoxNumeroMatriz3.Visible = false;
         }
 
         private TextBox[,] Matriz1;
@@ -210,7 +218,7 @@ namespace Calculadora_de_Matrizes
                     return;
                 }
                 float[,] tempMatrizResultante = Calculos.GerarInversa(determinante, matrizAdjunta);
-                int TamanhoText = groupBoxConfigurações.Width / Matriz1.GetLength(1);
+                int TamanhoText = groupBox1.Width / Matriz1.GetLength(1);
                 for (int x = 0; x < Matriz1.GetLength(0); x++)
                 {
                     for (int y = 0; y < Matriz1.GetLength(1); y++)
@@ -347,24 +355,117 @@ namespace Calculadora_de_Matrizes
         private void btnMultiplicarNumero_Click(object sender, EventArgs e)
         {
             matriz1 = MatrizesInterface.resgatarNumeros(panel1, linha1, coluna1);
-            float valor = (float)numericUpDownMultiplicar.Value;
+            float valor = float.Parse(textBoxNumeroMatriz1.Text);
             matrizResultante = Calculos.multiplicarPorNumeroQualquer(matriz1, valor);
             MatrizesInterface.instanciarTextBoxMatrizResultante(panel3, matrizResultante);
             groupBoxResultado.Text = "Resultado da multiplicação por um número qualquer";
         }
 
-
-        /// <summary>
-        /// Clique no botão para gerar oposta da matriz 1
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnOpostaMatriz1_Click(object sender, EventArgs e)
+        private void buttonAction1_Click(object sender, EventArgs e)
         {
+            switch (matriz1Menu.Text)
+            {
+                case "OPOSTA":
+                    mostrarOposta();
+                    break;
+
+                case "TRANSPOSTA":
+                    mostrarTransposta();
+                    break;
+
+                case "MULTIPLICAR":
+                    multiplicar();
+                    break;
+                    
+            }
+        }
+
+        
+        private void mostrarTransposta()
+        {
+            panel3.Controls.Clear();
+            float[,] matriz1 = MatrizesInterface.resgatarNumeros(panel1, linha1, coluna1);
+            float[,] resultado = Calculos.GerarTransposta(matriz1);
+            MatrizesInterface.instanciarTextBoxMatrizResultante(panel3, resultado);
+            groupBoxResultado.Text = ("Resultado da transposta da Matriz 1");
+        }
+
+        private void mostrarOposta()
+        {
+            panel3.Controls.Clear();
             float[,] matriz1 = MatrizesInterface.resgatarNumeros(panel1, linha1, coluna1);
             float[,] matrizOposta = Calculos.GerarOposta(matriz1);
             MatrizesInterface.instanciarTextBoxMatrizResultante(panel3, matrizOposta);
             groupBoxResultado.Text = "Resultado da oposta da matriz 1";
+        }
+
+        private void multiplicar()
+        {
+            panel3.Controls.Clear();
+            matriz1 = MatrizesInterface.resgatarNumeros(panel1, linha1, coluna1);
+            float valor = float.Parse(textBoxNumeroMatriz1.Text);
+            matrizResultante = Calculos.multiplicarPorNumeroQualquer(matriz1, valor);
+            MatrizesInterface.instanciarTextBoxMatrizResultante(panel3, matrizResultante);
+            groupBoxResultado.Text = "Resultado da multiplicação por um número qualquer";
+        }
+
+        private void matriz1Menu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (matriz1Menu.Text == "MULTIPLICAR" || matriz1Menu.Text == "ELEVAR")
+            {
+                textBoxNumeroMatriz1.Visible = true;
+            }
+            else
+            {
+                textBoxNumeroMatriz1.Visible = false;
+            }
+        }
+
+        private void menu_matriz2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(menu_matriz2.Text == "MULTIPLICAR" || menu_matriz3.Text == "ELEVAR")
+            {
+                textBoxNumeroMatriz2.Visible = true;
+            }
+            else
+            {
+                textBoxNumeroMatriz2.Visible = false;
+            }
+        }
+
+        private void menu_matriz3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (menu_matriz3.Text == "MULTIPLICAR" || menu_matriz3.Text == "ELEVAR")
+            {
+                textBoxNumeroMatriz3.Visible = true;
+            }
+            else
+            {
+                textBoxNumeroMatriz3.Visible = false;
+            }
+        }
+
+        private void gerar_matriz2_Click(object sender, EventArgs e)
+        {
+            switch(menu_matriz2.Text)
+            {
+                case "OPOSTA":
+                    mostrarOposta();
+                    break;
+
+                case "TRANSPOSTA":
+                    mostrarTransposta();
+                    break;
+
+                case "MULTIPLICAR":
+                    multiplicar();
+                    break;
+            }
+        }
+
+        private void elevar()
+        {
+
         }
 
         private void btnOpostaMatriz3_Click(object sender, EventArgs e)
