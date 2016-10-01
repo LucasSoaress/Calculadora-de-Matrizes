@@ -366,22 +366,22 @@ namespace Calculadora_de_Matrizes
             switch (matriz1Menu.Text)
             {
                 case "OPOSTA":
-                    mostrarOposta();
+                    mostrarOpostaMatriz1();
                     break;
 
                 case "TRANSPOSTA":
-                    mostrarTransposta();
+                    mostrarTranspostaMatriz1();
                     break;
 
                 case "MULTIPLICAR":
-                    multiplicar();
+                    multiplicarMatriz1();
                     break;
                     
             }
         }
 
         
-        private void mostrarTransposta()
+        private void mostrarTranspostaMatriz1()
         {
             panel3.Controls.Clear();
             float[,] matriz1 = MatrizesInterface.resgatarNumeros(panel1, linha1, coluna1);
@@ -390,7 +390,7 @@ namespace Calculadora_de_Matrizes
             groupBoxResultado.Text = ("Resultado da transposta da Matriz 1");
         }
 
-        private void mostrarOposta()
+        private void mostrarOpostaMatriz1()
         {
             panel3.Controls.Clear();
             float[,] matriz1 = MatrizesInterface.resgatarNumeros(panel1, linha1, coluna1);
@@ -399,7 +399,7 @@ namespace Calculadora_de_Matrizes
             groupBoxResultado.Text = "Resultado da oposta da matriz 1";
         }
 
-        private void multiplicar()
+        private void multiplicarMatriz1()
         {
             panel3.Controls.Clear();
             matriz1 = MatrizesInterface.resgatarNumeros(panel1, linha1, coluna1);
@@ -423,7 +423,7 @@ namespace Calculadora_de_Matrizes
 
         private void menu_matriz2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(menu_matriz2.Text == "MULTIPLICAR" || menu_matriz3.Text == "ELEVAR")
+            if (menu_matriz2.Text == "MULTIPLICAR" || menu_matriz2.Text == "ELEVAR")
             {
                 textBoxNumeroMatriz2.Visible = true;
             }
@@ -450,22 +450,59 @@ namespace Calculadora_de_Matrizes
             switch(menu_matriz2.Text)
             {
                 case "OPOSTA":
-                    mostrarOposta();
+                    mostrarOpostaMatriz2();
                     break;
 
                 case "TRANSPOSTA":
-                    mostrarTransposta();
+                    mostrarTranspostaMatriz2();
                     break;
 
                 case "MULTIPLICAR":
-                    multiplicar();
+                    multiplicarMatriz2();
+                    break;
+
+                case "ELEVAR":
+                    elevarMatriz2();
                     break;
             }
         }
 
-        private void elevar()
+        void mostrarOpostaMatriz2()
         {
+            panel3.Controls.Clear();
+            float[,] matriz2 = MatrizesInterface.resgatarNumeros(panel2, linha2, coluna2);
+            float[,] matrizOposta = Calculos.GerarOposta(matriz2);
+            MatrizesInterface.instanciarTextBoxMatrizResultante(panel3, matrizOposta);
+            groupBoxResultado.Text = "Resultante da oposta matriz 2";
+        }
 
+        void mostrarTranspostaMatriz2()
+        {
+            panel3.Controls.Clear();
+            float[,] matriz2 = MatrizesInterface.resgatarNumeros(panel2, linha2, coluna2);
+            float[,] resultado = Calculos.GerarTransposta(matriz2);
+            MatrizesInterface.instanciarTextBoxMatrizResultante(panel3, resultado);
+            groupBoxResultado.Text = ("Resultante da transposta matriz 2");
+        }
+
+        void multiplicarMatriz2()
+        {
+            panel3.Controls.Clear();
+            matriz2 = MatrizesInterface.resgatarNumeros(panel2, linha2, coluna2);
+            float valor = float.Parse(textBoxNumeroMatriz2.Text);
+            matrizResultante = Calculos.multiplicarPorNumeroQualquer(matriz2, valor);
+            MatrizesInterface.instanciarTextBoxMatrizResultante(panel3, matrizResultante);
+            groupBoxResultado.Text = "Resultante da multiplicação por um numero matriz 2";
+        }
+
+        private void elevarMatriz2()
+        {
+            panel3.Controls.Clear();
+            float expoente = float.Parse(textBoxNumeroMatriz2.Text);
+            float[,] matriz2 = MatrizesInterface.resgatarNumeros(panel2, linha2, coluna2);
+            float[,] resultado = Calculos.elevarMatrizNumeroQualquer(matriz2,expoente);
+            MatrizesInterface.instanciarTextBoxMatrizResultante(panel3, resultado);
+            groupBoxResultado.Text = "Resultante da Matriz 2 elevada";
         }
 
         private void btnOpostaMatriz3_Click(object sender, EventArgs e)

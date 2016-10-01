@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -50,7 +51,13 @@
             this.buttonAction1 = new System.Windows.Forms.Button();
             this.btnLimparMatriz1 = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.gerar_matriz2 = new System.Windows.Forms.Button();
+            this.textBoxNumeroMatriz2 = new System.Windows.Forms.TextBox();
+            this.menu_matriz2 = new System.Windows.Forms.ComboBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.gerar_matriz3 = new System.Windows.Forms.Button();
+            this.textBoxNumeroMatriz3 = new System.Windows.Forms.TextBox();
+            this.menu_matriz3 = new System.Windows.Forms.ComboBox();
             this.btnLimparMatriz3 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.opçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,12 +70,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnLimparMatriz2 = new System.Windows.Forms.Button();
-            this.menu_matriz2 = new System.Windows.Forms.ComboBox();
-            this.textBoxNumeroMatriz2 = new System.Windows.Forms.TextBox();
-            this.gerar_matriz2 = new System.Windows.Forms.Button();
-            this.menu_matriz3 = new System.Windows.Forms.ComboBox();
-            this.textBoxNumeroMatriz3 = new System.Windows.Forms.TextBox();
-            this.gerar_matriz3 = new System.Windows.Forms.Button();
+            this.comboBoxInserir = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -230,6 +234,7 @@
             this.btnMultiplicar.Size = new System.Drawing.Size(78, 28);
             this.btnMultiplicar.TabIndex = 14;
             this.btnMultiplicar.Text = "Multiplicar";
+            this.toolTip1.SetToolTip(this.btnMultiplicar, "Faz a multiplicação entre as Matrizes A e B");
             this.btnMultiplicar.UseVisualStyleBackColor = true;
             this.btnMultiplicar.Click += new System.EventHandler(this.btnMultiplicar_Click);
             // 
@@ -244,6 +249,7 @@
             this.btnSubtrair.Size = new System.Drawing.Size(75, 28);
             this.btnSubtrair.TabIndex = 13;
             this.btnSubtrair.Text = "Subtrair";
+            this.toolTip1.SetToolTip(this.btnSubtrair, "Faz a subtração entre as Matrizes A e B\r\n");
             this.btnSubtrair.UseVisualStyleBackColor = true;
             this.btnSubtrair.Click += new System.EventHandler(this.btnSubtrair_Click);
             // 
@@ -258,6 +264,7 @@
             this.btnSomar.Size = new System.Drawing.Size(75, 28);
             this.btnSomar.TabIndex = 12;
             this.btnSomar.Text = "Somar";
+            this.toolTip1.SetToolTip(this.btnSomar, "Faz a soma entre as Matrizes A e B");
             this.btnSomar.UseVisualStyleBackColor = true;
             this.btnSomar.Click += new System.EventHandler(this.btnSomar_Click);
             // 
@@ -299,6 +306,7 @@
             this.matriz1Menu.Name = "matriz1Menu";
             this.matriz1Menu.Size = new System.Drawing.Size(121, 21);
             this.matriz1Menu.TabIndex = 19;
+            this.toolTip1.SetToolTip(this.matriz1Menu, "Escolha uma das opções para ser realizado na Matriz");
             this.matriz1Menu.SelectedIndexChanged += new System.EventHandler(this.matriz1Menu_SelectedIndexChanged);
             // 
             // buttonAction1
@@ -337,6 +345,44 @@
             this.groupBox7.TabIndex = 17;
             this.groupBox7.TabStop = false;
             // 
+            // gerar_matriz2
+            // 
+            this.gerar_matriz2.Location = new System.Drawing.Point(279, 18);
+            this.gerar_matriz2.Name = "gerar_matriz2";
+            this.gerar_matriz2.Size = new System.Drawing.Size(75, 23);
+            this.gerar_matriz2.TabIndex = 21;
+            this.gerar_matriz2.Text = "GERAR";
+            this.gerar_matriz2.UseVisualStyleBackColor = true;
+            this.gerar_matriz2.Click += new System.EventHandler(this.gerar_matriz2_Click);
+            // 
+            // textBoxNumeroMatriz2
+            // 
+            this.textBoxNumeroMatriz2.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBoxNumeroMatriz2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNumeroMatriz2.Location = new System.Drawing.Point(153, 17);
+            this.textBoxNumeroMatriz2.Name = "textBoxNumeroMatriz2";
+            this.textBoxNumeroMatriz2.Size = new System.Drawing.Size(100, 22);
+            this.textBoxNumeroMatriz2.TabIndex = 21;
+            // 
+            // menu_matriz2
+            // 
+            this.menu_matriz2.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.menu_matriz2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.menu_matriz2.FormattingEnabled = true;
+            this.menu_matriz2.Items.AddRange(new object[] {
+            "OPOSTA",
+            "INVERSA",
+            "DETERMINANTE",
+            "TRANSPOSTA",
+            "MULTIPLICAR",
+            "ELEVAR"});
+            this.menu_matriz2.Location = new System.Drawing.Point(6, 19);
+            this.menu_matriz2.Name = "menu_matriz2";
+            this.menu_matriz2.Size = new System.Drawing.Size(121, 21);
+            this.menu_matriz2.TabIndex = 21;
+            this.toolTip1.SetToolTip(this.menu_matriz2, "Escolha uma das opções para ser realizado na Matriz");
+            this.menu_matriz2.SelectedIndexChanged += new System.EventHandler(this.menu_matriz2_SelectedIndexChanged);
+            // 
             // groupBox8
             // 
             this.groupBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -349,6 +395,43 @@
             this.groupBox8.Size = new System.Drawing.Size(351, 53);
             this.groupBox8.TabIndex = 17;
             this.groupBox8.TabStop = false;
+            // 
+            // gerar_matriz3
+            // 
+            this.gerar_matriz3.Location = new System.Drawing.Point(270, 19);
+            this.gerar_matriz3.Name = "gerar_matriz3";
+            this.gerar_matriz3.Size = new System.Drawing.Size(75, 23);
+            this.gerar_matriz3.TabIndex = 22;
+            this.gerar_matriz3.Text = "GERAR";
+            this.gerar_matriz3.UseVisualStyleBackColor = true;
+            // 
+            // textBoxNumeroMatriz3
+            // 
+            this.textBoxNumeroMatriz3.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBoxNumeroMatriz3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNumeroMatriz3.Location = new System.Drawing.Point(151, 19);
+            this.textBoxNumeroMatriz3.Name = "textBoxNumeroMatriz3";
+            this.textBoxNumeroMatriz3.Size = new System.Drawing.Size(100, 22);
+            this.textBoxNumeroMatriz3.TabIndex = 22;
+            // 
+            // menu_matriz3
+            // 
+            this.menu_matriz3.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.menu_matriz3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.menu_matriz3.FormattingEnabled = true;
+            this.menu_matriz3.Items.AddRange(new object[] {
+            "OPOSTA",
+            "INVERSA",
+            "DETERMINANTE",
+            "TRANSPOSTA",
+            "MULTIPLICAR",
+            "ELEVAR"});
+            this.menu_matriz3.Location = new System.Drawing.Point(6, 17);
+            this.menu_matriz3.Name = "menu_matriz3";
+            this.menu_matriz3.Size = new System.Drawing.Size(121, 21);
+            this.menu_matriz3.TabIndex = 21;
+            this.toolTip1.SetToolTip(this.menu_matriz3, "Escolha uma das opções para ser realizado na Matriz");
+            this.menu_matriz3.SelectedIndexChanged += new System.EventHandler(this.menu_matriz3_SelectedIndexChanged);
             // 
             // btnLimparMatriz3
             // 
@@ -456,78 +539,30 @@
             this.btnLimparMatriz2.UseVisualStyleBackColor = true;
             this.btnLimparMatriz2.Click += new System.EventHandler(this.btnLimparMatriz2_Click);
             // 
-            // menu_matriz2
+            // comboBoxInserir
             // 
-            this.menu_matriz2.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.menu_matriz2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.menu_matriz2.FormattingEnabled = true;
-            this.menu_matriz2.Items.AddRange(new object[] {
-            "OPOSTA",
-            "INVERSA",
-            "DETERMINANTE",
-            "TRANSPOSTA",
-            "MULTIPLICAR",
-            "ELEVAR"});
-            this.menu_matriz2.Location = new System.Drawing.Point(6, 19);
-            this.menu_matriz2.Name = "menu_matriz2";
-            this.menu_matriz2.Size = new System.Drawing.Size(121, 21);
-            this.menu_matriz2.TabIndex = 21;
-            this.menu_matriz2.SelectedIndexChanged += new System.EventHandler(this.menu_matriz2_SelectedIndexChanged);
+            this.comboBoxInserir.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.comboBoxInserir.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxInserir.FormattingEnabled = true;
+            this.comboBoxInserir.Items.AddRange(new object[] {
+            "A",
+            "B"});
+            this.comboBoxInserir.Location = new System.Drawing.Point(1010, 529);
+            this.comboBoxInserir.Name = "comboBoxInserir";
+            this.comboBoxInserir.Size = new System.Drawing.Size(38, 21);
+            this.comboBoxInserir.TabIndex = 23;
             // 
-            // textBoxNumeroMatriz2
+            // button1
             // 
-            this.textBoxNumeroMatriz2.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.textBoxNumeroMatriz2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNumeroMatriz2.Location = new System.Drawing.Point(153, 17);
-            this.textBoxNumeroMatriz2.Name = "textBoxNumeroMatriz2";
-            this.textBoxNumeroMatriz2.Size = new System.Drawing.Size(100, 22);
-            this.textBoxNumeroMatriz2.TabIndex = 21;
-            // 
-            // gerar_matriz2
-            // 
-            this.gerar_matriz2.Location = new System.Drawing.Point(279, 18);
-            this.gerar_matriz2.Name = "gerar_matriz2";
-            this.gerar_matriz2.Size = new System.Drawing.Size(75, 23);
-            this.gerar_matriz2.TabIndex = 21;
-            this.gerar_matriz2.Text = "GERAR";
-            this.gerar_matriz2.UseVisualStyleBackColor = true;
-            this.gerar_matriz2.Click += new System.EventHandler(this.gerar_matriz2_Click);
-            // 
-            // menu_matriz3
-            // 
-            this.menu_matriz3.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.menu_matriz3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.menu_matriz3.FormattingEnabled = true;
-            this.menu_matriz3.Items.AddRange(new object[] {
-            "OPOSTA",
-            "INVERSA",
-            "DETERMINANTE",
-            "TRANSPOSTA",
-            "MULTIPLICAR",
-            "ELEVAR"});
-            this.menu_matriz3.Location = new System.Drawing.Point(6, 17);
-            this.menu_matriz3.Name = "menu_matriz3";
-            this.menu_matriz3.Size = new System.Drawing.Size(121, 21);
-            this.menu_matriz3.TabIndex = 21;
-            this.menu_matriz3.SelectedIndexChanged += new System.EventHandler(this.menu_matriz3_SelectedIndexChanged);
-            // 
-            // textBoxNumeroMatriz3
-            // 
-            this.textBoxNumeroMatriz3.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.textBoxNumeroMatriz3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNumeroMatriz3.Location = new System.Drawing.Point(151, 19);
-            this.textBoxNumeroMatriz3.Name = "textBoxNumeroMatriz3";
-            this.textBoxNumeroMatriz3.Size = new System.Drawing.Size(100, 22);
-            this.textBoxNumeroMatriz3.TabIndex = 22;
-            // 
-            // gerar_matriz3
-            // 
-            this.gerar_matriz3.Location = new System.Drawing.Point(270, 19);
-            this.gerar_matriz3.Name = "gerar_matriz3";
-            this.gerar_matriz3.Size = new System.Drawing.Size(75, 23);
-            this.gerar_matriz3.TabIndex = 22;
-            this.gerar_matriz3.Text = "GERAR";
-            this.gerar_matriz3.UseVisualStyleBackColor = true;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(908, 527);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(85, 23);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "INSERIR";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -537,6 +572,8 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(1354, 724);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.comboBoxInserir);
             this.Controls.Add(this.btn_criarMatriz2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.numericUpDown4);
@@ -625,6 +662,9 @@
         private System.Windows.Forms.Button gerar_matriz3;
         private System.Windows.Forms.TextBox textBoxNumeroMatriz3;
         private System.Windows.Forms.ComboBox menu_matriz3;
+        private System.Windows.Forms.ComboBox comboBoxInserir;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
