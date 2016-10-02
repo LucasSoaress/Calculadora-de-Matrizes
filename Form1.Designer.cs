@@ -189,7 +189,7 @@
             // 
             // groupBoxResultado
             // 
-            this.groupBoxResultado.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBoxResultado.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBoxResultado.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.groupBoxResultado.Controls.Add(this.panel3);
             this.groupBoxResultado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -225,6 +225,7 @@
             // 
             // btnMultiplicar
             // 
+            this.btnMultiplicar.BackColor = System.Drawing.SystemColors.ControlLight;
             this.btnMultiplicar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnMultiplicar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnMultiplicar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -235,11 +236,12 @@
             this.btnMultiplicar.TabIndex = 14;
             this.btnMultiplicar.Text = "Multiplicar";
             this.toolTip1.SetToolTip(this.btnMultiplicar, "Faz a multiplicação entre as Matrizes A e B");
-            this.btnMultiplicar.UseVisualStyleBackColor = true;
+            this.btnMultiplicar.UseVisualStyleBackColor = false;
             this.btnMultiplicar.Click += new System.EventHandler(this.btnMultiplicar_Click);
             // 
             // btnSubtrair
             // 
+            this.btnSubtrair.BackColor = System.Drawing.SystemColors.ControlLight;
             this.btnSubtrair.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnSubtrair.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnSubtrair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -250,11 +252,12 @@
             this.btnSubtrair.TabIndex = 13;
             this.btnSubtrair.Text = "Subtrair";
             this.toolTip1.SetToolTip(this.btnSubtrair, "Faz a subtração entre as Matrizes A e B\r\n");
-            this.btnSubtrair.UseVisualStyleBackColor = true;
+            this.btnSubtrair.UseVisualStyleBackColor = false;
             this.btnSubtrair.Click += new System.EventHandler(this.btnSubtrair_Click);
             // 
             // btnSomar
             // 
+            this.btnSomar.BackColor = System.Drawing.SystemColors.ControlLight;
             this.btnSomar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnSomar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnSomar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -265,7 +268,7 @@
             this.btnSomar.TabIndex = 12;
             this.btnSomar.Text = "Somar";
             this.toolTip1.SetToolTip(this.btnSomar, "Faz a soma entre as Matrizes A e B");
-            this.btnSomar.UseVisualStyleBackColor = true;
+            this.btnSomar.UseVisualStyleBackColor = false;
             this.btnSomar.Click += new System.EventHandler(this.btnSomar_Click);
             // 
             // groupBox6
