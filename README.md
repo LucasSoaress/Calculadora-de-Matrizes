@@ -1,15 +1,15 @@
 # Calculadora de Matrizes
 
-Calculadora de Matrizes é um projeto educacional, realizado por estudantes do 2º ano, do curso de programação, do Colégio Estadual José Leite Lopes - Nave RJ (Núcleo Avançado em Educação).
+Calculadora de Matrizes é um projeto educacional, realizado por estudantes do 2º ano, do curso de programação, do <strong>Colégio Estadual José Leite Lopes - NAVE RJ (Núcleo Avançado em Educação).</strong>
 Nosso objetivo principal é ajudar estudantes/professores/entusiastas de matemática, seja para aprender ou ensinar, como funciona uma Matriz e suas funções e propriedades.
 
 <b>Desenvolvedores:</b>
 
-Lucas Soares, Luca Alves, Patrick Scoralick & Thais Dutra
+<strong>[Lucas Soares](github.com/lucassoaress), [Luca Alves](docs/more_words.md), [Patrick Scoralick](docs/more_words.md) & [Thais Dutra](docs/more_words.md)</strong>
 
 
 <h2>Ferramentas</h2>
-Essa Matriz pode fazer cálculos com uma matriz de tamanho 10 por 10. Pode realizar todas as operações: Soma, Subtração, Multiplicação, Oposta, Transposta, Inversa, Escalar, Elevar e Determinante. 
+Essa calculadora pode fazer cálculos com uma matriz de tamanho até 10 por 10. Pode realizar todas as operações: Soma, Subtração, Multiplicação, Oposta, Transposta, Inversa, Escalar, Elevar e Determinante. 
 Contém um gráfico que representa a translação, rotação e escalonamento de polígonos 2D, por meio da própria calculadora. E tem também uma explicação/definição sobre cada operação.
 
 <h2>Input de Matrizes</h2>
@@ -55,6 +55,13 @@ Essa ferramenta multiplica cada elemento de uma matriz pelo número desejado, ve
 
 `F    |   c d   |   Fc Fd`
 
+<h2>Elevação</h2>
+Essa ferramenta eleva cada elemento de uma matriz pelo número desejado, veja no exemplo a seguir:
+
+`F^| a b | Fa Fb`
+
+`  | c d | Fc Fd`
+
 <h2>Inversa</h2>
 Essa ferramenta transforma acha o inverso da matriz aplicada. A inversa de uma matriz, é a matriz necessária para que a primeira seja multiplicada e resulte na Matriz Identidade, veja no exemplo a seguir:
 
@@ -70,6 +77,14 @@ Essa ferramenta transforma uma matriz, invertendo linhas por colunas.
 `a b   |   a c`
 
 `c d   |   b d`
+
+<h2>Oposta</h2>
+Essa ferramenta transforma uma matriz, trocando o sinal de todos os elementos da matriz.
+
+`a -b   | -a +b`
+
+`c  d   | -c -d`
+
 
 <h2>Lei de Formação</h2>
 Essa ferramenta forma uma matriz de acordo com a lei de formação designado. 
@@ -91,7 +106,7 @@ Essa ferramenta, em conjunto com o gráfico, lhe permite transladar o polígono 
 Essa ferramenta, em conjunto com o gráfico, lhe permite escalonar o polígono desenhado, aumentando ou diminuindo o mesmo.
 
 <h1>Agradecimentos Especiais!</h1>
-Muito obrigado a professora de matemática Cristina Neves e ao professor de programação Antoanne Pontes, que desenvolveram esse projeto e nos auxiliaram na realização do mesmo!
+Muito obrigado a professora de matemática <strong>Cristina Neves</strong> e ao professor de programação <strong>Antoanne Pontes</strong>, que desenvolveram esse projeto e nos auxiliaram na realização do mesmo!
 
 Agradecemos também a você, usuário, e esperamos que seja útil para você! Qualquer comentário, basta nos contatar!
 
