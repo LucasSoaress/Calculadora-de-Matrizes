@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace Calculadora_de_Matrizes
 {
+    /// <summary>
+    /// Classe criada para auxiliar com quesitos de interface da calculadora, cuidando da parte "estética", textBoxs, avisos entre outros
+    /// </summary>
     public static class MatrizesInterface
     {
         public static TextBox[,] Matriz, Matriz2, matrizResultado;
@@ -145,7 +148,7 @@ namespace Calculadora_de_Matrizes
         public static void limparMatrizes(Panel panel, NumericUpDown linhas, NumericUpDown colunas, GroupBox box, String titulo)
         {
             panel.Controls.Clear();
-            linhas.Value = 0;
+            //linhas.Value = 0;
             colunas.Value = 0;
             box.Text = titulo;
         }

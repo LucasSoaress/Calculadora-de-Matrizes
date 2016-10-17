@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows;
 using System.Threading.Tasks;
+
 
 namespace Calculadora_de_Matrizes
 {
+    /// <summary>
+    /// Classe criada para conter os cálculos ultilizados na calculadora
+    /// </summary>
     class Calculos
-    {
+    {   
         /// <summary>
         /// Responsável por fazer os cálculos de soma das matrizes
         /// </summary>
@@ -110,42 +115,32 @@ namespace Calculadora_de_Matrizes
             return matrizResultado;
         }
 
+        /// <summary>
+        /// Método para achar determinante de qualquer matriz
+        /// </summary>
+        /// <param name="matriz"></param>
+        /// <returns>Retorna o valor do determinante de qualquer matriz</returns>
         public static float gerarDeterminante(float [,] matriz)
         {
+            float[,] parametro = matriz;
             float resultado = 0;
+            
 
             if (matriz.GetLength(0) == 1)
             {
                 return matriz[0,0];
             }
-            else
-            {
-                for (int i = 0; i < matriz.GetLength(1); i++)
-                {
-                    resultado += matriz[0, i] * (float)Math.Pow(-1, 0 + i) * gerarDeterminante(matriz);
-                }
 
-                return resultado;
-            }
-        }
-
-        public static float[,] GerarInversa(float determinante, float[,] matriz1)
-        {
-            float[,] matrizInversa = new float[matriz1.GetLength(0), matriz1.GetLength(1)];
-            for (int x = 0; x < matriz1.GetLength(0); x++)
+            for (int i = 0; i < parametro.GetLength(1); i++)
             {
-                for (int y = 0; y < matriz1.GetLength(1); y++)
-                {
-                    float n = matriz1[x, y];
-                    n = n / determinante;
-                    matrizInversa[x, y] += n;
-                }
+                matriz = TrimArray(0, i, parametro);
+                resultado += parametro[0, i] * (float)Math.Pow(-1, 0 + i) * gerarDeterminante(matriz);
             }
 
-            return matrizInversa;
+            return resultado;
         }
 
-
+        
         /// <summary>
         /// Método para achar a Transposta de uma Matriz
         /// </summary>
@@ -172,15 +167,107 @@ namespace Calculadora_de_Matrizes
         /// <returns>A matriz oposta</returns>
         public static float[,] GerarOposta(float[,] matriz)
         {
-            float[,] matrizOposta = new float[matriz.GetLength(0), matriz.GetLength(1)];
-            for (int x = 0; x < matrizOposta.GetLength(0); x++)
-            {
-                for (int y = 0; y < matrizOposta.GetLength(1); y++)
-                {
-                    matrizOposta[x, y] += matriz[x, y] * -1;
-                }
-            }
+            float[,] matrizOposta = multiplicarPorNumeroQualquer(matriz, -1);
             return matrizOposta;
         }
+
+
+        /// <summary>
+        /// Método para calcular a identidade de uma matriz
+        /// </summary>
+        /// <param name="linhas">Recebe o número de linhas</param>
+        /// <param name="colunas">Recebe o número de colunas</param>
+        /// <returns>Retorna a matriz identidade</returns>
+        public static float [,] gerarIdentidade(int linhas, int colunas)
+        {
+            float[,] identidadeResultante = new float[linhas, colunas];
+            
+            for (int i = 0; i < linhas; i++)
+            {
+                for (int c = 0; c < colunas; c++)
+                {
+                    if (i == c)
+                    {
+                        identidadeResultante[i, c] = 1;
+                    }
+                    else
+                    {
+                        identidadeResultante[i, c] = 0;
+                    }
+                }
+            }
+
+            return identidadeResultante;
+        }
+
+
+        /// <summary>
+        /// Método para achar a matriz inversa
+        /// </summary>
+        /// <param name="determinante">Recebe o valor do determinante da matriz</param>
+        /// <param name="matriz">Recebe a matriz</param>
+        /// <returns>Retorna sua inversa</returns>
+        public static float[,] gerarInversa(float determinante, float[,] matriz)
+        {
+            float[,] matrizInversa = new float[matriz.GetLength(0), matriz.GetLength(1)];
+
+            for (int x = 0; x < matriz.GetLength(0); x++)
+            {
+                for (int y = 0; y < matriz.GetLength(1); y++)
+                {
+                    //matrizInversa[x,y] =(float)Math.Round((decimal)) 
+                }
+            }
+
+            return matrizInversa;
+        }
+
+
+        /// <summary>
+        /// Método para remover linhas e colunas, utilizado com o método para gerarDeterminante
+        /// </summary>
+        /// <param name="rowToRemove">Recebe a linha para remover</param>
+        /// <param name="columnToRemove">Recebe a coluna para remover</param>
+        /// <param name="originalArray">Recebe a matriz original</param>
+        /// <returns>Retorna a matriz com linha e coluna removidos</returns>
+        public static float[,] TrimArray(int rowToRemove, int columnToRemove, float[,] originalArray)
+        {
+            float[,] result = new float[originalArray.GetLength(0) - 1, originalArray.GetLength(1) - 1];
+
+            for (int i = 0, j = 0; i < originalArray.GetLength(0); i++)
+            {
+                if (i == rowToRemove)
+                    continue;
+
+                for (int k = 0, u = 0; k < originalArray.GetLength(1); k++)
+                {
+                    if (k == columnToRemove)
+                        continue;
+
+                    result[j, u] = originalArray[i, k];
+                    u++;
+                }
+                j++;
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Método para verificar se matrizes são simétricas
+        /// </summary>
+        /// <param name="matriz1">Recebe a matriz 1</param>
+        /// <param name="matriz2">Recebe sua matriz transposta</param>
+        /// <returns>Retorna se é simétrica ou não, a partir de uma booleana</returns>
+        public static bool comparandoMatrizes(float[,] matriz1, float [,] matriz2)
+        {
+            bool resposta =  matriz1.Rank == matriz2.Rank &&
+            Enumerable.Range(0, matriz1.Rank).All(dimension => matriz1.GetLength(dimension) == matriz2.GetLength(dimension)) &&
+            matriz1.Cast<float>().SequenceEqual(matriz2.Cast<float>());
+
+            return resposta;
+        }
+
+        
     }
 }
