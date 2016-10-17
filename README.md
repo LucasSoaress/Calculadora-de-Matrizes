@@ -22,11 +22,10 @@ Para preencher a matriz, basta clicar em cada espaço e digitar os valores. Some
 <h2>Soma</h2>
 
 Essa ferramenta soma duas matrizes, desde que tenham o mesmo tamanho. Ela soma os valores que são da mesma posição, veja no exemplo a seguir:
-
-`a b   |   e f   |   (a+e) (b+f)`
-
-`c d   |   g h   |   (c+g) (d+h)`
-
+```
+a b   |   e f   |   (a+e) (b+f)
+c d   |   g h   |   (c+g) (d+h)
+```
 <h2>Subtração</h2>
 Essa ferramenta subtrai uma matriz da outra, desde que tenham o mesmo tamanho. Ela subtrai os valores que são da mesma posição, veja no exemplo a seguir:
 
