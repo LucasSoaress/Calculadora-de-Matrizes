@@ -5,7 +5,7 @@ Nosso objetivo principal é ajudar estudantes/professores/entusiastas de matemá
 
 <b>Desenvolvedores:</b>
 
-<strong>[Lucas Soares](github.com/lucassoaress), [Luca Alves](docs/more_words.md), [Patrick Scoralick](docs/more_words.md) & [Thais Dutra](docs/more_words.md)</strong>
+<strong>[Lucas Soares](github.com/lucassoaress), [Luca Alves](https://github.com/LucaAlvesNaveRio), [Patrick Scoralick](https://github.com/patrickscoralickcosta) & [Thais Dutra](https://github.com/ThaisDutra)</strong>
 
 
 <h2>Ferramentas</h2>
@@ -28,62 +28,58 @@ c d   |   g h   |   (c+g) (d+h)
 ```
 <h2>Subtração</h2>
 Essa ferramenta subtrai uma matriz da outra, desde que tenham o mesmo tamanho. Ela subtrai os valores que são da mesma posição, veja no exemplo a seguir:
-
-`a b   |   e f   |   (a-e)  (b-f)`
-
-`c d   |   g h   |   (c-g)  (d-h)`
+```
+a b   |   e f   |   (a-e)  (b-f)
+c d   |   g h   |   (c-g)  (d-h)
+```
 
 <h2>Multiplicação</h2>
 Essa ferramenta multiplica uma matriz pela outra, desde que o número de colunas da primeira é igual ao número de linhas da segunda. Ela multiplica toda uma linha por uma coluna e então soma, resultando num valor, que adquire a posição da interseção do cálculo, veja no exemplo a seguir:
-
-`a b   |   e f   |   [(a*e)+(b*g)]  [(c*e)+(d*g)]`
-
-`c d   |   g h   |   [(a*f)+(b*h)]  [(c*f)+(d*h)]`
-
+```
+a b   |   e f   |   [(a*e)+(b*g)]  [(c*e)+(d*g)]
+c d   |   g h   |   [(a*f)+(b*h)]  [(c*f)+(d*h)]
+```
 <h2>Determinante</h2>
 Essa ferramenta calcula a determinante de uma matriz, desde que seja de ordem quadrada. Os métodos utilizados para tal cálculo podem ser: Sarrus, Chio, La Place e Binet, veja no exemplo a seguir:
-
-`a b   |   (a*d) - (b*c)`
-
-`c d   |  (Regra de Sarrus)`
+```
+a b   |   (a*d) - (b*c)
+c d   |  (Regra de Sarrus)
+```
 
 <h2>Multiplicação Escalar</h2>
 Essa ferramenta multiplica cada elemento de uma matriz pelo número desejado, veja no exemplo a seguir:
-
-`F   |   a b   |   Fa Fb`
-
-`F    |   c d   |   Fc Fd`
-
+```
+F   |   a b   |   Fa Fb
+F    |   c d   |   Fc Fd
+```
 <h2>Elevação</h2>
 Essa ferramenta eleva cada elemento de uma matriz pelo número desejado, veja no exemplo a seguir:
-
-`F^| a b | Fa Fb`
-
-`  | c d | Fc Fd`
+```
+F^| a b | Fa Fb
+  | c d | Fc Fd
+  ```
 
 <h2>Inversa</h2>
 Essa ferramenta transforma acha o inverso da matriz aplicada. A inversa de uma matriz, é a matriz necessária para que a primeira seja multiplicada e resulte na Matriz Identidade, veja no exemplo a seguir:
-
-`c a  b   |   e  f   |   1   0`
-
-`c  d   |   g  h   |   0   1`
-
+```
+c a  b   |   e  f   |   1   0
+c  d   |   g  h   |   0   1
+```
 <h6>(Matriz) (Matriz Inversa) (Identidade)</h6>
 
 <h2>Transposta</h2>
 Essa ferramenta transforma uma matriz, invertendo linhas por colunas.
-
-`a b   |   a c`
-
-`c d   |   b d`
+```
+a b   |   a c
+c d   |   b d
+```
 
 <h2>Oposta</h2>
 Essa ferramenta transforma uma matriz, trocando o sinal de todos os elementos da matriz.
-
-`a -b   | -a +b`
-
-`c  d   | -c -d`
-
+```
+a -b   | -a +b
+c  d   | -c -d
+```
 
 <h2>Lei de Formação</h2>
 Essa ferramenta forma uma matriz de acordo com a lei de formação designado. 
