@@ -10,9 +10,14 @@ using System.Windows.Forms;
 
 namespace Calculadora_de_Matrizes
 {
-    
+    /// <summary>
+    /// Classe associada ao design do form
+    /// </summary>
     public partial class Form1 : Form
     {
+        /// <summary>
+        /// Váriaveis iniciadas como false, para não mostrar os textboxs de fórmulas e cálculos
+        /// </summary>
         public Form1()
         {
             InitializeComponent();
@@ -24,6 +29,9 @@ namespace Calculadora_de_Matrizes
 
             textBoxNumeroMatriz3.KeyPress += new KeyPressEventHandler(MatrizesInterface.naoMostrarLetras);
             textBoxNumeroMatriz3.Visible = false;
+
+            formulaMatriz1.Visible = false;
+            formulaMatriz2.Visible = false;
 
         }
 
@@ -37,6 +45,9 @@ namespace Calculadora_de_Matrizes
 
         public static float[,] matriz1, matriz2, matrizResultante;
         
+        /// <summary>
+        /// Método para gerar determinante da matriz 1
+        /// </summary>
         private void gerarDeterminante()
         {
             if (linha1 == coluna1 && linha1 != 0 && coluna1 != 0)
@@ -55,6 +66,9 @@ namespace Calculadora_de_Matrizes
             }
         }
 
+        /// <summary>
+        /// Método associado para gerar inversa
+        /// </summary>
         private void gerarInversa()
         {
             float[,] matriz1 = MatrizesInterface.resgatarNumeros(panel1, linha1, coluna1);
@@ -145,18 +159,36 @@ namespace Calculadora_de_Matrizes
             
         }
  
+        /// <summary>
+        /// Método para escolher opção no menu drop da Matriz A
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void matriz1Menu_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            if (matriz1Menu.Text == "ESCALAR" || matriz1Menu.Text == "ELEVAR")
+            switch (matriz1Menu.Text)
             {
-                textBoxNumeroMatriz1.Visible = true;
-            }
-            else
-            {
-                textBoxNumeroMatriz1.Visible = false;
+                case "MULTIPLICAR":
+                    textBoxNumeroMatriz1.Visible = true;
+                    break;
+                case "ELEVAR":
+                    textBoxNumeroMatriz1.Visible = true;
+                    break;
+                case "FÓRMULA":
+                    formulaMatriz1.Visible = true;
+                    break;
+                default:
+                    formulaMatriz1.Visible = false;
+                    textBoxNumeroMatriz1.Visible = false;
+                    break;
             }
         }
 
+        /// <summary>
+        /// Método para clique do botão criar matriz 1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_criarMatriz1_Click_1(object sender, EventArgs e)
         {
             coluna1 = (int)numericUpDown2.Value;
@@ -175,6 +207,11 @@ namespace Calculadora_de_Matrizes
             }
         }
 
+        /// <summary>
+        /// Método para clique do botão criar matriz 2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_criarMatriz2_Click_1(object sender, EventArgs e)
         {
             linha2 = (int)numericUpDown3.Value;
@@ -192,6 +229,11 @@ namespace Calculadora_de_Matrizes
             }
         }
 
+        /// <summary>
+        /// Método para clique do botão SOMAR MATRIZES
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSomar_Click_1(object sender, EventArgs e)
         {
             float[,] matriz1 = MatrizesInterface.resgatarNumeros(panel1, linha1, coluna1);
@@ -220,6 +262,11 @@ namespace Calculadora_de_Matrizes
             }
         }
 
+        /// <summary>
+        /// Método para clique do botão SUBTRAIR MATRIZES
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSubtrair_Click_1(object sender, EventArgs e)
         {
             float[,] matriz1 = MatrizesInterface.resgatarNumeros(panel1, linha1, coluna1);
@@ -251,6 +298,11 @@ namespace Calculadora_de_Matrizes
             
         }
 
+        /// <summary>
+        /// Método para clique do botão MULTIPLICAR MATRIZES
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMultiplicar_Click_1(object sender, EventArgs e)
         {
             float[,] matriz1 = MatrizesInterface.resgatarNumeros(panel1, linha1, coluna1);
@@ -278,23 +330,41 @@ namespace Calculadora_de_Matrizes
             }
             
         }
-
+        /// <summary>
+        /// Método para o botão limpar da matriz 2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLimparMatriz2_Click_1(object sender, EventArgs e)
         {
             MatrizesInterface.limparMatrizes(panel2, numericUpDown3, numericUpDown4, groupBox2, "Matriz B");
         }
 
+        /// <summary>
+        /// Método para o botão limpar da matriz 1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLimparMatriz1_Click_1(object sender, EventArgs e)
         {
             MatrizesInterface.limparMatrizes(panel1, numericUpDown1, numericUpDown2, groupBox1, "Matriz A");
         }
 
+        /// <summary>
+        /// Método para o botão limpar da matriz resultante
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLimparMatriz3_Click_1(object sender, EventArgs e)
         {
             panel3.Controls.Clear();
             groupBoxResultado.Text = "Matriz resultante";
         }
-
+        /// <summary>
+        /// Método de clique para o botão gerar da matriz 1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAction1_Click_1(object sender, EventArgs e)
         {
             switch (matriz1Menu.Text)
@@ -332,6 +402,11 @@ namespace Calculadora_de_Matrizes
             }
         }
 
+        /// <summary>
+        /// Método de clique do botão gerar para matriz 2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gerar_matriz2_Click_1(object sender, EventArgs e)
         {
             switch (menu_matriz2.Text)
@@ -361,18 +436,37 @@ namespace Calculadora_de_Matrizes
             }
         }
 
+        /// <summary>
+        /// Método para escolher opção do menu drop da Matriz B
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void menu_matriz2_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            if (menu_matriz2.Text == "MULTIPLICAR" || menu_matriz2.Text == "ELEVAR")
+            switch(menu_matriz2.Text)
             {
-                textBoxNumeroMatriz2.Visible = true;
-            }
-            else
-            {
-                textBoxNumeroMatriz2.Visible = false;
+                case "MULTIPLICAR":
+                    textBoxNumeroMatriz2.Visible = true;
+                    break;
+                case "ELEVAR":
+                    textBoxNumeroMatriz2.Visible = true;
+                    break;
+                case "FÓRMULA":
+                    formulaMatriz2.Visible = true;
+                    break;
+                default:
+                    formulaMatriz2.Visible = false;
+                    textBoxNumeroMatriz2.Visible = false;
+                    break;
             }
         }
 
+
+        /// <summary>
+        /// Método para escolher opção da Matriz Resultante
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void menu_matriz3_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             if (menu_matriz3.Text == "MULTIPLICAR" || menu_matriz3.Text == "ELEVAR")
@@ -385,7 +479,11 @@ namespace Calculadora_de_Matrizes
             }
         }
 
-       
+       /// <summary>
+       /// Método para escolher opção do menu drop, para explicação na aba de sobre
+       /// </summary>
+       /// <param name="sender"></param>
+       /// <param name="e"></param>
         private void menuResumos_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (menuResumos.Text)
@@ -411,7 +509,9 @@ namespace Calculadora_de_Matrizes
             labelResumos.Text = explicacao.explicacoes[posicao];
         }
         
-
+        /// <summary>
+        /// Método para mostrar Oposta da Matriz 2 - associado ao clique 
+        /// </summary>
         void mostrarOpostaMatriz2()
         {
             panel3.Controls.Clear();
@@ -421,6 +521,9 @@ namespace Calculadora_de_Matrizes
             groupBoxResultado.Text = "Resultante da oposta matriz 2";
         }
 
+        /// <summary>
+        /// Método para mostrar transposta da Matriz 2 - associado ao clique
+        /// </summary>
         void mostrarTranspostaMatriz2()
         {
             panel3.Controls.Clear();
@@ -430,6 +533,9 @@ namespace Calculadora_de_Matrizes
             groupBoxResultado.Text = ("Resultante da transposta matriz 2");
         }
 
+        /// <summary>
+        /// Método para multiplicar Matriz 2 - associado ao clique
+        /// </summary>
         void multiplicarMatriz2()
         {
             try
@@ -448,6 +554,9 @@ namespace Calculadora_de_Matrizes
             } 
         }
 
+        /// <summary>
+        /// Método para elevar Matriz 2 - associado ao clique
+        /// </summary>
         private void elevarMatriz2()
         {
             try
@@ -471,6 +580,11 @@ namespace Calculadora_de_Matrizes
 
         }
 
+        /// <summary>
+        /// Método de clique do botão para inserir valores da matriz resultante nas matrizes A e B 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnInserirMatrizResultante_Click(object sender, EventArgs e)
         {
             float[,] matrizResultante = MatrizesInterface.resgatarNumeros(panel3,linha1,coluna1);
@@ -492,6 +606,32 @@ namespace Calculadora_de_Matrizes
                     MatrizesInterface.instanciarTextBoxMatrizResultante(panel2, matrizResultante);
                 }
             }
+        }
+
+        /// <summary>
+        /// Método para bloquear outras letras da caixa para inserir fórmula da Matriz A
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void formulaMatriz1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!((e.KeyChar >= 'a' && e.KeyChar <= 'z') || (e.KeyChar >= 'A' && e.KeyChar <= 'Z')))
+            {
+                e.Handled = true;
+            } 
+        }
+
+        /// <summary>
+        /// Método para bloquear outras letras da caixa para inserir fórmula da Matriz B
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void formulaMatriz2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!((e.KeyChar >= 'a' && e.KeyChar <= 'z') || (e.KeyChar >= 'A' && e.KeyChar <= 'Z')))
+            {
+                e.Handled = true;
+            } 
         } 
     }
 }

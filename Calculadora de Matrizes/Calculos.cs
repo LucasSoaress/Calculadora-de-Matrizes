@@ -267,7 +267,11 @@ namespace Calculadora_de_Matrizes
 
             return resposta;
         }
+    
 
-        
+       /* public static float[,] matrizPorFormula(string str, int linhas, int colunas)
+        {
+            
+        }*/
     }
 }

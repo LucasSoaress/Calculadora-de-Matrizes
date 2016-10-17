@@ -40,7 +40,8 @@ namespace Calculadora_de_Matrizes
                     Matriz[x, y] = new TextBox();
                     Matriz[x, y].Font = new Font("Microsoft Sans Serif", 10f);
                     Matriz[x, y].Text = "0";
-                    Matriz[x, y].BackColor = Color.LightGray;
+                    Matriz[x, y].BackColor = Color.Black;
+                    Matriz[x, y].ForeColor = Color.White;
                     Matriz[x, y].Location = new Point((40) * x, (30) * y);
                     Matriz[x, y].KeyPress += new KeyPressEventHandler(naoMostrarLetras);
                     Matriz[x, y].Size = new Size(altura, largura);
@@ -67,7 +68,8 @@ namespace Calculadora_de_Matrizes
                 {
                     matrizResultado[x, y] = new TextBox();
                     matrizResultado[x, y].Font = new Font("Microsoft Sans Serif", 10f);
-                    matrizResultado[x, y].BackColor = Color.LightGray;
+                    matrizResultado[x, y].BackColor = Color.Black;
+                    matrizResultado[x, y].ForeColor = Color.White;
                     matrizResultado[x, y].Location = new Point((40) * x, (30) * y);
                     matrizResultado[x, y].KeyPress += new KeyPressEventHandler(naoMostrarLetras);
                     matrizResultado[x, y].Size = new Size(altura, largura);
@@ -149,7 +151,7 @@ namespace Calculadora_de_Matrizes
         {
             panel.Controls.Clear();
             //linhas.Value = 0;
-            colunas.Value = 0;
+           // colunas.Value = 0;
             box.Text = titulo;
         }
     }
