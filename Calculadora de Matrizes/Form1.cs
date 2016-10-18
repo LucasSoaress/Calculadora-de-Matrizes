@@ -153,7 +153,7 @@ namespace Calculadora_de_Matrizes
         {
             switch (matriz1Menu.Text)
             {
-                case "MULTIPLICAR":
+                case "ESCALAR":
                     textBoxNumeroMatriz1.Visible = true;
                     break;
                 case "ELEVAR":
@@ -516,7 +516,7 @@ namespace Calculadora_de_Matrizes
         {
             switch (menu_matriz2.Text)
             {
-                case "MULTIPLICAR":
+                case "ESCALAR":
                     textBoxNumeroMatriz2.Visible = true;
                     break;
                 case "ELEVAR":
