@@ -597,11 +597,17 @@ namespace Calculadora_de_Matrizes
         /// </summary>
         void mostrarTranspostaMatriz2()
         {
+
             panel3.Controls.Clear();
             float[,] matriz2 = MatrizesInterface.resgatarNumeros(panel2, linha2, coluna2);
             float[,] resultado = Calculos.GerarTransposta(matriz2);
             MatrizesInterface.instanciarTextBoxMatrizResultante(panel3, resultado);
             groupBoxResultado.Text = ("Resultante da transposta matriz 2");
+
+            if (Calculos.comparandoMatrizes(matriz2, resultado))
+            {
+                MessageBox.Show("Esta é uma matriz simétrica", "Aviso Importante", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         /// <summary>
@@ -714,25 +720,41 @@ namespace Calculadora_de_Matrizes
         /// <param name="e"></param>
         private void btnInserirMatrizResultante_Click(object sender, EventArgs e)
         {
-            float[,] matrizResultante = MatrizesInterface.resgatarNumeros(panel3, linha1, coluna1);
+            try
+            {
+                //float[,] matrizResultante1 = MatrizesInterface.resgatarNumeros(panel3, linha1, coluna1);
+               // panel1.Controls.Clear();
+               // f//loat[,] matrizResultante2;
 
-            if (matrizResultante == null)
-            {
-                MessageBox.Show("Atenção", "Não há matriz para ser lida", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                if (comboBoxInserir.Text == "A")
+                if (matrizResultante == null)
                 {
-                    panel1.Controls.Clear();
-                    MatrizesInterface.instanciarTextBoxMatrizResultante(panel1, matrizResultante);
+                    MessageBox.Show("Atenção", "Não há matriz para ser lida", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (comboBoxInserir.Text == "B")
+                else
                 {
-                    panel2.Controls.Clear();
-                    MatrizesInterface.instanciarTextBoxMatrizResultante(panel2, matrizResultante);
+                    if (comboBoxInserir.Text == "A")
+                    {
+                        passarNumerosParaA();
+                    }
+                    else if (comboBoxInserir.Text == "B")
+                    {
+                        panel2.Controls.Clear();
+                        MatrizesInterface.instanciarTextBoxMatrizResultante(panel2, matrizResultante);
+                    }
                 }
             }
+            catch(Exception)
+            {
+                MessageBox.Show("Ocorreu um erro", "Aviso Importante");
+            }
+            
+        }
+
+        private void passarNumerosParaA()
+        {
+            float[,] matrizParaA = MatrizesInterface.resgatarNumeros(panel3, linha1, coluna1);
+            panel1.Controls.Clear();
+            MatrizesInterface.instanciarTextBoxMatrizResultante(panel1, matrizParaA);
         }
 
         /// <summary>
@@ -762,6 +784,40 @@ namespace Calculadora_de_Matrizes
             if (!(caracteresPermitidos.Contains(e.KeyChar.ToString().ToUpper())))
             {
                 e.Handled = true;
+            }
+        }
+
+        /// <summary>
+        /// Método do evento KeyPress, para bloquear outras letras da caixa para inserir fórmula para Matriz do Gráfico
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txbFormulaMatrizGrafico_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string caracteresPermitidos = " 0123456789IJ,.;+-^/*";
+
+            if (!(caracteresPermitidos.Contains(e.KeyChar.ToString().ToUpper())))
+            {
+                e.Handled = true;
+            }
+        }
+
+        /// <summary>
+        /// Método do evento do clique do botão gerar matriz por fórmula para criar matriz
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnGerarMatrizPorFormula_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                float[,] matrizResultante = Calculos.matrizPorFormula(2, (int)numericUpDownColunasGrafico.Value, txbFormulaMatrizGrafico.Text);
+                panel4GraficoMatriz.Controls.Clear();
+                MatrizesInterface.instanciarTextBoxMatrizResultante(panel4GraficoMatriz, matrizResultante);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Fórmula para lei de formação inválida", "Aviso Importante", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

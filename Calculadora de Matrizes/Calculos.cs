@@ -397,7 +397,7 @@ namespace Calculadora_de_Matrizes
                     resultado = 0;
                 }
             }
-            return matrizResultante;
+            return GerarTransposta(matrizResultante);
         }
     }
 }
