@@ -35,16 +35,11 @@ namespace Calculadora_de_Matrizes
 
         }
 
-        //private TextBox[,] Matriz1;
-       // private TextBox[,] Matriz2;
-        //private TextBox[,] matrizResultado;
-       // private float determinante;
-
         private int linha1, coluna1;
         private int linha2, coluna2;
 
         public static float[,] matriz1, matriz2, matrizResultante;
-        
+
         /// <summary>
         /// Método para gerar determinante da matriz 1
         /// </summary>
@@ -66,16 +61,6 @@ namespace Calculadora_de_Matrizes
             }
         }
 
-        /// <summary>
-        /// Método associado para gerar inversa
-        /// </summary>
-        private void gerarInversa()
-        {
-            float[,] matriz1 = MatrizesInterface.resgatarNumeros(panel1, linha1, coluna1);
-            float determinanteResultado = Calculos.gerarDeterminante(matriz1);
-            float[,] matrizInversa = Calculos.gerarInversa(determinanteResultado, matriz1);
-            MatrizesInterface.instanciarTextBoxMatrizResultante(panel3, matrizInversa);
-        }
         
         /// <summary>
         /// Método para achar a identidade de uma matriz e desenhar no painel
@@ -99,9 +84,9 @@ namespace Calculadora_de_Matrizes
             MatrizesInterface.instanciarTextBoxMatrizResultante(panel3, resultado);
             groupBoxResultado.Text = ("Resultado da transposta da Matriz 1");
 
-            if (Calculos.comparandoMatrizes(matriz1,resultado))
+            if (Calculos.comparandoMatrizes(matriz1, resultado))
             {
-                MessageBox.Show("Esta é uma matriz simétrica","Aviso Importante",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Esta é uma matriz simétrica", "Aviso Importante", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         /// <summary>
@@ -131,7 +116,7 @@ namespace Calculadora_de_Matrizes
                 groupBoxResultado.Text = "Resultado da multiplicação por um número qualquer";
             }
 
-            catch(Exception)
+            catch (Exception)
             {
                 MessageBox.Show("Digite um número para multiplicar", "Aviso Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -152,13 +137,13 @@ namespace Calculadora_de_Matrizes
                 groupBoxResultado.Text = "Resultante da Matriz 1 elevada";
             }
 
-            catch(Exception)
+            catch (Exception)
             {
                 MessageBox.Show("Digite um número para elevar", "Aviso Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            
+
         }
- 
+
         /// <summary>
         /// Método para escolher opção no menu drop da Matriz A
         /// </summary>
@@ -286,16 +271,16 @@ namespace Calculadora_de_Matrizes
 
             else
             {
-               DialogResult result = MessageBox.Show("As matrizes não tem ordens iguais", "Atenção" , MessageBoxButtons.OK, MessageBoxIcon.Information);
-               if (result ==  DialogResult.OK)
-               {
+                DialogResult result = MessageBox.Show("As matrizes não tem ordens iguais", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (result == DialogResult.OK)
+                {
                     MatrizesInterface.limparMatrizes(panel1, numericUpDown1, numericUpDown2, groupBox1, "Matriz A");
                     MatrizesInterface.limparMatrizes(panel2, numericUpDown3, numericUpDown4, groupBox2, "Matriz B");
                     groupBoxResultado.Text = "Matriz Resultante";
                 }
-                
+
             }
-            
+
         }
 
         /// <summary>
@@ -328,7 +313,7 @@ namespace Calculadora_de_Matrizes
                     groupBoxResultado.Text = "Matriz Resultante";
                 }
             }
-            
+
         }
         /// <summary>
         /// Método para o botão limpar da matriz 2
@@ -389,7 +374,7 @@ namespace Calculadora_de_Matrizes
                     break;
 
                 case "INVERSA":
-                    gerarInversa();
+                    inversaMatriz1();
                     break;
 
                 case "DETERMINANTE":
@@ -399,9 +384,31 @@ namespace Calculadora_de_Matrizes
                 case "IDENTIDADE":
                     gerarIdentidade(linha1, coluna1);
                     break;
+
+                case "FÓRMULA":
+                    preecherMatriz1PorFormula();
+                    break;
             }
         }
 
+        /// <summary>
+        /// Método para preecher matriz 1 com formula dada por usuario
+        /// Método auxilia o evento de clique do botão gerar
+        /// </summary>
+        private void preecherMatriz1PorFormula()
+        {
+            try
+            {
+                float[,] matrizResultante = Calculos.matrizPorFormula((int)numericUpDown1.Value, (int)numericUpDown2.Value, formulaMatriz1.Text);
+                panel1.Controls.Clear();
+                MatrizesInterface.instanciarTextBoxMatrizResultante(panel1, matrizResultante);
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Fórmula para lei de formação inválida", "Aviso Importante", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+        }
         /// <summary>
         /// Método de clique do botão gerar para matriz 2
         /// </summary>
@@ -430,12 +437,76 @@ namespace Calculadora_de_Matrizes
                 case "ELEVAR":
                     elevarMatriz2();
                     break;
+
                 case "IDENTIDADE":
                     gerarIdentidade(linha2, coluna2);
-                        break;
+                    break;
+
+                case "FÓRMULA":
+                    preencherMatriz2PorFormula();
+                    break;
+
+                case "INVERSA":
+                    inversaMatriz2();
+                    break;
             }
         }
 
+        /// <summary>
+        /// Método para gerar inversa da matriz 2
+        /// </summary>
+        private void inversaMatriz2()
+        {
+            try
+            {
+                float[,] matrizInicial = MatrizesInterface.resgatarNumeros(panel2, linha2, coluna2);
+                float[,] matrizResultante = Calculos.gerarInversa(matrizInicial);
+                panel3.Controls.Clear();
+                MatrizesInterface.instanciarTextBoxMatrizResultante(panel3, matrizResultante);
+                groupBoxResultado.Text = "Inversa da Matriz B";
+            }
+            catch
+            {
+                MessageBox.Show("Ocorreu um erro na inversa de sua matriz");
+            }
+            
+        }
+
+        /// <summary>
+        /// Método para gerar inversa da matriz 1
+        /// </summary>
+        private void inversaMatriz1()
+        {
+            try
+            {
+                float[,] matrizInicial = MatrizesInterface.resgatarNumeros(panel1, linha1, coluna1);
+                float[,] matrizResultante = Calculos.gerarInversa(matrizInicial);
+                panel3.Controls.Clear();
+                MatrizesInterface.instanciarTextBoxMatrizResultante(panel3, matrizResultante);
+                groupBoxResultado.Text = "Inversa da Matriz A";
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Ocorreu um erro na inversa de sua matriz");
+            }
+        }
+        /// <summary>
+        /// Método para preecnher matriz 2 por fórmula
+        /// Método que auxilia o clique do botão gerar 
+        /// </summary>
+        private void preencherMatriz2PorFormula()
+        {
+            try
+            {
+                float[,] matrizResultante = Calculos.matrizPorFormula(linha2, coluna2, formulaMatriz2.Text);
+                panel2.Controls.Clear();
+                MatrizesInterface.instanciarTextBoxMatrizResultante(panel2, matrizResultante);
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Lei de Formação para matriz inválida", "Aviso Importante", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         /// <summary>
         /// Método para escolher opção do menu drop da Matriz B
         /// </summary>
@@ -443,7 +514,7 @@ namespace Calculadora_de_Matrizes
         /// <param name="e"></param>
         private void menu_matriz2_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            switch(menu_matriz2.Text)
+            switch (menu_matriz2.Text)
             {
                 case "MULTIPLICAR":
                     textBoxNumeroMatriz2.Visible = true;
@@ -479,11 +550,11 @@ namespace Calculadora_de_Matrizes
             }
         }
 
-       /// <summary>
-       /// Método para escolher opção do menu drop, para explicação na aba de sobre
-       /// </summary>
-       /// <param name="sender"></param>
-       /// <param name="e"></param>
+        /// <summary>
+        /// Método para escolher opção do menu drop, para explicação na aba de sobre
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void menuResumos_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (menuResumos.Text)
@@ -508,7 +579,7 @@ namespace Calculadora_de_Matrizes
         {
             labelResumos.Text = explicacao.explicacoes[posicao];
         }
-        
+
         /// <summary>
         /// Método para mostrar Oposta da Matriz 2 - associado ao clique 
         /// </summary>
@@ -548,10 +619,10 @@ namespace Calculadora_de_Matrizes
                 groupBoxResultado.Text = "Resultante da multiplicação por um numero matriz 2";
             }
 
-            catch(Exception)
+            catch (Exception)
             {
-                MessageBox.Show("Digite um número para multiplicar", "Aviso Importante",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-            } 
+                MessageBox.Show("Digite um número para multiplicar", "Aviso Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         /// <summary>
@@ -569,10 +640,66 @@ namespace Calculadora_de_Matrizes
                 groupBoxResultado.Text = "Resultante da Matriz 2 elevada";
             }
 
-            catch(Exception)
+            catch (Exception)
             {
                 MessageBox.Show("Digite um número para elevar", "Aviso Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }          
+            }
+        }
+
+        /// <summary>
+        /// Método de evento do clique do botão criar matriz para o gráfico
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void criarMatrizGrafico_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MatrizesInterface.instanciarTextBox((int)numericUpDownColunasGrafico.Value, 2, panel4GraficoMatriz);
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Ocorreu um erro", "Aviso Importante", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+        }
+
+        /// <summary>
+        /// Método para evento de clique no botão criar gráfico a partir da matriz
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCriarGrafico_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                float[,] matrizInicial = MatrizesInterface.resgatarNumeros(panel4GraficoMatriz, 2, (int)numericUpDownColunasGrafico.Value);
+                Grafico.desenharPontos(chart1, matrizInicial, "Matrizes");
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Ocorreu um erro", "Aviso Importante");
+            }
+        }
+
+        /// <summary>
+        /// Método para evento de clique do botão limpar do painel da matriz para o gráfico
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnLimparMatriz_Click(object sender, EventArgs e)
+        {
+            panel4GraficoMatriz.Controls.Clear();
+        }
+
+        /// <summary>
+        /// Método para evento de clique do botão limpar gráfico
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnLimparGrafico_Click(object sender, EventArgs e)
+        {
+           // chart1.Series["Matrizes"].Points.Clear();
         }
 
         private void gerar_matriz3_Click(object sender, EventArgs e)
@@ -587,7 +714,7 @@ namespace Calculadora_de_Matrizes
         /// <param name="e"></param>
         private void btnInserirMatrizResultante_Click(object sender, EventArgs e)
         {
-            float[,] matrizResultante = MatrizesInterface.resgatarNumeros(panel3,linha1,coluna1);
+            float[,] matrizResultante = MatrizesInterface.resgatarNumeros(panel3, linha1, coluna1);
 
             if (matrizResultante == null)
             {
@@ -609,30 +736,35 @@ namespace Calculadora_de_Matrizes
         }
 
         /// <summary>
-        /// Método para bloquear outras letras da caixa para inserir fórmula da Matriz A
+        /// Método do evento KeyPress, para bloquear outras letras da caixa para inserir fórmula da Matriz A
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void formulaMatriz1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!((e.KeyChar >= 'a' && e.KeyChar <= 'z') || (e.KeyChar >= 'A' && e.KeyChar <= 'Z')))
+            string caracteresPermitidos = " 0123456789IJ,.;+-^/*";
+
+            if (!(caracteresPermitidos.Contains(e.KeyChar.ToString().ToUpper())))
             {
                 e.Handled = true;
-            } 
+            }
         }
 
         /// <summary>
-        /// Método para bloquear outras letras da caixa para inserir fórmula da Matriz B
+        /// Método do evento KeyPress, para bloquear outras letras da caixa para inserir fórmula da Matriz B
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void formulaMatriz2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!((e.KeyChar >= 'a' && e.KeyChar <= 'z') || (e.KeyChar >= 'A' && e.KeyChar <= 'Z')))
+            string caracteresPermitidos = " 0123456789IJ,.;+-^/*";
+
+            if (!(caracteresPermitidos.Contains(e.KeyChar.ToString().ToUpper())))
             {
                 e.Handled = true;
-            } 
-        } 
+            }
+        }
+
     }
 }
 

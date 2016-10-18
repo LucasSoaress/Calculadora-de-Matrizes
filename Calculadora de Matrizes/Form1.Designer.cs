@@ -29,6 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(-150D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(150D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 150D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint5 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, -150D);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -74,10 +83,18 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
+            this.btnLimparGrafico = new System.Windows.Forms.Button();
+            this.btnLimparMatriz = new System.Windows.Forms.Button();
+            this.btnGerarMatrizPorFormula = new System.Windows.Forms.Button();
+            this.txbFormulaMatrizGrafico = new System.Windows.Forms.TextBox();
+            this.btnCriarGrafico = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.numericUpDownColunasGrafico = new System.Windows.Forms.NumericUpDown();
             this.criarMatrizGrafico = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel4GraficoMatriz = new System.Windows.Forms.Panel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.labelResumos = new System.Windows.Forms.Label();
@@ -100,7 +117,8 @@
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownColunasGrafico)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -159,7 +177,7 @@
             // 
             // formulaMatriz2
             // 
-            this.formulaMatriz2.Location = new System.Drawing.Point(508, 539);
+            this.formulaMatriz2.Location = new System.Drawing.Point(508, 534);
             this.formulaMatriz2.Name = "formulaMatriz2";
             this.formulaMatriz2.Size = new System.Drawing.Size(210, 20);
             this.formulaMatriz2.TabIndex = 69;
@@ -168,18 +186,18 @@
             // 
             // formulaMatriz1
             // 
-            this.formulaMatriz1.Location = new System.Drawing.Point(128, 539);
+            this.formulaMatriz1.Location = new System.Drawing.Point(128, 534);
             this.formulaMatriz1.Name = "formulaMatriz1";
             this.formulaMatriz1.Size = new System.Drawing.Size(210, 20);
             this.formulaMatriz1.TabIndex = 68;
-            this.toolTip1.SetToolTip(this.formulaMatriz1, "Inserir a fórmula para completar matriz");
+            this.toolTip1.SetToolTip(this.formulaMatriz1, "Inserir a fórmula para completar matriz\r\nUtilizando ESPAÇO para os caracteres");
             this.formulaMatriz1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.formulaMatriz1_KeyPress);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(635, 523);
+            this.label8.Location = new System.Drawing.Point(622, 514);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(58, 13);
             this.label8.TabIndex = 42;
@@ -189,7 +207,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(246, 516);
+            this.label7.Location = new System.Drawing.Point(245, 513);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(58, 13);
             this.label7.TabIndex = 37;
@@ -199,7 +217,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(522, 523);
+            this.label2.Location = new System.Drawing.Point(512, 514);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 39;
@@ -209,7 +227,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(148, 516);
+            this.label1.Location = new System.Drawing.Point(141, 513);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 34;
@@ -222,7 +240,7 @@
             this.btnInserirMatrizResultante.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
             this.btnInserirMatrizResultante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInserirMatrizResultante.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnInserirMatrizResultante.Location = new System.Drawing.Point(901, 508);
+            this.btnInserirMatrizResultante.Location = new System.Drawing.Point(901, 503);
             this.btnInserirMatrizResultante.Name = "btnInserirMatrizResultante";
             this.btnInserirMatrizResultante.Size = new System.Drawing.Size(85, 23);
             this.btnInserirMatrizResultante.TabIndex = 67;
@@ -241,7 +259,7 @@
             this.comboBoxInserir.Items.AddRange(new object[] {
             "A",
             "B"});
-            this.comboBoxInserir.Location = new System.Drawing.Point(1005, 508);
+            this.comboBoxInserir.Location = new System.Drawing.Point(1005, 503);
             this.comboBoxInserir.Name = "comboBoxInserir";
             this.comboBoxInserir.Size = new System.Drawing.Size(38, 21);
             this.comboBoxInserir.TabIndex = 65;
@@ -254,7 +272,7 @@
             this.btn_criarMatriz2.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
             this.btn_criarMatriz2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_criarMatriz2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_criarMatriz2.Location = new System.Drawing.Point(744, 493);
+            this.btn_criarMatriz2.Location = new System.Drawing.Point(744, 488);
             this.btn_criarMatriz2.Name = "btn_criarMatriz2";
             this.btn_criarMatriz2.Size = new System.Drawing.Size(104, 23);
             this.btn_criarMatriz2.TabIndex = 26;
@@ -267,7 +285,7 @@
             // 
             this.numericUpDown4.BackColor = System.Drawing.SystemColors.HighlightText;
             this.numericUpDown4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown4.Location = new System.Drawing.Point(624, 493);
+            this.numericUpDown4.Location = new System.Drawing.Point(624, 486);
             this.numericUpDown4.Maximum = new decimal(new int[] {
             20,
             0,
@@ -279,7 +297,7 @@
             0,
             0});
             this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(69, 26);
+            this.numericUpDown4.Size = new System.Drawing.Size(45, 26);
             this.numericUpDown4.TabIndex = 60;
             this.numericUpDown4.Value = new decimal(new int[] {
             1,
@@ -294,7 +312,7 @@
             this.btnLimparMatriz3.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
             this.btnLimparMatriz3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimparMatriz3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLimparMatriz3.Location = new System.Drawing.Point(1145, 506);
+            this.btnLimparMatriz3.Location = new System.Drawing.Point(1145, 501);
             this.btnLimparMatriz3.Name = "btnLimparMatriz3";
             this.btnLimparMatriz3.Size = new System.Drawing.Size(85, 23);
             this.btnLimparMatriz3.TabIndex = 54;
@@ -310,7 +328,7 @@
             this.btnLimparMatriz2.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
             this.btnLimparMatriz2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimparMatriz2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLimparMatriz2.Location = new System.Drawing.Point(744, 519);
+            this.btnLimparMatriz2.Location = new System.Drawing.Point(744, 514);
             this.btnLimparMatriz2.Name = "btnLimparMatriz2";
             this.btnLimparMatriz2.Size = new System.Drawing.Size(104, 23);
             this.btnLimparMatriz2.TabIndex = 55;
@@ -326,7 +344,7 @@
             this.btnLimparMatriz1.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
             this.btnLimparMatriz1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimparMatriz1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLimparMatriz1.Location = new System.Drawing.Point(351, 519);
+            this.btnLimparMatriz1.Location = new System.Drawing.Point(351, 514);
             this.btnLimparMatriz1.Name = "btnLimparMatriz1";
             this.btnLimparMatriz1.Size = new System.Drawing.Size(104, 23);
             this.btnLimparMatriz1.TabIndex = 56;
@@ -338,7 +356,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(246, 516);
+            this.label4.Location = new System.Drawing.Point(246, 511);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 13);
             this.label4.TabIndex = 35;
@@ -351,7 +369,7 @@
             this.btn_criarMatriz1.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
             this.btn_criarMatriz1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_criarMatriz1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_criarMatriz1.Location = new System.Drawing.Point(351, 493);
+            this.btn_criarMatriz1.Location = new System.Drawing.Point(351, 488);
             this.btn_criarMatriz1.Name = "btn_criarMatriz1";
             this.btn_criarMatriz1.Size = new System.Drawing.Size(104, 23);
             this.btn_criarMatriz1.TabIndex = 44;
@@ -364,7 +382,7 @@
             // 
             this.numericUpDown3.BackColor = System.Drawing.SystemColors.HighlightText;
             this.numericUpDown3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown3.Location = new System.Drawing.Point(510, 493);
+            this.numericUpDown3.Location = new System.Drawing.Point(510, 486);
             this.numericUpDown3.Maximum = new decimal(new int[] {
             20,
             0,
@@ -376,7 +394,7 @@
             0,
             0});
             this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(69, 26);
+            this.numericUpDown3.Size = new System.Drawing.Size(53, 26);
             this.numericUpDown3.TabIndex = 51;
             this.numericUpDown3.Value = new decimal(new int[] {
             1,
@@ -387,7 +405,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(148, 516);
+            this.label3.Location = new System.Drawing.Point(148, 511);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 33;
@@ -397,7 +415,7 @@
             // 
             this.numericUpDown2.BackColor = System.Drawing.SystemColors.HighlightText;
             this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown2.Location = new System.Drawing.Point(246, 490);
+            this.numericUpDown2.Location = new System.Drawing.Point(246, 485);
             this.numericUpDown2.Maximum = new decimal(new int[] {
             20,
             0,
@@ -409,7 +427,7 @@
             0,
             0});
             this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(69, 26);
+            this.numericUpDown2.Size = new System.Drawing.Size(49, 26);
             this.numericUpDown2.TabIndex = 50;
             this.numericUpDown2.Value = new decimal(new int[] {
             1,
@@ -423,7 +441,7 @@
             this.groupBox5.Controls.Add(this.btnMultiplicar);
             this.groupBox5.Controls.Add(this.btnSubtrair);
             this.groupBox5.Controls.Add(this.btnSomar);
-            this.groupBox5.Location = new System.Drawing.Point(382, 619);
+            this.groupBox5.Location = new System.Drawing.Point(382, 614);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(604, 47);
             this.groupBox5.TabIndex = 38;
@@ -438,7 +456,7 @@
             this.btnMultiplicar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMultiplicar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMultiplicar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnMultiplicar.Location = new System.Drawing.Point(461, 12);
+            this.btnMultiplicar.Location = new System.Drawing.Point(463, 11);
             this.btnMultiplicar.Name = "btnMultiplicar";
             this.btnMultiplicar.Size = new System.Drawing.Size(105, 28);
             this.btnMultiplicar.TabIndex = 14;
@@ -455,7 +473,7 @@
             this.btnSubtrair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubtrair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubtrair.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSubtrair.Location = new System.Drawing.Point(270, 12);
+            this.btnSubtrair.Location = new System.Drawing.Point(252, 11);
             this.btnSubtrair.Name = "btnSubtrair";
             this.btnSubtrair.Size = new System.Drawing.Size(102, 28);
             this.btnSubtrair.TabIndex = 13;
@@ -472,7 +490,7 @@
             this.btnSomar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSomar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSomar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSomar.Location = new System.Drawing.Point(67, 12);
+            this.btnSomar.Location = new System.Drawing.Point(55, 11);
             this.btnSomar.Name = "btnSomar";
             this.btnSomar.Size = new System.Drawing.Size(75, 28);
             this.btnSomar.TabIndex = 12;
@@ -488,7 +506,7 @@
             this.groupBox8.Controls.Add(this.gerar_matriz3);
             this.groupBox8.Controls.Add(this.textBoxNumeroMatriz3);
             this.groupBox8.Controls.Add(this.menu_matriz3);
-            this.groupBox8.Location = new System.Drawing.Point(879, 560);
+            this.groupBox8.Location = new System.Drawing.Point(879, 555);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(351, 53);
             this.groupBox8.TabIndex = 64;
@@ -500,7 +518,7 @@
             this.gerar_matriz3.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
             this.gerar_matriz3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gerar_matriz3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.gerar_matriz3.Location = new System.Drawing.Point(270, 19);
+            this.gerar_matriz3.Location = new System.Drawing.Point(270, 15);
             this.gerar_matriz3.Name = "gerar_matriz3";
             this.gerar_matriz3.Size = new System.Drawing.Size(75, 23);
             this.gerar_matriz3.TabIndex = 22;
@@ -513,7 +531,7 @@
             // 
             this.textBoxNumeroMatriz3.BackColor = System.Drawing.SystemColors.HighlightText;
             this.textBoxNumeroMatriz3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNumeroMatriz3.Location = new System.Drawing.Point(153, 16);
+            this.textBoxNumeroMatriz3.Location = new System.Drawing.Point(153, 15);
             this.textBoxNumeroMatriz3.Name = "textBoxNumeroMatriz3";
             this.textBoxNumeroMatriz3.Size = new System.Drawing.Size(100, 22);
             this.textBoxNumeroMatriz3.TabIndex = 22;
@@ -533,7 +551,7 @@
             "MULTIPLICAR",
             "ELEVAR",
             "IDENTIDADE"});
-            this.menu_matriz3.Location = new System.Drawing.Point(6, 17);
+            this.menu_matriz3.Location = new System.Drawing.Point(6, 16);
             this.menu_matriz3.Name = "menu_matriz3";
             this.menu_matriz3.Size = new System.Drawing.Size(121, 21);
             this.menu_matriz3.TabIndex = 21;
@@ -547,7 +565,7 @@
             this.groupBox7.Controls.Add(this.gerar_matriz2);
             this.groupBox7.Controls.Add(this.textBoxNumeroMatriz2);
             this.groupBox7.Controls.Add(this.menu_matriz2);
-            this.groupBox7.Location = new System.Drawing.Point(494, 560);
+            this.groupBox7.Location = new System.Drawing.Point(494, 555);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(360, 53);
             this.groupBox7.TabIndex = 61;
@@ -593,7 +611,7 @@
             "ELEVAR",
             "IDENTIDADE",
             "FÓRMULA"});
-            this.menu_matriz2.Location = new System.Drawing.Point(6, 19);
+            this.menu_matriz2.Location = new System.Drawing.Point(6, 17);
             this.menu_matriz2.Name = "menu_matriz2";
             this.menu_matriz2.Size = new System.Drawing.Size(121, 21);
             this.menu_matriz2.TabIndex = 21;
@@ -607,7 +625,7 @@
             this.groupBox6.Controls.Add(this.textBoxNumeroMatriz1);
             this.groupBox6.Controls.Add(this.matriz1Menu);
             this.groupBox6.Controls.Add(this.buttonAction1);
-            this.groupBox6.Location = new System.Drawing.Point(117, 560);
+            this.groupBox6.Location = new System.Drawing.Point(117, 555);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(349, 53);
             this.groupBox6.TabIndex = 46;
@@ -617,7 +635,7 @@
             // 
             this.textBoxNumeroMatriz1.BackColor = System.Drawing.SystemColors.HighlightText;
             this.textBoxNumeroMatriz1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNumeroMatriz1.Location = new System.Drawing.Point(134, 18);
+            this.textBoxNumeroMatriz1.Location = new System.Drawing.Point(136, 15);
             this.textBoxNumeroMatriz1.Name = "textBoxNumeroMatriz1";
             this.textBoxNumeroMatriz1.Size = new System.Drawing.Size(100, 22);
             this.textBoxNumeroMatriz1.TabIndex = 19;
@@ -638,7 +656,7 @@
             "ELEVAR",
             "IDENTIDADE",
             "FÓRMULA"});
-            this.matriz1Menu.Location = new System.Drawing.Point(6, 19);
+            this.matriz1Menu.Location = new System.Drawing.Point(6, 16);
             this.matriz1Menu.Name = "matriz1Menu";
             this.matriz1Menu.Size = new System.Drawing.Size(121, 21);
             this.matriz1Menu.TabIndex = 19;
@@ -651,7 +669,7 @@
             this.buttonAction1.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
             this.buttonAction1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAction1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonAction1.Location = new System.Drawing.Point(253, 17);
+            this.buttonAction1.Location = new System.Drawing.Point(253, 16);
             this.buttonAction1.Name = "buttonAction1";
             this.buttonAction1.Size = new System.Drawing.Size(75, 23);
             this.buttonAction1.TabIndex = 20;
@@ -664,7 +682,7 @@
             // 
             this.numericUpDown1.BackColor = System.Drawing.SystemColors.HighlightText;
             this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(142, 490);
+            this.numericUpDown1.Location = new System.Drawing.Point(142, 485);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             20,
             0,
@@ -676,7 +694,7 @@
             0,
             0});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(69, 26);
+            this.numericUpDown1.Size = new System.Drawing.Size(52, 26);
             this.numericUpDown1.TabIndex = 48;
             this.numericUpDown1.Value = new decimal(new int[] {
             1,
@@ -692,7 +710,7 @@
             this.groupBoxResultado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBoxResultado.Font = new System.Drawing.Font("Leelawadee UI", 9.75F);
             this.groupBoxResultado.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBoxResultado.Location = new System.Drawing.Point(879, 23);
+            this.groupBoxResultado.Location = new System.Drawing.Point(879, 18);
             this.groupBoxResultado.Name = "groupBoxResultado";
             this.groupBoxResultado.Size = new System.Drawing.Size(351, 464);
             this.groupBoxResultado.TabIndex = 31;
@@ -703,7 +721,7 @@
             // 
             this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel3.AutoScroll = true;
-            this.panel3.Location = new System.Drawing.Point(6, 24);
+            this.panel3.Location = new System.Drawing.Point(6, 19);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(339, 434);
             this.panel3.TabIndex = 17;
@@ -716,7 +734,7 @@
             this.groupBox2.Controls.Add(this.panel2);
             this.groupBox2.Font = new System.Drawing.Font("Leelawadee UI", 9.75F);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox2.Location = new System.Drawing.Point(494, 23);
+            this.groupBox2.Location = new System.Drawing.Point(494, 18);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(360, 464);
             this.groupBox2.TabIndex = 30;
@@ -729,7 +747,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.AutoScroll = true;
-            this.panel2.Location = new System.Drawing.Point(6, 24);
+            this.panel2.Location = new System.Drawing.Point(6, 19);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(348, 434);
             this.panel2.TabIndex = 16;
@@ -742,7 +760,7 @@
             this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox1.Location = new System.Drawing.Point(117, 23);
+            this.groupBox1.Location = new System.Drawing.Point(117, 18);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(349, 464);
             this.groupBox1.TabIndex = 27;
@@ -755,7 +773,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoScroll = true;
-            this.panel1.Location = new System.Drawing.Point(6, 24);
+            this.panel1.Location = new System.Drawing.Point(6, 19);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(332, 434);
             this.panel1.TabIndex = 15;
@@ -764,7 +782,15 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.tabPage2.Controls.Add(this.numericUpDown5);
+            this.tabPage2.Controls.Add(this.btnLimparGrafico);
+            this.tabPage2.Controls.Add(this.btnLimparMatriz);
+            this.tabPage2.Controls.Add(this.btnGerarMatrizPorFormula);
+            this.tabPage2.Controls.Add(this.txbFormulaMatrizGrafico);
+            this.tabPage2.Controls.Add(this.btnCriarGrafico);
+            this.tabPage2.Controls.Add(this.groupBox3);
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.chart1);
+            this.tabPage2.Controls.Add(this.numericUpDownColunasGrafico);
             this.tabPage2.Controls.Add(this.criarMatrizGrafico);
             this.tabPage2.Controls.Add(this.groupBox4);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -774,56 +800,189 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Gráfico";
             // 
-            // numericUpDown5
+            // btnLimparGrafico
             // 
-            this.numericUpDown5.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.numericUpDown5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown5.Location = new System.Drawing.Point(199, 267);
-            this.numericUpDown5.Maximum = new decimal(new int[] {
+            this.btnLimparGrafico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.btnLimparGrafico.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnLimparGrafico.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
+            this.btnLimparGrafico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimparGrafico.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLimparGrafico.Location = new System.Drawing.Point(285, 218);
+            this.btnLimparGrafico.Name = "btnLimparGrafico";
+            this.btnLimparGrafico.Size = new System.Drawing.Size(115, 23);
+            this.btnLimparGrafico.TabIndex = 72;
+            this.btnLimparGrafico.Text = "LIMPAR GRÁFICO";
+            this.toolTip1.SetToolTip(this.btnLimparGrafico, "Limpa o campo de sua matriz");
+            this.btnLimparGrafico.UseVisualStyleBackColor = false;
+            this.btnLimparGrafico.Click += new System.EventHandler(this.btnLimparGrafico_Click);
+            // 
+            // btnLimparMatriz
+            // 
+            this.btnLimparMatriz.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.btnLimparMatriz.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnLimparMatriz.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
+            this.btnLimparMatriz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimparMatriz.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLimparMatriz.Location = new System.Drawing.Point(30, 218);
+            this.btnLimparMatriz.Name = "btnLimparMatriz";
+            this.btnLimparMatriz.Size = new System.Drawing.Size(85, 23);
+            this.btnLimparMatriz.TabIndex = 71;
+            this.btnLimparMatriz.Text = "LIMPAR";
+            this.toolTip1.SetToolTip(this.btnLimparMatriz, "Limpa o campo de sua matriz");
+            this.btnLimparMatriz.UseVisualStyleBackColor = false;
+            this.btnLimparMatriz.Click += new System.EventHandler(this.btnLimparMatriz_Click);
+            // 
+            // btnGerarMatrizPorFormula
+            // 
+            this.btnGerarMatrizPorFormula.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnGerarMatrizPorFormula.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
+            this.btnGerarMatrizPorFormula.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGerarMatrizPorFormula.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnGerarMatrizPorFormula.Location = new System.Drawing.Point(428, 279);
+            this.btnGerarMatrizPorFormula.Name = "btnGerarMatrizPorFormula";
+            this.btnGerarMatrizPorFormula.Size = new System.Drawing.Size(75, 23);
+            this.btnGerarMatrizPorFormula.TabIndex = 70;
+            this.btnGerarMatrizPorFormula.Text = "GERAR";
+            this.toolTip1.SetToolTip(this.btnGerarMatrizPorFormula, "Clique para gerar sua matriz a partir da lei de formação");
+            this.btnGerarMatrizPorFormula.UseVisualStyleBackColor = true;
+            // 
+            // txbFormulaMatrizGrafico
+            // 
+            this.txbFormulaMatrizGrafico.Location = new System.Drawing.Point(295, 251);
+            this.txbFormulaMatrizGrafico.Name = "txbFormulaMatrizGrafico";
+            this.txbFormulaMatrizGrafico.Size = new System.Drawing.Size(210, 20);
+            this.txbFormulaMatrizGrafico.TabIndex = 69;
+            this.toolTip1.SetToolTip(this.txbFormulaMatrizGrafico, "Inserir a fórmula para completar matriz\r\nUtilizando ESPAÇO para os caracteres");
+            // 
+            // btnCriarGrafico
+            // 
+            this.btnCriarGrafico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.btnCriarGrafico.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCriarGrafico.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
+            this.btnCriarGrafico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCriarGrafico.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCriarGrafico.Location = new System.Drawing.Point(406, 218);
+            this.btnCriarGrafico.Name = "btnCriarGrafico";
+            this.btnCriarGrafico.Size = new System.Drawing.Size(104, 23);
+            this.btnCriarGrafico.TabIndex = 53;
+            this.btnCriarGrafico.Text = "CRIAR GRÁFICO";
+            this.toolTip1.SetToolTip(this.btnCriarGrafico, "Cria o gráfico a partir de sua matriz");
+            this.btnCriarGrafico.UseVisualStyleBackColor = false;
+            this.btnCriarGrafico.Click += new System.EventHandler(this.btnCriarGrafico_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Font = new System.Drawing.Font("Leelawadee UI", 9.75F);
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(36, 335);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(474, 171);
+            this.groupBox3.TabIndex = 52;
+            this.groupBox3.TabStop = false;
+            this.toolTip1.SetToolTip(this.groupBox3, "Veja aqui mais algumas funções para seu gráfico");
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label6.Location = new System.Drawing.Point(210, 286);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 13);
+            this.label6.TabIndex = 51;
+            this.label6.Text = "COLUNAS";
+            // 
+            // chart1
+            // 
+            this.chart1.BorderSkin.PageColor = System.Drawing.Color.Transparent;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(605, 46);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Matrizes";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Plano Cartesiano";
+            series2.Points.Add(dataPoint1);
+            series2.Points.Add(dataPoint2);
+            series2.Points.Add(dataPoint3);
+            series2.Points.Add(dataPoint4);
+            series2.Points.Add(dataPoint5);
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(680, 460);
+            this.chart1.TabIndex = 50;
+            this.chart1.Text = "chart1";
+            this.toolTip1.SetToolTip(this.chart1, "Gráfico criado a partir de sua matriz");
+            // 
+            // numericUpDownColunasGrafico
+            // 
+            this.numericUpDownColunasGrafico.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.numericUpDownColunasGrafico.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDownColunasGrafico.Location = new System.Drawing.Point(215, 253);
+            this.numericUpDownColunasGrafico.Maximum = new decimal(new int[] {
             20,
             0,
             0,
             0});
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(69, 26);
-            this.numericUpDown5.TabIndex = 49;
+            this.numericUpDownColunasGrafico.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownColunasGrafico.Name = "numericUpDownColunasGrafico";
+            this.numericUpDownColunasGrafico.Size = new System.Drawing.Size(49, 26);
+            this.numericUpDownColunasGrafico.TabIndex = 49;
+            this.toolTip1.SetToolTip(this.numericUpDownColunasGrafico, "Insira o número de colunas para sua matriz");
+            this.numericUpDownColunasGrafico.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // criarMatrizGrafico
             // 
             this.criarMatrizGrafico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
             this.criarMatrizGrafico.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.criarMatrizGrafico.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.criarMatrizGrafico.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
             this.criarMatrizGrafico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.criarMatrizGrafico.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.criarMatrizGrafico.Location = new System.Drawing.Point(287, 270);
+            this.criarMatrizGrafico.Location = new System.Drawing.Point(175, 218);
             this.criarMatrizGrafico.Name = "criarMatrizGrafico";
             this.criarMatrizGrafico.Size = new System.Drawing.Size(104, 23);
             this.criarMatrizGrafico.TabIndex = 45;
-            this.criarMatrizGrafico.Text = "CRIAR";
+            this.criarMatrizGrafico.Text = "CRIAR MATRIZ";
             this.toolTip1.SetToolTip(this.criarMatrizGrafico, "Pega os números de linhas e colunas e gera sua matriz");
             this.criarMatrizGrafico.UseVisualStyleBackColor = false;
+            this.criarMatrizGrafico.Click += new System.EventHandler(this.criarMatrizGrafico_Click);
             // 
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
-            this.groupBox4.Controls.Add(this.panel4);
+            this.groupBox4.Controls.Add(this.panel4GraficoMatriz);
             this.groupBox4.Font = new System.Drawing.Font("Leelawadee UI", 9.75F);
             this.groupBox4.ForeColor = System.Drawing.Color.White;
-            this.groupBox4.Location = new System.Drawing.Point(30, 71);
+            this.groupBox4.Location = new System.Drawing.Point(30, 66);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(550, 170);
+            this.groupBox4.Size = new System.Drawing.Size(480, 146);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Matriz para o gráfico";
             this.toolTip1.SetToolTip(this.groupBox4, "Campo da matriz para gerar gráfico");
             // 
-            // panel4
+            // panel4GraficoMatriz
             // 
-            this.panel4.Location = new System.Drawing.Point(6, 37);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(538, 127);
-            this.panel4.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.panel4, "Campo da matriz para gerar gráfico");
+            this.panel4GraficoMatriz.AutoScroll = true;
+            this.panel4GraficoMatriz.Location = new System.Drawing.Point(6, 32);
+            this.panel4GraficoMatriz.Name = "panel4GraficoMatriz";
+            this.panel4GraficoMatriz.Size = new System.Drawing.Size(468, 103);
+            this.panel4GraficoMatriz.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.panel4GraficoMatriz, "Campo da matriz para gerar gráfico");
             // 
             // tabPage3
             // 
@@ -846,7 +1005,7 @@
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.labelResumos);
             this.panel5.ForeColor = System.Drawing.Color.White;
-            this.panel5.Location = new System.Drawing.Point(690, 71);
+            this.panel5.Location = new System.Drawing.Point(690, 66);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(502, 52);
@@ -859,7 +1018,7 @@
             this.labelResumos.Cursor = System.Windows.Forms.Cursors.Default;
             this.labelResumos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelResumos.ForeColor = System.Drawing.Color.White;
-            this.labelResumos.Location = new System.Drawing.Point(3, 14);
+            this.labelResumos.Location = new System.Drawing.Point(3, 9);
             this.labelResumos.Margin = new System.Windows.Forms.Padding(5);
             this.labelResumos.MaximumSize = new System.Drawing.Size(550, 100);
             this.labelResumos.Name = "labelResumos";
@@ -873,7 +1032,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(54, 531);
+            this.label5.Location = new System.Drawing.Point(54, 526);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(344, 140);
             this.label5.TabIndex = 4;
@@ -898,7 +1057,7 @@
             "INVERSA",
             "TRANSPOSTA",
             "OPOSTA"});
-            this.menuResumos.Location = new System.Drawing.Point(888, 553);
+            this.menuResumos.Location = new System.Drawing.Point(888, 548);
             this.menuResumos.Name = "menuResumos";
             this.menuResumos.Size = new System.Drawing.Size(115, 21);
             this.menuResumos.TabIndex = 2;
@@ -908,7 +1067,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Calculadora_de_Matrizes.Properties.Resources.gabarito_cartao_uv_total_frente_e_verso_250g_88x48_4x4_sb_card_programador;
-            this.pictureBox2.Location = new System.Drawing.Point(26, 432);
+            this.pictureBox2.Location = new System.Drawing.Point(26, 427);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(401, 85);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -920,7 +1079,7 @@
             this.pictureBox1.BackgroundImage = global::Calculadora_de_Matrizes.Properties.Resources.logo;
             this.pictureBox1.Image = global::Calculadora_de_Matrizes.Properties.Resources.logo;
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(45, 42);
+            this.pictureBox1.Location = new System.Drawing.Point(45, 37);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(373, 352);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -942,8 +1101,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.ClientSize = new System.Drawing.Size(1354, 724);
             this.Controls.Add(this.tabControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Calculadora de matrizes";
             this.tabControl1.ResumeLayout(false);
@@ -964,7 +1123,9 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownColunasGrafico)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
@@ -1027,13 +1188,21 @@
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.ComboBox menuResumos;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel4GraficoMatriz;
         private System.Windows.Forms.Button criarMatrizGrafico;
-        private System.Windows.Forms.NumericUpDown numericUpDown5;
+        private System.Windows.Forms.NumericUpDown numericUpDownColunasGrafico;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label labelResumos;
         private System.Windows.Forms.TextBox formulaMatriz1;
         private System.Windows.Forms.TextBox formulaMatriz2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnCriarGrafico;
+        private System.Windows.Forms.TextBox txbFormulaMatrizGrafico;
+        private System.Windows.Forms.Button btnGerarMatrizPorFormula;
+        private System.Windows.Forms.Button btnLimparGrafico;
+        private System.Windows.Forms.Button btnLimparMatriz;
     }
 }
 

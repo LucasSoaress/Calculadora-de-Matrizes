@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace Calculadora_de_Matrizes
 {
+    /// <summary>
+    /// Classe criada para armazenar um array de strings contendo as explicações para a calculadora
+    /// </summary>
     class explicacao
     {
+        /// <summary>
+        /// Array contendo todas as explicações
+        /// </summary>
         public static string[] explicacoes = new string[] 
         { 
         "Matrizes são tabelas em que se dispõe um conjunto numérico. Cada um destes números é denominado elemento da matriz. Elas possuem, por convenção, nomes em letras maiúsculas e seus elementos a respectiva minúscula. Funcionam como mecanismo de resolução de sistemas lineares.",

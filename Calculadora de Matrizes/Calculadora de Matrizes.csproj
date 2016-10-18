@@ -59,6 +59,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Grafico.cs" />
     <Compile Include="Matriz1.cs">
       <SubType>Form</SubType>
     </Compile>

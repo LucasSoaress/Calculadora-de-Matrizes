@@ -202,24 +202,29 @@ namespace Calculadora_de_Matrizes
 
 
         /// <summary>
-        /// Método para achar a matriz inversa
+        /// Método para encontrar inversa da matriz
         /// </summary>
-        /// <param name="determinante">Recebe o valor do determinante da matriz</param>
-        /// <param name="matriz">Recebe a matriz</param>
-        /// <returns>Retorna sua inversa</returns>
-        public static float[,] gerarInversa(float determinante, float[,] matriz)
+        /// <param name="matriz">Recebe a matriz para encontrar sua inversa</param>
+        /// <returns>Retorna a inversa da matriz</returns>
+        public static float[,] gerarInversa(float[,] matriz)
         {
-            float[,] matrizInversa = new float[matriz.GetLength(0), matriz.GetLength(1)];
+            float[,] originalMatrix = matriz;
+            float[,] cofator = new float[matriz.GetLength(0), matriz.GetLength(1)];
+            float[,] adjunta = new float[matriz.GetLength(1), matriz.GetLength(0)];
+            float[,] resultado = new float[matriz.GetLength(1), matriz.GetLength(0)];
 
-            for (int x = 0; x < matriz.GetLength(0); x++)
+            for (int i = 0; i <= matriz.GetLength(0); i++)
             {
-                for (int y = 0; y < matriz.GetLength(1); y++)
+                for (int j = 0; j <= matriz.GetLength(1); j++)
                 {
-                    //matrizInversa[x,y] =(float)Math.Round((decimal)) 
+                    matriz = TrimArray(i, j, originalMatrix);
+                    cofator[i, j] = (float)Math.Round((float)Math.Pow(-1, i + j) * gerarDeterminante(matriz));
                 }
             }
+            adjunta = GerarTransposta(cofator);
+            resultado = multiplicarPorNumeroQualquer(adjunta, 1 / gerarDeterminante(originalMatrix));
 
-            return matrizInversa;
+            return resultado;
         }
 
 
@@ -268,10 +273,131 @@ namespace Calculadora_de_Matrizes
             return resposta;
         }
     
-
-       /* public static float[,] matrizPorFormula(string str, int linhas, int colunas)
+        /// <summary>
+        /// Método para preencher Matriz com valores a partir da lei de formação dada pelo usuário
+        /// </summary>
+        /// <param name="linhas">Recebe o número de linhas que a matriz tem</param>
+        /// <param name="colunas">Recebe o número de colunas que a matriz tem</param>
+        /// <param name="formula">Recebe a fórmula que o usuário digitou</param>
+        /// <returns>Retorna a matriz com os valores preenchidos</returns>
+       public static float [,] matrizPorFormula(int linhas, int colunas, string formula)
         {
-            
-        }*/
+            char param = ' ';
+            string[] expressao = formula.Split(param);
+            float[,] matrizResultante = new float[linhas, colunas];
+            string conta = "";
+            float resultado = 0;
+            for (int i = 0; i < linhas; i++)
+            {
+                for (int j = 0; j < colunas; j++)
+                {
+                    foreach (string s in expressao)
+                    {
+                        switch (s)
+                        {
+                            case "+":
+                                conta = s;
+                                break;
+                            case "-":
+                                conta = s;
+                                break;
+                            case "*":
+                                conta = s;
+                                break;
+                            case "/":
+                                conta = s;
+                                break;
+                            case "^":
+                                conta = s;
+                                break;
+                            case "i":
+                                if (resultado == 0)
+                                {
+                                    resultado = i + 1;
+                                }
+                                else
+                                {
+                                    switch (conta)
+                                    {
+                                        case "+":
+                                            resultado += i + 1;
+                                            break;
+                                        case "-":
+                                            resultado -= i + 1;
+                                            break;
+                                        case "*":
+                                            resultado *= i + 1;
+                                            break;
+                                        case "/":
+                                            resultado /= i + 1;
+                                            break;
+                                        case "^":
+                                            resultado = (float)Math.Pow(resultado, i + 1);
+                                            break;
+                                    }
+                                }
+                                break;
+                            case "j":
+                                if (resultado == 0)
+                                {
+                                    resultado = j + 1;
+                                }
+                                else
+                                {
+                                    switch (conta)
+                                    {
+                                        case "+":
+                                            resultado += j + 1;
+                                            break;
+                                        case "-":
+                                            resultado -= j + 1;
+                                            break;
+                                        case "*":
+                                            resultado *= j + 1;
+                                            break;
+                                        case "/":
+                                            resultado /= j + 1;
+                                            break;
+                                        case "^":
+                                            resultado = (float)Math.Pow(resultado, j + 1);
+                                            break;
+                                    }
+                                }
+                                break;
+                            default:
+                                if (resultado == 0)
+                                {
+                                    resultado = int.Parse(s.ToString());
+                                }
+                                else
+                                {
+                                    switch (conta)
+                                    {
+                                        case "+":
+                                            resultado += int.Parse(s.ToString());
+                                            break;
+                                        case "-":
+                                            resultado -= int.Parse(s.ToString());
+                                            break;
+                                        case "*":
+                                            resultado *= int.Parse(s.ToString());
+                                            break;
+                                        case "/":
+                                            resultado /= int.Parse(s.ToString());
+                                            break;
+                                        case "^":
+                                            resultado = (float)Math.Pow(resultado, int.Parse(s.ToString()));
+                                            break;
+                                    }
+                                }
+                                break;
+                        }
+                    }
+                    matrizResultante[i, j] = resultado;
+                    resultado = 0;
+                }
+            }
+            return matrizResultante;
+        }
     }
 }
