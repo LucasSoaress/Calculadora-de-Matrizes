@@ -1,5 +1,7 @@
 # Calculadora de Matrizes
 
+![alt tag](https://github.com/LucasSoaress/Calculadora-de-Matrizes/blob/master/Images/logo.png)
+
 Calculadora de Matrizes é um projeto educacional, realizado por estudantes do 2º ano, do curso de programação, do <strong>Colégio Estadual José Leite Lopes - NAVE RJ (Núcleo Avançado em Educação).</strong>
 Nosso objetivo principal é ajudar estudantes/professores/entusiastas de matemática, seja para aprender ou ensinar, como funciona uma Matriz e suas funções e propriedades.
 
@@ -105,5 +107,5 @@ Muito obrigado a professora de matemática <strong>Cristina Neves</strong> e ao 
 
 Agradecemos também a você, usuário, e esperamos que seja útil para você! Qualquer comentário, basta nos contatar!
 
-
+![alt tag](https://github.com/LucasSoaress/Calculadora-de-Matrizes/blob/master/Images/cal.PNG)
 
