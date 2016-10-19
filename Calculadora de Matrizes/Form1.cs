@@ -21,6 +21,7 @@ namespace Calculadora_de_Matrizes
         public Form1()
         {
             InitializeComponent();
+
             textBoxNumeroMatriz1.KeyPress += new KeyPressEventHandler(MatrizesInterface.naoMostrarLetras);
             textBoxNumeroMatriz1.Visible = false;
 
@@ -32,6 +33,11 @@ namespace Calculadora_de_Matrizes
 
             formulaMatriz1.Visible = false;
             formulaMatriz2.Visible = false;
+
+            textBoxRotacionar.KeyPress += new KeyPressEventHandler(MatrizesInterface.naoMostrarLetras);
+            textBoxEscalarObjeto.KeyPress += new KeyPressEventHandler(MatrizesInterface.naoMostrarLetras);
+            textBoxEixoX.KeyPress += new KeyPressEventHandler(MatrizesInterface.naoMostrarLetras);
+            textBoxEixoY.KeyPress += new KeyPressEventHandler(MatrizesInterface.naoMostrarLetras);
 
         }
 
@@ -661,6 +667,7 @@ namespace Calculadora_de_Matrizes
         {
             try
             {
+                panel4GraficoMatriz.Controls.Clear();
                 MatrizesInterface.instanciarTextBox((int)numericUpDownColunasGrafico.Value, 2, panel4GraficoMatriz);
             }
             catch(Exception)
@@ -679,8 +686,9 @@ namespace Calculadora_de_Matrizes
         {
             try
             {
+                chart1.Controls.Clear();
                 float[,] matrizInicial = MatrizesInterface.resgatarNumeros(panel4GraficoMatriz, 2, (int)numericUpDownColunasGrafico.Value);
-                Grafico.desenharPontos(chart1, matrizInicial, "Matrizes");
+                Grafico.desenharPontos(chart1, matrizInicial, "Objeto");
             }
             catch(Exception)
             {
@@ -755,6 +763,134 @@ namespace Calculadora_de_Matrizes
             float[,] matrizParaA = MatrizesInterface.resgatarNumeros(panel3, linha1, coluna1);
             panel1.Controls.Clear();
             MatrizesInterface.instanciarTextBoxMatrizResultante(panel1, matrizParaA);
+        }
+
+        /// <summary>
+        /// Método do evento de clique para rotacionar a matriz
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void rotacionarbtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                float[,] matrizParaRotacionar = MatrizesInterface.resgatarNumeros(panel4GraficoMatriz, 2, (int)numericUpDownColunasGrafico.Value);
+                float[,] matrizResultante = Calculos.MultiplicandoMatrizes(Grafico.rotacionar(float.Parse(textBoxRotacionar.Text)), matrizParaRotacionar);
+                Grafico.desenharPontos(chart1, matrizResultante, "Objeto");
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Ocorreu um erro na rotação");
+            }
+        }
+
+        /// <summary>
+        /// Método para clique do botão escalar objeto no gráfico
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void escalarbtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                float[,] matrizParaEscalar = MatrizesInterface.resgatarNumeros(panel4GraficoMatriz, 2, (int)numericUpDownColunasGrafico.Value);
+                float[,] matrizResultante = Calculos.MultiplicandoMatrizes(Grafico.elevarGrafico(float.Parse(textBoxEscalarObjeto.Text)), matrizParaEscalar);
+                Grafico.desenharPontos(chart1, matrizResultante, "Objeto");
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Ocorreu um erro para escalar objeto");
+            }
+        }
+
+        /// <summary>
+        /// Método para clique do botão simetria para eixo x do objeto
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void simetriaX_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                float[,] matrizIncial = MatrizesInterface.resgatarNumeros(panel4GraficoMatriz, 2, (int)numericUpDownColunasGrafico.Value);
+                float[,] matrizResultante = Calculos.MultiplicandoMatrizes(Grafico.simetriaX, matrizIncial);
+                chart1.Controls.Clear();
+                Grafico.desenharPontos(chart1, matrizResultante, "Objeto");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ocorreu um erro para fazer a simetria da matriz");
+            }
+        }
+
+        /// <summary>
+        /// Método para clique do botão simetria do eixo Y
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void simetriaY_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                float[,] matrizInicial = MatrizesInterface.resgatarNumeros(panel4GraficoMatriz, 2, (int)numericUpDownColunasGrafico.Value);
+                float[,] matrizResultante = Calculos.MultiplicandoMatrizes(Grafico.simetriaY, matrizInicial);
+                chart1.Controls.Clear();
+                Grafico.desenharPontos(chart1, matrizResultante, "Objeto");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ocorreu um erro para fazer simetria do eixo y");
+            }
+        }
+
+        /// <summary>
+        /// Método para translação do eixo X
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void translacaoX_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                float[,] matriz = MatrizesInterface.resgatarNumeros(panel4GraficoMatriz, 2, (int)numericUpDownColunasGrafico.Value);
+                float[,] matrizResultante = Calculos.somar(matriz, float.Parse(textBoxEixoX.Text),0);
+                chart1.Controls.Clear();
+                Grafico.desenharPontos(chart1, matrizResultante, "Objeto");
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Ocorreu um erro");
+            }
+        }
+
+        /// <summary>
+        /// Método para translação do eixo Y
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void translacaoY_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                float[,] matriz = MatrizesInterface.resgatarNumeros(panel4GraficoMatriz, 2, (int)numericUpDownColunasGrafico.Value);
+                float[,] matrizResultante = Calculos.somar(matriz, float.Parse(textBoxEixoY.Text), 0);
+                chart1.Controls.Clear();
+                Grafico.desenharPontos(chart1, matrizResultante, "Objeto");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ocorreu um erro");
+            }
+        }
+
+        /// <summary>
+        /// Método para o botão de limpar o gráfico
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void limparGrafico_Click(object sender, EventArgs e)
+        {
+            chart1.Controls.Clear();
         }
 
         /// <summary>

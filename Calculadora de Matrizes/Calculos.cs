@@ -399,5 +399,21 @@ namespace Calculadora_de_Matrizes
             }
             return GerarTransposta(matrizResultante);
         }
+
+        public static float[,] somar(float[,] matriz, float valorX, float valorY)
+        {
+            float[,] matrixfinal = matriz;
+
+            int coluna = matriz.GetLength(1);
+
+            for (int j = 0; j < coluna; j++)
+            {
+                matrixfinal[0, j] += valorX;
+                matrixfinal[1, j] += valorY;
+            }
+
+            return matrixfinal;
+        }
+
     }
 }

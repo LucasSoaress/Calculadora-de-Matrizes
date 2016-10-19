@@ -13,6 +13,18 @@ namespace Calculadora_de_Matrizes
     class Grafico
     {
         /// <summary>
+        /// Váriavel para fazer a simetria do eixo X
+        /// Simetria atráves de uma multiplicação por essa matriz da váriavel
+        /// </summary>
+        public static float[,] simetriaX = new float[2, 2] { { 1, 0 }, { 0, -1 } };
+
+        /// <summary>
+        /// Váriavel para fazer simetria do eixo Y
+        /// Simetria atráves de uma multiplicação por essa matriz da váriavel
+        /// </summary>
+        public static float[,] simetriaY = new float[2, 2] { { -1, 0 }, { 0, 1 } };
+
+        /// <summary>
         /// Método para desenhar os pontos no gráfico a apartir da Matriz
         /// </summary>
         /// <param name="chart">Recebe o chart para ser desenhado</param>
