@@ -39,6 +39,9 @@ namespace Calculadora_de_Matrizes
             textBoxEixoX.KeyPress += new KeyPressEventHandler(MatrizesInterface.naoMostrarLetras);
             textBoxEixoY.KeyPress += new KeyPressEventHandler(MatrizesInterface.naoMostrarLetras);
 
+            textBoxMenuGrafico.Visible = false;
+            txbFormulaMatrizGrafico.Visible = false;
+
         }
 
         private int linha1, coluna1;
@@ -160,14 +163,16 @@ namespace Calculadora_de_Matrizes
             switch (matriz1Menu.Text)
             {
                 case "ESCALAR":
-                    textBoxNumeroMatriz1.Visible = true;
-                    break;
                 case "ELEVAR":
                     textBoxNumeroMatriz1.Visible = true;
+                    formulaMatriz1.Visible = false;
                     break;
+                
                 case "FÓRMULA":
                     formulaMatriz1.Visible = true;
+                    textBoxNumeroMatriz1.Visible = false;
                     break;
+
                 default:
                     formulaMatriz1.Visible = false;
                     textBoxNumeroMatriz1.Visible = false;
@@ -523,14 +528,16 @@ namespace Calculadora_de_Matrizes
             switch (menu_matriz2.Text)
             {
                 case "ESCALAR":
-                    textBoxNumeroMatriz2.Visible = true;
-                    break;
                 case "ELEVAR":
                     textBoxNumeroMatriz2.Visible = true;
+                    formulaMatriz2.Visible = false;
                     break;
+
                 case "FÓRMULA":
                     formulaMatriz2.Visible = true;
+                    textBoxNumeroMatriz2.Visible = false;
                     break;
+
                 default:
                     formulaMatriz2.Visible = false;
                     textBoxNumeroMatriz2.Visible = false;
@@ -546,13 +553,16 @@ namespace Calculadora_de_Matrizes
         /// <param name="e"></param>
         private void menu_matriz3_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            if (menu_matriz3.Text == "MULTIPLICAR" || menu_matriz3.Text == "ELEVAR")
+            switch(menu_matriz3.Text)
             {
-                textBoxNumeroMatriz3.Visible = true;
-            }
-            else
-            {
-                textBoxNumeroMatriz3.Visible = false;
+                case "MULTIPLICAR":
+                case "ELEVAR":
+                    textBoxNumeroMatriz3.Visible = true;
+                    break;
+
+                default:
+                    textBoxNumeroMatriz3.Visible = false;
+                    break;
             }
         }
 
@@ -909,6 +919,33 @@ namespace Calculadora_de_Matrizes
         }
 
         /// <summary>
+        /// Método para escolha de opção do menu drop down do gráfico
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void comboBoxGrafico_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch(comboBoxGrafico.Text)
+            {
+                case "FÓRMULA":
+                    textBoxMenuGrafico.Visible = false;
+                    txbFormulaMatrizGrafico.Visible = true;
+                    break;
+
+                case "ELEVAR":
+                case "ESCALAR":
+                    textBoxMenuGrafico.Visible = true;
+                    txbFormulaMatrizGrafico.Visible = false;
+                    break;
+
+                default:
+                    textBoxMenuGrafico.Visible = false;
+                    txbFormulaMatrizGrafico.Visible = false;
+                    break;
+            }
+        }
+
+        /// <summary>
         /// Método do evento KeyPress, para bloquear outras letras da caixa para inserir fórmula da Matriz B
         /// </summary>
         /// <param name="sender"></param>
@@ -944,6 +981,15 @@ namespace Calculadora_de_Matrizes
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnGerarMatrizPorFormula_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+
+        /// <summary>
+        /// Método para gerar a matriz do gráfico por formula
+        /// </summary>
+        private void gerarMatrizGraficoFormula()
         {
             try
             {

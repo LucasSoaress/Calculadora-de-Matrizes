@@ -83,10 +83,21 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.limparGrafico = new System.Windows.Forms.Button();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.textBoxRotacionar = new System.Windows.Forms.TextBox();
+            this.textBoxEscalarObjeto = new System.Windows.Forms.TextBox();
+            this.escalarbtn = new System.Windows.Forms.Button();
+            this.rotacionarbtn = new System.Windows.Forms.Button();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.translacaoX = new System.Windows.Forms.Button();
+            this.textBoxEixoX = new System.Windows.Forms.TextBox();
+            this.simetriaX = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.simetriaY = new System.Windows.Forms.Button();
+            this.textBoxEixoY = new System.Windows.Forms.TextBox();
             this.translacaoY = new System.Windows.Forms.Button();
             this.btnLimparMatriz = new System.Windows.Forms.Button();
-            this.btnGerarMatrizPorFormula = new System.Windows.Forms.Button();
             this.txbFormulaMatrizGrafico = new System.Windows.Forms.TextBox();
             this.btnCriarGrafico = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -103,18 +114,13 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.translacaoX = new System.Windows.Forms.Button();
-            this.textBoxEixoX = new System.Windows.Forms.TextBox();
-            this.simetriaX = new System.Windows.Forms.Button();
-            this.textBoxEixoY = new System.Windows.Forms.TextBox();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.rotacionarbtn = new System.Windows.Forms.Button();
-            this.escalarbtn = new System.Windows.Forms.Button();
-            this.simetriaY = new System.Windows.Forms.Button();
-            this.textBoxEscalarObjeto = new System.Windows.Forms.TextBox();
-            this.textBoxRotacionar = new System.Windows.Forms.TextBox();
-            this.limparGrafico = new System.Windows.Forms.Button();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.textBoxMenuGrafico = new System.Windows.Forms.TextBox();
+            this.comboBoxGrafico = new System.Windows.Forms.ComboBox();
+            this.btnGerarMenuGrafico = new System.Windows.Forms.Button();
+            this.btnGerarMatrizPorFormula = new System.Windows.Forms.Button();
+            this.comboBoxDeterminantes = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
@@ -129,6 +135,8 @@
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            this.groupBox9.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownColunasGrafico)).BeginInit();
@@ -137,8 +145,7 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox9.SuspendLayout();
-            this.groupBox10.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -453,12 +460,14 @@
             // groupBox5
             // 
             this.groupBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.groupBox5.Controls.Add(this.button1);
+            this.groupBox5.Controls.Add(this.comboBoxDeterminantes);
             this.groupBox5.Controls.Add(this.btnMultiplicar);
             this.groupBox5.Controls.Add(this.btnSubtrair);
             this.groupBox5.Controls.Add(this.btnSomar);
-            this.groupBox5.Location = new System.Drawing.Point(375, 625);
+            this.groupBox5.Location = new System.Drawing.Point(253, 626);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(604, 47);
+            this.groupBox5.Size = new System.Drawing.Size(885, 47);
             this.groupBox5.TabIndex = 38;
             this.groupBox5.TabStop = false;
             this.toolTip1.SetToolTip(this.groupBox5, "Operações realizadas entre as matrizes");
@@ -797,6 +806,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.tabPage2.Controls.Add(this.groupBox11);
             this.tabPage2.Controls.Add(this.limparGrafico);
             this.tabPage2.Controls.Add(this.groupBox10);
             this.tabPage2.Controls.Add(this.groupBox9);
@@ -815,7 +825,141 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1346, 698);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Gráfico";
+            this.tabPage2.Text = "Plano Cartesiano";
+            // 
+            // limparGrafico
+            // 
+            this.limparGrafico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.limparGrafico.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.limparGrafico.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
+            this.limparGrafico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.limparGrafico.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.limparGrafico.Location = new System.Drawing.Point(564, 641);
+            this.limparGrafico.Name = "limparGrafico";
+            this.limparGrafico.Size = new System.Drawing.Size(101, 23);
+            this.limparGrafico.TabIndex = 82;
+            this.limparGrafico.Text = "LIMPAR PLANO";
+            this.toolTip1.SetToolTip(this.limparGrafico, "Limpa o campo de sua matriz");
+            this.limparGrafico.UseVisualStyleBackColor = false;
+            this.limparGrafico.Click += new System.EventHandler(this.limparGrafico_Click);
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.textBoxRotacionar);
+            this.groupBox10.Controls.Add(this.textBoxEscalarObjeto);
+            this.groupBox10.Controls.Add(this.escalarbtn);
+            this.groupBox10.Controls.Add(this.rotacionarbtn);
+            this.groupBox10.Font = new System.Drawing.Font("Leelawadee UI", 9.75F);
+            this.groupBox10.ForeColor = System.Drawing.Color.White;
+            this.groupBox10.Location = new System.Drawing.Point(92, 564);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(381, 66);
+            this.groupBox10.TabIndex = 81;
+            this.groupBox10.TabStop = false;
+            this.toolTip1.SetToolTip(this.groupBox10, "Opções para o objeto desenhado no plano");
+            // 
+            // textBoxRotacionar
+            // 
+            this.textBoxRotacionar.Location = new System.Drawing.Point(133, 26);
+            this.textBoxRotacionar.Name = "textBoxRotacionar";
+            this.textBoxRotacionar.Size = new System.Drawing.Size(56, 25);
+            this.textBoxRotacionar.TabIndex = 82;
+            this.toolTip1.SetToolTip(this.textBoxRotacionar, "Insira um valor em graus, para rotacionar seu objeto");
+            // 
+            // textBoxEscalarObjeto
+            // 
+            this.textBoxEscalarObjeto.Location = new System.Drawing.Point(306, 25);
+            this.textBoxEscalarObjeto.Name = "textBoxEscalarObjeto";
+            this.textBoxEscalarObjeto.Size = new System.Drawing.Size(56, 25);
+            this.textBoxEscalarObjeto.TabIndex = 81;
+            this.toolTip1.SetToolTip(this.textBoxEscalarObjeto, "Insira um valor em graus, para escalonar seu objeto");
+            // 
+            // escalarbtn
+            // 
+            this.escalarbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.escalarbtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.escalarbtn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
+            this.escalarbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.escalarbtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.escalarbtn.Location = new System.Drawing.Point(214, 20);
+            this.escalarbtn.Name = "escalarbtn";
+            this.escalarbtn.Size = new System.Drawing.Size(85, 34);
+            this.escalarbtn.TabIndex = 79;
+            this.escalarbtn.Text = "ESCALAR";
+            this.toolTip1.SetToolTip(this.escalarbtn, "Botão para escalonar objeto no plano cartesiano, com o valor digitado no campo");
+            this.escalarbtn.UseVisualStyleBackColor = false;
+            this.escalarbtn.Click += new System.EventHandler(this.escalarbtn_Click);
+            // 
+            // rotacionarbtn
+            // 
+            this.rotacionarbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.rotacionarbtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.rotacionarbtn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
+            this.rotacionarbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rotacionarbtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.rotacionarbtn.Location = new System.Drawing.Point(18, 20);
+            this.rotacionarbtn.Name = "rotacionarbtn";
+            this.rotacionarbtn.Size = new System.Drawing.Size(109, 34);
+            this.rotacionarbtn.TabIndex = 78;
+            this.rotacionarbtn.Text = "ROTACIONAR";
+            this.toolTip1.SetToolTip(this.rotacionarbtn, "Botão para rotacionar objeto no plano cartesiano, com o valor digitado no campo");
+            this.rotacionarbtn.UseVisualStyleBackColor = false;
+            this.rotacionarbtn.Click += new System.EventHandler(this.rotacionarbtn_Click);
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.translacaoX);
+            this.groupBox9.Controls.Add(this.textBoxEixoX);
+            this.groupBox9.Controls.Add(this.simetriaX);
+            this.groupBox9.Font = new System.Drawing.Font("Leelawadee UI", 9.75F);
+            this.groupBox9.ForeColor = System.Drawing.Color.White;
+            this.groupBox9.Location = new System.Drawing.Point(30, 370);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(159, 176);
+            this.groupBox9.TabIndex = 80;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "EIXO X";
+            this.toolTip1.SetToolTip(this.groupBox9, "Caixa de opções para o eixo X");
+            // 
+            // translacaoX
+            // 
+            this.translacaoX.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.translacaoX.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.translacaoX.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
+            this.translacaoX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.translacaoX.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.translacaoX.Location = new System.Drawing.Point(24, 77);
+            this.translacaoX.Name = "translacaoX";
+            this.translacaoX.Size = new System.Drawing.Size(109, 34);
+            this.translacaoX.TabIndex = 79;
+            this.translacaoX.Text = "TRANSLAÇÃO";
+            this.toolTip1.SetToolTip(this.translacaoX, "Limpa o campo de sua matriz");
+            this.translacaoX.UseVisualStyleBackColor = false;
+            this.translacaoX.Click += new System.EventHandler(this.translacaoX_Click);
+            // 
+            // textBoxEixoX
+            // 
+            this.textBoxEixoX.Location = new System.Drawing.Point(48, 126);
+            this.textBoxEixoX.Name = "textBoxEixoX";
+            this.textBoxEixoX.Size = new System.Drawing.Size(56, 25);
+            this.textBoxEixoX.TabIndex = 78;
+            this.toolTip1.SetToolTip(this.textBoxEixoX, "Digite um valor");
+            // 
+            // simetriaX
+            // 
+            this.simetriaX.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.simetriaX.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.simetriaX.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
+            this.simetriaX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.simetriaX.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.simetriaX.Location = new System.Drawing.Point(37, 24);
+            this.simetriaX.Name = "simetriaX";
+            this.simetriaX.Size = new System.Drawing.Size(80, 34);
+            this.simetriaX.TabIndex = 77;
+            this.simetriaX.Text = "SIMETRIA";
+            this.toolTip1.SetToolTip(this.simetriaX, "Limpa o campo de sua matriz");
+            this.simetriaX.UseVisualStyleBackColor = false;
+            this.simetriaX.Click += new System.EventHandler(this.simetriaX_Click);
             // 
             // groupBox3
             // 
@@ -831,6 +975,30 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "EIXO Y";
             this.toolTip1.SetToolTip(this.groupBox3, "Caixa de opções para o exio Y");
+            // 
+            // simetriaY
+            // 
+            this.simetriaY.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.simetriaY.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.simetriaY.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
+            this.simetriaY.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.simetriaY.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.simetriaY.Location = new System.Drawing.Point(41, 24);
+            this.simetriaY.Name = "simetriaY";
+            this.simetriaY.Size = new System.Drawing.Size(80, 34);
+            this.simetriaY.TabIndex = 81;
+            this.simetriaY.Text = "SIMETRIA";
+            this.toolTip1.SetToolTip(this.simetriaY, "Limpa o campo de sua matriz");
+            this.simetriaY.UseVisualStyleBackColor = false;
+            this.simetriaY.Click += new System.EventHandler(this.simetriaY_Click);
+            // 
+            // textBoxEixoY
+            // 
+            this.textBoxEixoY.Location = new System.Drawing.Point(53, 126);
+            this.textBoxEixoY.Name = "textBoxEixoY";
+            this.textBoxEixoY.Size = new System.Drawing.Size(56, 25);
+            this.textBoxEixoY.TabIndex = 80;
+            this.toolTip1.SetToolTip(this.textBoxEixoY, "Digite um valor");
             // 
             // translacaoY
             // 
@@ -855,7 +1023,7 @@
             this.btnLimparMatriz.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
             this.btnLimparMatriz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimparMatriz.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLimparMatriz.Location = new System.Drawing.Point(30, 218);
+            this.btnLimparMatriz.Location = new System.Drawing.Point(425, 44);
             this.btnLimparMatriz.Name = "btnLimparMatriz";
             this.btnLimparMatriz.Size = new System.Drawing.Size(85, 23);
             this.btnLimparMatriz.TabIndex = 71;
@@ -863,21 +1031,6 @@
             this.toolTip1.SetToolTip(this.btnLimparMatriz, "Limpa o campo de sua matriz");
             this.btnLimparMatriz.UseVisualStyleBackColor = false;
             this.btnLimparMatriz.Click += new System.EventHandler(this.btnLimparMatriz_Click);
-            // 
-            // btnGerarMatrizPorFormula
-            // 
-            this.btnGerarMatrizPorFormula.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnGerarMatrizPorFormula.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
-            this.btnGerarMatrizPorFormula.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGerarMatrizPorFormula.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGerarMatrizPorFormula.Location = new System.Drawing.Point(351, 279);
-            this.btnGerarMatrizPorFormula.Name = "btnGerarMatrizPorFormula";
-            this.btnGerarMatrizPorFormula.Size = new System.Drawing.Size(152, 23);
-            this.btnGerarMatrizPorFormula.TabIndex = 70;
-            this.btnGerarMatrizPorFormula.Text = "GERAR POR FÓRMULA";
-            this.toolTip1.SetToolTip(this.btnGerarMatrizPorFormula, "Clique para gerar sua matriz a partir da lei de formação");
-            this.btnGerarMatrizPorFormula.UseVisualStyleBackColor = true;
-            this.btnGerarMatrizPorFormula.Click += new System.EventHandler(this.btnGerarMatrizPorFormula_Click);
             // 
             // txbFormulaMatrizGrafico
             // 
@@ -899,7 +1052,7 @@
             this.btnCriarGrafico.Name = "btnCriarGrafico";
             this.btnCriarGrafico.Size = new System.Drawing.Size(104, 23);
             this.btnCriarGrafico.TabIndex = 53;
-            this.btnCriarGrafico.Text = "CRIAR OBJETO";
+            this.btnCriarGrafico.Text = "DESENHAR";
             this.toolTip1.SetToolTip(this.btnCriarGrafico, "Cria o gráfico a partir de sua matriz");
             this.btnCriarGrafico.UseVisualStyleBackColor = false;
             this.btnCriarGrafico.Click += new System.EventHandler(this.btnCriarGrafico_Click);
@@ -1145,163 +1298,111 @@
             this.toolTip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
             this.toolTip1.ForeColor = System.Drawing.SystemColors.GrayText;
             // 
-            // groupBox9
+            // groupBox11
             // 
-            this.groupBox9.Controls.Add(this.translacaoX);
-            this.groupBox9.Controls.Add(this.textBoxEixoX);
-            this.groupBox9.Controls.Add(this.simetriaX);
-            this.groupBox9.Font = new System.Drawing.Font("Leelawadee UI", 9.75F);
-            this.groupBox9.ForeColor = System.Drawing.Color.White;
-            this.groupBox9.Location = new System.Drawing.Point(30, 370);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(159, 176);
-            this.groupBox9.TabIndex = 80;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "EIXO X";
-            this.toolTip1.SetToolTip(this.groupBox9, "Caixa de opções para o eixo X");
+            this.groupBox11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.groupBox11.Controls.Add(this.textBoxMenuGrafico);
+            this.groupBox11.Controls.Add(this.comboBoxGrafico);
+            this.groupBox11.Controls.Add(this.btnGerarMenuGrafico);
+            this.groupBox11.Location = new System.Drawing.Point(78, 277);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(349, 53);
+            this.groupBox11.TabIndex = 83;
+            this.groupBox11.TabStop = false;
             // 
-            // translacaoX
+            // textBoxMenuGrafico
             // 
-            this.translacaoX.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
-            this.translacaoX.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.translacaoX.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
-            this.translacaoX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.translacaoX.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.translacaoX.Location = new System.Drawing.Point(24, 77);
-            this.translacaoX.Name = "translacaoX";
-            this.translacaoX.Size = new System.Drawing.Size(109, 34);
-            this.translacaoX.TabIndex = 79;
-            this.translacaoX.Text = "TRANSLAÇÃO";
-            this.toolTip1.SetToolTip(this.translacaoX, "Limpa o campo de sua matriz");
-            this.translacaoX.UseVisualStyleBackColor = false;
-            this.translacaoX.Click += new System.EventHandler(this.translacaoX_Click);
+            this.textBoxMenuGrafico.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.textBoxMenuGrafico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxMenuGrafico.Location = new System.Drawing.Point(138, 15);
+            this.textBoxMenuGrafico.Name = "textBoxMenuGrafico";
+            this.textBoxMenuGrafico.Size = new System.Drawing.Size(100, 22);
+            this.textBoxMenuGrafico.TabIndex = 19;
             // 
-            // textBoxEixoX
+            // comboBoxGrafico
             // 
-            this.textBoxEixoX.Location = new System.Drawing.Point(48, 126);
-            this.textBoxEixoX.Name = "textBoxEixoX";
-            this.textBoxEixoX.Size = new System.Drawing.Size(56, 25);
-            this.textBoxEixoX.TabIndex = 78;
-            this.toolTip1.SetToolTip(this.textBoxEixoX, "Digite um valor");
+            this.comboBoxGrafico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.comboBoxGrafico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxGrafico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxGrafico.ForeColor = System.Drawing.SystemColors.Window;
+            this.comboBoxGrafico.FormattingEnabled = true;
+            this.comboBoxGrafico.Items.AddRange(new object[] {
+            "OPOSTA",
+            "INVERSA",
+            "DETERMINANTE",
+            "TRANSPOSTA",
+            "ESCALAR",
+            "ELEVAR",
+            "IDENTIDADE",
+            "FÓRMULA"});
+            this.comboBoxGrafico.Location = new System.Drawing.Point(6, 16);
+            this.comboBoxGrafico.Name = "comboBoxGrafico";
+            this.comboBoxGrafico.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxGrafico.TabIndex = 19;
+            this.toolTip1.SetToolTip(this.comboBoxGrafico, "Escolha uma das opções para ser realizado na Matriz");
+            this.comboBoxGrafico.SelectedIndexChanged += new System.EventHandler(this.comboBoxGrafico_SelectedIndexChanged);
             // 
-            // simetriaX
+            // btnGerarMenuGrafico
             // 
-            this.simetriaX.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
-            this.simetriaX.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.simetriaX.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
-            this.simetriaX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.simetriaX.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.simetriaX.Location = new System.Drawing.Point(37, 24);
-            this.simetriaX.Name = "simetriaX";
-            this.simetriaX.Size = new System.Drawing.Size(80, 34);
-            this.simetriaX.TabIndex = 77;
-            this.simetriaX.Text = "SIMETRIA";
-            this.toolTip1.SetToolTip(this.simetriaX, "Limpa o campo de sua matriz");
-            this.simetriaX.UseVisualStyleBackColor = false;
-            this.simetriaX.Click += new System.EventHandler(this.simetriaX_Click);
+            this.btnGerarMenuGrafico.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnGerarMenuGrafico.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
+            this.btnGerarMenuGrafico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGerarMenuGrafico.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnGerarMenuGrafico.Location = new System.Drawing.Point(253, 16);
+            this.btnGerarMenuGrafico.Name = "btnGerarMenuGrafico";
+            this.btnGerarMenuGrafico.Size = new System.Drawing.Size(75, 23);
+            this.btnGerarMenuGrafico.TabIndex = 20;
+            this.btnGerarMenuGrafico.Text = "GERAR";
+            this.toolTip1.SetToolTip(this.btnGerarMenuGrafico, "Escolha uma opção no menu, e após clicando aqui a executará");
+            this.btnGerarMenuGrafico.UseVisualStyleBackColor = true;
             // 
-            // textBoxEixoY
+            // btnGerarMatrizPorFormula
             // 
-            this.textBoxEixoY.Location = new System.Drawing.Point(53, 126);
-            this.textBoxEixoY.Name = "textBoxEixoY";
-            this.textBoxEixoY.Size = new System.Drawing.Size(56, 25);
-            this.textBoxEixoY.TabIndex = 80;
-            this.toolTip1.SetToolTip(this.textBoxEixoY, "Digite um valor");
+            this.btnGerarMatrizPorFormula.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnGerarMatrizPorFormula.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
+            this.btnGerarMatrizPorFormula.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGerarMatrizPorFormula.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnGerarMatrizPorFormula.Location = new System.Drawing.Point(121, 37);
+            this.btnGerarMatrizPorFormula.Name = "btnGerarMatrizPorFormula";
+            this.btnGerarMatrizPorFormula.Size = new System.Drawing.Size(152, 23);
+            this.btnGerarMatrizPorFormula.TabIndex = 70;
+            this.btnGerarMatrizPorFormula.Text = "GERAR POR FÓRMULA";
+            this.toolTip1.SetToolTip(this.btnGerarMatrizPorFormula, "Clique para gerar sua matriz a partir da lei de formação");
+            this.btnGerarMatrizPorFormula.UseVisualStyleBackColor = true;
+            this.btnGerarMatrizPorFormula.Click += new System.EventHandler(this.btnGerarMatrizPorFormula_Click);
             // 
-            // groupBox10
+            // comboBoxDeterminantes
             // 
-            this.groupBox10.Controls.Add(this.textBoxRotacionar);
-            this.groupBox10.Controls.Add(this.textBoxEscalarObjeto);
-            this.groupBox10.Controls.Add(this.escalarbtn);
-            this.groupBox10.Controls.Add(this.rotacionarbtn);
-            this.groupBox10.Font = new System.Drawing.Font("Leelawadee UI", 9.75F);
-            this.groupBox10.ForeColor = System.Drawing.Color.White;
-            this.groupBox10.Location = new System.Drawing.Point(92, 587);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(381, 66);
-            this.groupBox10.TabIndex = 81;
-            this.groupBox10.TabStop = false;
-            this.toolTip1.SetToolTip(this.groupBox10, "Opções para o objeto desenhado no plano");
+            this.comboBoxDeterminantes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.comboBoxDeterminantes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDeterminantes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxDeterminantes.ForeColor = System.Drawing.SystemColors.Window;
+            this.comboBoxDeterminantes.FormattingEnabled = true;
+            this.comboBoxDeterminantes.Items.AddRange(new object[] {
+            "DET A + DET B",
+            "DET A * DET B",
+            "DET A - DET B",
+            "DET A : DET B"});
+            this.comboBoxDeterminantes.Location = new System.Drawing.Point(612, 16);
+            this.comboBoxDeterminantes.Name = "comboBoxDeterminantes";
+            this.comboBoxDeterminantes.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxDeterminantes.TabIndex = 20;
+            this.toolTip1.SetToolTip(this.comboBoxDeterminantes, "Escolha uma das opções para calcular os determinantes das matrizes\r\n");
             // 
-            // rotacionarbtn
+            // button1
             // 
-            this.rotacionarbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
-            this.rotacionarbtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.rotacionarbtn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
-            this.rotacionarbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rotacionarbtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.rotacionarbtn.Location = new System.Drawing.Point(18, 20);
-            this.rotacionarbtn.Name = "rotacionarbtn";
-            this.rotacionarbtn.Size = new System.Drawing.Size(109, 34);
-            this.rotacionarbtn.TabIndex = 78;
-            this.rotacionarbtn.Text = "ROTACIONAR";
-            this.toolTip1.SetToolTip(this.rotacionarbtn, "Botão para rotacionar objeto no plano cartesiano, com o valor digitado no campo");
-            this.rotacionarbtn.UseVisualStyleBackColor = false;
-            this.rotacionarbtn.Click += new System.EventHandler(this.rotacionarbtn_Click);
-            // 
-            // escalarbtn
-            // 
-            this.escalarbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
-            this.escalarbtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.escalarbtn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
-            this.escalarbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.escalarbtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.escalarbtn.Location = new System.Drawing.Point(214, 20);
-            this.escalarbtn.Name = "escalarbtn";
-            this.escalarbtn.Size = new System.Drawing.Size(85, 34);
-            this.escalarbtn.TabIndex = 79;
-            this.escalarbtn.Text = "ESCALAR";
-            this.toolTip1.SetToolTip(this.escalarbtn, "Botão para escalonar objeto no plano cartesiano, com o valor digitado no campo");
-            this.escalarbtn.UseVisualStyleBackColor = false;
-            this.escalarbtn.Click += new System.EventHandler(this.escalarbtn_Click);
-            // 
-            // simetriaY
-            // 
-            this.simetriaY.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
-            this.simetriaY.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.simetriaY.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
-            this.simetriaY.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.simetriaY.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.simetriaY.Location = new System.Drawing.Point(41, 24);
-            this.simetriaY.Name = "simetriaY";
-            this.simetriaY.Size = new System.Drawing.Size(80, 34);
-            this.simetriaY.TabIndex = 81;
-            this.simetriaY.Text = "SIMETRIA";
-            this.toolTip1.SetToolTip(this.simetriaY, "Limpa o campo de sua matriz");
-            this.simetriaY.UseVisualStyleBackColor = false;
-            this.simetriaY.Click += new System.EventHandler(this.simetriaY_Click);
-            // 
-            // textBoxEscalarObjeto
-            // 
-            this.textBoxEscalarObjeto.Location = new System.Drawing.Point(306, 25);
-            this.textBoxEscalarObjeto.Name = "textBoxEscalarObjeto";
-            this.textBoxEscalarObjeto.Size = new System.Drawing.Size(56, 25);
-            this.textBoxEscalarObjeto.TabIndex = 81;
-            this.toolTip1.SetToolTip(this.textBoxEscalarObjeto, "Insira um valor em graus, para escalonar seu objeto");
-            // 
-            // textBoxRotacionar
-            // 
-            this.textBoxRotacionar.Location = new System.Drawing.Point(133, 26);
-            this.textBoxRotacionar.Name = "textBoxRotacionar";
-            this.textBoxRotacionar.Size = new System.Drawing.Size(56, 25);
-            this.textBoxRotacionar.TabIndex = 82;
-            this.toolTip1.SetToolTip(this.textBoxRotacionar, "Insira um valor em graus, para rotacionar seu objeto");
-            // 
-            // limparGrafico
-            // 
-            this.limparGrafico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
-            this.limparGrafico.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.limparGrafico.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
-            this.limparGrafico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.limparGrafico.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.limparGrafico.Location = new System.Drawing.Point(564, 641);
-            this.limparGrafico.Name = "limparGrafico";
-            this.limparGrafico.Size = new System.Drawing.Size(131, 23);
-            this.limparGrafico.TabIndex = 82;
-            this.limparGrafico.Text = "LIMPAR GRÁFICO";
-            this.toolTip1.SetToolTip(this.limparGrafico, "Limpa o campo de sua matriz");
-            this.limparGrafico.UseVisualStyleBackColor = false;
-            this.limparGrafico.Click += new System.EventHandler(this.limparGrafico_Click);
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Location = new System.Drawing.Point(753, 15);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "GERAR";
+            this.toolTip1.SetToolTip(this.button1, "Escolha uma opção no menu, e após clicando aqui a executará");
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -1336,6 +1437,10 @@
             this.groupBox1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
@@ -1347,10 +1452,8 @@
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox10.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1418,7 +1521,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnCriarGrafico;
         private System.Windows.Forms.TextBox txbFormulaMatrizGrafico;
-        private System.Windows.Forms.Button btnGerarMatrizPorFormula;
         private System.Windows.Forms.Button btnLimparMatriz;
         private System.Windows.Forms.Button translacaoY;
         private System.Windows.Forms.GroupBox groupBox10;
@@ -1433,6 +1535,13 @@
         private System.Windows.Forms.Button simetriaY;
         private System.Windows.Forms.TextBox textBoxEixoY;
         private System.Windows.Forms.Button limparGrafico;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.TextBox textBoxMenuGrafico;
+        private System.Windows.Forms.ComboBox comboBoxGrafico;
+        private System.Windows.Forms.Button btnGerarMenuGrafico;
+        private System.Windows.Forms.Button btnGerarMatrizPorFormula;
+        private System.Windows.Forms.ComboBox comboBoxDeterminantes;
+        private System.Windows.Forms.Button button1;
     }
 }
 
