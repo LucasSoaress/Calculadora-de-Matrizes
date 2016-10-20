@@ -249,12 +249,6 @@ namespace Calculadora_de_Matrizes
             else
             {
                 DialogResult result = MessageBox.Show("As matrizes não tem ordens iguais", "Aviso Importante", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (result == DialogResult.OK)
-                {
-                    MatrizesInterface.limparMatrizes(panel1, numericUpDown1, numericUpDown2, groupBox1, "Matriz A");
-                    MatrizesInterface.limparMatrizes(panel2, numericUpDown3, numericUpDown4, groupBox2, "Matriz B");
-                    groupBoxResultado.Text = "Matriz Resultante";
-                }
             }
         }
 
@@ -283,15 +277,7 @@ namespace Calculadora_de_Matrizes
             else
             {
                 DialogResult result = MessageBox.Show("As matrizes não tem ordens iguais", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (result == DialogResult.OK)
-                {
-                    MatrizesInterface.limparMatrizes(panel1, numericUpDown1, numericUpDown2, groupBox1, "Matriz A");
-                    MatrizesInterface.limparMatrizes(panel2, numericUpDown3, numericUpDown4, groupBox2, "Matriz B");
-                    groupBoxResultado.Text = "Matriz Resultante";
-                }
-
             }
-
         }
 
         /// <summary>
@@ -317,14 +303,7 @@ namespace Calculadora_de_Matrizes
             else if (coluna1 != linha2)
             {
                 DialogResult result = MessageBox.Show("O número de colunas da Matriz A, não é igual ao número de linhas da Matriz B", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                if (result == DialogResult.OK)
-                {
-                    MatrizesInterface.limparMatrizes(panel1, numericUpDown1, numericUpDown2, groupBox1, "Matriz A");
-                    MatrizesInterface.limparMatrizes(panel2, numericUpDown3, numericUpDown4, groupBox2, "Matriz B");
-                    groupBoxResultado.Text = "Matriz Resultante";
-                }
             }
-
         }
         /// <summary>
         /// Método para o botão limpar da matriz 2
@@ -578,9 +557,11 @@ namespace Calculadora_de_Matrizes
                 case "MATRIZES":
                     colocarExplicacao(0);
                     break;
+
                 case "DETERMINANTES":
                     colocarExplicacao(2);
                     break;
+
                 case "SOMA":
                     colocarExplicacao(1);
                     break;
@@ -714,16 +695,6 @@ namespace Calculadora_de_Matrizes
         private void btnLimparMatriz_Click(object sender, EventArgs e)
         {
             panel4GraficoMatriz.Controls.Clear();
-        }
-
-        /// <summary>
-        /// Método para evento de clique do botão limpar gráfico
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnLimparGrafico_Click(object sender, EventArgs e)
-        {
-           // chart1.Series["Matrizes"].Points.Clear();
         }
 
         private void gerar_matriz3_Click(object sender, EventArgs e)
@@ -910,9 +881,13 @@ namespace Calculadora_de_Matrizes
         /// <param name="e"></param>
         private void formulaMatriz1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            string caracteresPermitidos = " 0123456789IJ,.;+-^/*";
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                 (e.KeyChar != ',' && e.KeyChar != '-' && e.KeyChar != '+' && e.KeyChar != '*' && e.KeyChar != '/' && e.KeyChar != 'i' && e.KeyChar != 'j' && e.KeyChar != '^' && e.KeyChar != ' '))
+            {
+                e.Handled = true;
+            }
 
-            if (!(caracteresPermitidos.Contains(e.KeyChar.ToString().ToUpper())))
+            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
             {
                 e.Handled = true;
             }
@@ -946,15 +921,123 @@ namespace Calculadora_de_Matrizes
         }
 
         /// <summary>
+        /// Clique no botão para gerar calculos com os determinantes das matrizes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnGerarCalculosDet_Click(object sender, EventArgs e)
+        {
+            switch (comboBoxDeterminantes.Text)
+            {
+                case "DET A + DET B":
+                    calculosComDet("+");
+                    break;
+
+                case "DET A - DET B":
+                    calculosComDet("-");
+                    break;
+
+                case "DET A * DET B":
+                    calculosComDet("*");
+                    break;
+
+                case "DET A / DET B":
+                    calculosComDet("/");
+                    break;
+            }
+        }
+
+        private void btnGerarMenuGrafico_Click(object sender, EventArgs e)
+        {
+            switch(comboBoxGrafico.Text)
+            {
+                case"DETERMINANTE":
+                    determinanteGrafico();
+                    break;
+
+                case "":
+                    break;
+            }
+        }
+
+        private void determinanteGrafico()
+        {
+            try
+            {
+                float[,] matriz = MatrizesInterface.resgatarNumeros(panel4GraficoMatriz, 2, (int)numericUpDownColunasGrafico.Value);
+                float determinanteResultado = Calculos.gerarDeterminante(matriz);
+                MessageBox.Show("Resultado do determinante = " + determinanteResultado.ToString());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ocorreu um erro para calcular o determinante", "Aviso Importante", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Método para fazer calculos com os determinantes das matrizes
+        /// </summary>
+        /// <param name="operador">Recebe o operadar que será utilizado na operação</param>
+        private void calculosComDet(string operador)
+        {
+            try
+            {
+                if (linha1 == coluna1 && linha2 == coluna2)
+                {
+                    float[,] matriz1 = MatrizesInterface.resgatarNumeros(panel1, linha1, coluna1);
+                    float[,] matriz2 = MatrizesInterface.resgatarNumeros(panel2, linha2, coluna2);
+
+                    float determinanteResultado1 = Calculos.gerarDeterminante(matriz1);
+                    float determinanteResultado2 = Calculos.gerarDeterminante(matriz2);
+
+                    float numeroFinal = 0;
+
+                    switch(operador)
+                    {
+                        case "+":
+                          numeroFinal = (determinanteResultado1 + determinanteResultado2);
+                            break;
+
+                        case "-":
+                          numeroFinal = (determinanteResultado1 - determinanteResultado2);
+                            break;
+
+                        case "*":
+                            numeroFinal = (determinanteResultado1 * determinanteResultado2);
+                            break;
+
+                        case "/":
+                            numeroFinal = (determinanteResultado1 / determinanteResultado2);
+                            break;
+                    }
+
+                    MessageBox.Show(numeroFinal.ToString());
+                }
+                else
+                {
+                    MessageBox.Show("Estas marizes não são quadradas", "Aviso Importante", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ocorreu um erro na soma dos determinantes", "Aviso Importante", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
         /// Método do evento KeyPress, para bloquear outras letras da caixa para inserir fórmula da Matriz B
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void formulaMatriz2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            string caracteresPermitidos = " 0123456789IJ,.;+-^/*";
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                 (e.KeyChar != ',' && e.KeyChar != '-' && e.KeyChar != '+' && e.KeyChar != '*' && e.KeyChar != '/' && e.KeyChar != 'i' && e.KeyChar != 'j' && e.KeyChar != '^' && e.KeyChar != ' '))
+            {
+                e.Handled = true;
+            }
 
-            if (!(caracteresPermitidos.Contains(e.KeyChar.ToString().ToUpper())))
+            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
             {
                 e.Handled = true;
             }
@@ -967,25 +1050,18 @@ namespace Calculadora_de_Matrizes
         /// <param name="e"></param>
         private void txbFormulaMatrizGrafico_KeyPress(object sender, KeyPressEventArgs e)
         {
-            string caracteresPermitidos = " 0123456789IJ,.;+-^/*";
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                 (e.KeyChar != ',' && e.KeyChar != '-' && e.KeyChar != '+' && e.KeyChar != '*' && e.KeyChar != '/' && e.KeyChar != 'i' && e.KeyChar != 'j' && e.KeyChar != '^' && e.KeyChar != ' '))
+            {
+                e.Handled = true;
+            }
 
-            if (!(caracteresPermitidos.Contains(e.KeyChar.ToString().ToUpper())))
+            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
             {
                 e.Handled = true;
             }
         }
-
-        /// <summary>
-        /// Método do evento do clique do botão gerar matriz por fórmula para criar matriz
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnGerarMatrizPorFormula_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-
+        
         /// <summary>
         /// Método para gerar a matriz do gráfico por formula
         /// </summary>

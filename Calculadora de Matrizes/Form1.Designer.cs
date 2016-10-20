@@ -60,6 +60,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnGerarCalculosDet = new System.Windows.Forms.Button();
+            this.comboBoxDeterminantes = new System.Windows.Forms.ComboBox();
             this.btnMultiplicar = new System.Windows.Forms.Button();
             this.btnSubtrair = new System.Windows.Forms.Button();
             this.btnSomar = new System.Windows.Forms.Button();
@@ -83,6 +85,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.textBoxMenuGrafico = new System.Windows.Forms.TextBox();
+            this.comboBoxGrafico = new System.Windows.Forms.ComboBox();
+            this.btnGerarMenuGrafico = new System.Windows.Forms.Button();
             this.limparGrafico = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.textBoxRotacionar = new System.Windows.Forms.TextBox();
@@ -114,13 +120,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.textBoxMenuGrafico = new System.Windows.Forms.TextBox();
-            this.comboBoxGrafico = new System.Windows.Forms.ComboBox();
-            this.btnGerarMenuGrafico = new System.Windows.Forms.Button();
-            this.btnGerarMatrizPorFormula = new System.Windows.Forms.Button();
-            this.comboBoxDeterminantes = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
@@ -135,6 +134,7 @@
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -145,7 +145,6 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox11.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -460,7 +459,7 @@
             // groupBox5
             // 
             this.groupBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
-            this.groupBox5.Controls.Add(this.button1);
+            this.groupBox5.Controls.Add(this.btnGerarCalculosDet);
             this.groupBox5.Controls.Add(this.comboBoxDeterminantes);
             this.groupBox5.Controls.Add(this.btnMultiplicar);
             this.groupBox5.Controls.Add(this.btnSubtrair);
@@ -471,6 +470,39 @@
             this.groupBox5.TabIndex = 38;
             this.groupBox5.TabStop = false;
             this.toolTip1.SetToolTip(this.groupBox5, "Operações realizadas entre as matrizes");
+            // 
+            // btnGerarCalculosDet
+            // 
+            this.btnGerarCalculosDet.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnGerarCalculosDet.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
+            this.btnGerarCalculosDet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGerarCalculosDet.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnGerarCalculosDet.Location = new System.Drawing.Point(753, 15);
+            this.btnGerarCalculosDet.Name = "btnGerarCalculosDet";
+            this.btnGerarCalculosDet.Size = new System.Drawing.Size(75, 23);
+            this.btnGerarCalculosDet.TabIndex = 21;
+            this.btnGerarCalculosDet.Text = "GERAR";
+            this.toolTip1.SetToolTip(this.btnGerarCalculosDet, "Escolha uma opção no menu, e após clicando aqui a executará");
+            this.btnGerarCalculosDet.UseVisualStyleBackColor = true;
+            this.btnGerarCalculosDet.Click += new System.EventHandler(this.btnGerarCalculosDet_Click);
+            // 
+            // comboBoxDeterminantes
+            // 
+            this.comboBoxDeterminantes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.comboBoxDeterminantes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDeterminantes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxDeterminantes.ForeColor = System.Drawing.SystemColors.Window;
+            this.comboBoxDeterminantes.FormattingEnabled = true;
+            this.comboBoxDeterminantes.Items.AddRange(new object[] {
+            "DET A + DET B",
+            "DET A * DET B",
+            "DET A - DET B",
+            "DET A / DET B"});
+            this.comboBoxDeterminantes.Location = new System.Drawing.Point(612, 16);
+            this.comboBoxDeterminantes.Name = "comboBoxDeterminantes";
+            this.comboBoxDeterminantes.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxDeterminantes.TabIndex = 20;
+            this.toolTip1.SetToolTip(this.comboBoxDeterminantes, "Escolha uma das opções para calcular os determinantes das matrizes\r\n");
             // 
             // btnMultiplicar
             // 
@@ -812,7 +844,6 @@
             this.tabPage2.Controls.Add(this.groupBox9);
             this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Controls.Add(this.btnLimparMatriz);
-            this.tabPage2.Controls.Add(this.btnGerarMatrizPorFormula);
             this.tabPage2.Controls.Add(this.txbFormulaMatrizGrafico);
             this.tabPage2.Controls.Add(this.btnCriarGrafico);
             this.tabPage2.Controls.Add(this.label6);
@@ -826,6 +857,66 @@
             this.tabPage2.Size = new System.Drawing.Size(1346, 698);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Plano Cartesiano";
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.groupBox11.Controls.Add(this.textBoxMenuGrafico);
+            this.groupBox11.Controls.Add(this.comboBoxGrafico);
+            this.groupBox11.Controls.Add(this.btnGerarMenuGrafico);
+            this.groupBox11.Location = new System.Drawing.Point(78, 277);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(349, 53);
+            this.groupBox11.TabIndex = 83;
+            this.groupBox11.TabStop = false;
+            // 
+            // textBoxMenuGrafico
+            // 
+            this.textBoxMenuGrafico.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.textBoxMenuGrafico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxMenuGrafico.Location = new System.Drawing.Point(138, 15);
+            this.textBoxMenuGrafico.Name = "textBoxMenuGrafico";
+            this.textBoxMenuGrafico.Size = new System.Drawing.Size(100, 22);
+            this.textBoxMenuGrafico.TabIndex = 19;
+            // 
+            // comboBoxGrafico
+            // 
+            this.comboBoxGrafico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.comboBoxGrafico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxGrafico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxGrafico.ForeColor = System.Drawing.SystemColors.Window;
+            this.comboBoxGrafico.FormattingEnabled = true;
+            this.comboBoxGrafico.Items.AddRange(new object[] {
+            "OPOSTA",
+            "INVERSA",
+            "DETERMINANTE",
+            "TRANSPOSTA",
+            "ESCALAR",
+            "ELEVAR",
+            "IDENTIDADE",
+            "FÓRMULA"});
+            this.comboBoxGrafico.Location = new System.Drawing.Point(6, 16);
+            this.comboBoxGrafico.Name = "comboBoxGrafico";
+            this.comboBoxGrafico.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxGrafico.TabIndex = 19;
+            this.toolTip1.SetToolTip(this.comboBoxGrafico, "Escolha uma das opções para ser realizado na Matriz");
+            this.comboBoxGrafico.SelectedIndexChanged += new System.EventHandler(this.comboBoxGrafico_SelectedIndexChanged);
+            // 
+            // btnGerarMenuGrafico
+            // 
+            this.btnGerarMenuGrafico.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnGerarMenuGrafico.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
+            this.btnGerarMenuGrafico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGerarMenuGrafico.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnGerarMenuGrafico.Location = new System.Drawing.Point(253, 16);
+            this.btnGerarMenuGrafico.Name = "btnGerarMenuGrafico";
+            this.btnGerarMenuGrafico.Size = new System.Drawing.Size(75, 23);
+            this.btnGerarMenuGrafico.TabIndex = 20;
+            this.btnGerarMenuGrafico.Text = "GERAR";
+            this.toolTip1.SetToolTip(this.btnGerarMenuGrafico, "Escolha uma opção no menu, e após clicando aqui a executará");
+            this.btnGerarMenuGrafico.UseVisualStyleBackColor = true;
+            this.btnGerarMenuGrafico.Click += new System.EventHandler(this.btnGerarMenuGrafico_Click);
             // 
             // limparGrafico
             // 
@@ -1298,112 +1389,6 @@
             this.toolTip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
             this.toolTip1.ForeColor = System.Drawing.SystemColors.GrayText;
             // 
-            // groupBox11
-            // 
-            this.groupBox11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
-            this.groupBox11.Controls.Add(this.textBoxMenuGrafico);
-            this.groupBox11.Controls.Add(this.comboBoxGrafico);
-            this.groupBox11.Controls.Add(this.btnGerarMenuGrafico);
-            this.groupBox11.Location = new System.Drawing.Point(78, 277);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(349, 53);
-            this.groupBox11.TabIndex = 83;
-            this.groupBox11.TabStop = false;
-            // 
-            // textBoxMenuGrafico
-            // 
-            this.textBoxMenuGrafico.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.textBoxMenuGrafico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxMenuGrafico.Location = new System.Drawing.Point(138, 15);
-            this.textBoxMenuGrafico.Name = "textBoxMenuGrafico";
-            this.textBoxMenuGrafico.Size = new System.Drawing.Size(100, 22);
-            this.textBoxMenuGrafico.TabIndex = 19;
-            // 
-            // comboBoxGrafico
-            // 
-            this.comboBoxGrafico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
-            this.comboBoxGrafico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxGrafico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxGrafico.ForeColor = System.Drawing.SystemColors.Window;
-            this.comboBoxGrafico.FormattingEnabled = true;
-            this.comboBoxGrafico.Items.AddRange(new object[] {
-            "OPOSTA",
-            "INVERSA",
-            "DETERMINANTE",
-            "TRANSPOSTA",
-            "ESCALAR",
-            "ELEVAR",
-            "IDENTIDADE",
-            "FÓRMULA"});
-            this.comboBoxGrafico.Location = new System.Drawing.Point(6, 16);
-            this.comboBoxGrafico.Name = "comboBoxGrafico";
-            this.comboBoxGrafico.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxGrafico.TabIndex = 19;
-            this.toolTip1.SetToolTip(this.comboBoxGrafico, "Escolha uma das opções para ser realizado na Matriz");
-            this.comboBoxGrafico.SelectedIndexChanged += new System.EventHandler(this.comboBoxGrafico_SelectedIndexChanged);
-            // 
-            // btnGerarMenuGrafico
-            // 
-            this.btnGerarMenuGrafico.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnGerarMenuGrafico.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
-            this.btnGerarMenuGrafico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGerarMenuGrafico.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGerarMenuGrafico.Location = new System.Drawing.Point(253, 16);
-            this.btnGerarMenuGrafico.Name = "btnGerarMenuGrafico";
-            this.btnGerarMenuGrafico.Size = new System.Drawing.Size(75, 23);
-            this.btnGerarMenuGrafico.TabIndex = 20;
-            this.btnGerarMenuGrafico.Text = "GERAR";
-            this.toolTip1.SetToolTip(this.btnGerarMenuGrafico, "Escolha uma opção no menu, e após clicando aqui a executará");
-            this.btnGerarMenuGrafico.UseVisualStyleBackColor = true;
-            // 
-            // btnGerarMatrizPorFormula
-            // 
-            this.btnGerarMatrizPorFormula.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnGerarMatrizPorFormula.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
-            this.btnGerarMatrizPorFormula.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGerarMatrizPorFormula.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGerarMatrizPorFormula.Location = new System.Drawing.Point(121, 37);
-            this.btnGerarMatrizPorFormula.Name = "btnGerarMatrizPorFormula";
-            this.btnGerarMatrizPorFormula.Size = new System.Drawing.Size(152, 23);
-            this.btnGerarMatrizPorFormula.TabIndex = 70;
-            this.btnGerarMatrizPorFormula.Text = "GERAR POR FÓRMULA";
-            this.toolTip1.SetToolTip(this.btnGerarMatrizPorFormula, "Clique para gerar sua matriz a partir da lei de formação");
-            this.btnGerarMatrizPorFormula.UseVisualStyleBackColor = true;
-            this.btnGerarMatrizPorFormula.Click += new System.EventHandler(this.btnGerarMatrizPorFormula_Click);
-            // 
-            // comboBoxDeterminantes
-            // 
-            this.comboBoxDeterminantes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
-            this.comboBoxDeterminantes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxDeterminantes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxDeterminantes.ForeColor = System.Drawing.SystemColors.Window;
-            this.comboBoxDeterminantes.FormattingEnabled = true;
-            this.comboBoxDeterminantes.Items.AddRange(new object[] {
-            "DET A + DET B",
-            "DET A * DET B",
-            "DET A - DET B",
-            "DET A : DET B"});
-            this.comboBoxDeterminantes.Location = new System.Drawing.Point(612, 16);
-            this.comboBoxDeterminantes.Name = "comboBoxDeterminantes";
-            this.comboBoxDeterminantes.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxDeterminantes.TabIndex = 20;
-            this.toolTip1.SetToolTip(this.comboBoxDeterminantes, "Escolha uma das opções para calcular os determinantes das matrizes\r\n");
-            // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(753, 15);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "GERAR";
-            this.toolTip1.SetToolTip(this.button1, "Escolha uma opção no menu, e após clicando aqui a executará");
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1437,6 +1422,8 @@
             this.groupBox1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
             this.groupBox9.ResumeLayout(false);
@@ -1452,8 +1439,6 @@
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox11.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1539,9 +1524,8 @@
         private System.Windows.Forms.TextBox textBoxMenuGrafico;
         private System.Windows.Forms.ComboBox comboBoxGrafico;
         private System.Windows.Forms.Button btnGerarMenuGrafico;
-        private System.Windows.Forms.Button btnGerarMatrizPorFormula;
         private System.Windows.Forms.ComboBox comboBoxDeterminantes;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGerarCalculosDet;
     }
 }
 
