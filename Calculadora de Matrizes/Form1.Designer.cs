@@ -113,13 +113,22 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.panel4GraficoMatriz = new System.Windows.Forms.Panel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.linkLabel7 = new System.Windows.Forms.LinkLabel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.linkLabel6 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.labelResumos = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.menuResumos = new System.Windows.Forms.ComboBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label10 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
@@ -477,7 +486,7 @@
             this.btnGerarCalculosDet.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
             this.btnGerarCalculosDet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGerarCalculosDet.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGerarCalculosDet.Location = new System.Drawing.Point(753, 15);
+            this.btnGerarCalculosDet.Location = new System.Drawing.Point(753, 14);
             this.btnGerarCalculosDet.Name = "btnGerarCalculosDet";
             this.btnGerarCalculosDet.Size = new System.Drawing.Size(75, 23);
             this.btnGerarCalculosDet.TabIndex = 21;
@@ -498,7 +507,7 @@
             "DET A * DET B",
             "DET A - DET B",
             "DET A / DET B"});
-            this.comboBoxDeterminantes.Location = new System.Drawing.Point(612, 16);
+            this.comboBoxDeterminantes.Location = new System.Drawing.Point(612, 15);
             this.comboBoxDeterminantes.Name = "comboBoxDeterminantes";
             this.comboBoxDeterminantes.Size = new System.Drawing.Size(121, 21);
             this.comboBoxDeterminantes.TabIndex = 20;
@@ -600,13 +609,9 @@
             this.menu_matriz3.ForeColor = System.Drawing.SystemColors.Window;
             this.menu_matriz3.FormattingEnabled = true;
             this.menu_matriz3.Items.AddRange(new object[] {
-            "OPOSTA",
-            "INVERSA",
+            "ESCALAR",
             "DETERMINANTE",
-            "TRANSPOSTA",
-            "MULTIPLICAR",
-            "ELEVAR",
-            "IDENTIDADE"});
+            "ELEVAR"});
             this.menu_matriz3.Location = new System.Drawing.Point(6, 16);
             this.menu_matriz3.Name = "menu_matriz3";
             this.menu_matriz3.Size = new System.Drawing.Size(121, 21);
@@ -663,7 +668,7 @@
             "INVERSA",
             "DETERMINANTE",
             "TRANSPOSTA",
-            "MULTIPLICAR",
+            "ESCALAR",
             "ELEVAR",
             "IDENTIDADE",
             "FÓRMULA"});
@@ -831,7 +836,7 @@
             this.panel1.AutoScroll = true;
             this.panel1.Location = new System.Drawing.Point(6, 19);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(332, 434);
+            this.panel1.Size = new System.Drawing.Size(337, 434);
             this.panel1.TabIndex = 15;
             this.toolTip1.SetToolTip(this.panel1, "Campo para matriz a");
             // 
@@ -865,7 +870,7 @@
             this.groupBox11.Controls.Add(this.textBoxMenuGrafico);
             this.groupBox11.Controls.Add(this.comboBoxGrafico);
             this.groupBox11.Controls.Add(this.btnGerarMenuGrafico);
-            this.groupBox11.Location = new System.Drawing.Point(78, 277);
+            this.groupBox11.Location = new System.Drawing.Point(105, 251);
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.Size = new System.Drawing.Size(349, 53);
             this.groupBox11.TabIndex = 83;
@@ -875,7 +880,7 @@
             // 
             this.textBoxMenuGrafico.BackColor = System.Drawing.SystemColors.HighlightText;
             this.textBoxMenuGrafico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxMenuGrafico.Location = new System.Drawing.Point(138, 15);
+            this.textBoxMenuGrafico.Location = new System.Drawing.Point(138, 17);
             this.textBoxMenuGrafico.Name = "textBoxMenuGrafico";
             this.textBoxMenuGrafico.Size = new System.Drawing.Size(100, 22);
             this.textBoxMenuGrafico.TabIndex = 19;
@@ -888,15 +893,11 @@
             this.comboBoxGrafico.ForeColor = System.Drawing.SystemColors.Window;
             this.comboBoxGrafico.FormattingEnabled = true;
             this.comboBoxGrafico.Items.AddRange(new object[] {
-            "OPOSTA",
-            "INVERSA",
             "DETERMINANTE",
-            "TRANSPOSTA",
             "ESCALAR",
             "ELEVAR",
-            "IDENTIDADE",
             "FÓRMULA"});
-            this.comboBoxGrafico.Location = new System.Drawing.Point(6, 16);
+            this.comboBoxGrafico.Location = new System.Drawing.Point(6, 18);
             this.comboBoxGrafico.Name = "comboBoxGrafico";
             this.comboBoxGrafico.Size = new System.Drawing.Size(121, 21);
             this.comboBoxGrafico.TabIndex = 19;
@@ -925,7 +926,7 @@
             this.limparGrafico.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
             this.limparGrafico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.limparGrafico.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.limparGrafico.Location = new System.Drawing.Point(564, 641);
+            this.limparGrafico.Location = new System.Drawing.Point(564, 635);
             this.limparGrafico.Name = "limparGrafico";
             this.limparGrafico.Size = new System.Drawing.Size(101, 23);
             this.limparGrafico.TabIndex = 82;
@@ -942,7 +943,7 @@
             this.groupBox10.Controls.Add(this.rotacionarbtn);
             this.groupBox10.Font = new System.Drawing.Font("Leelawadee UI", 9.75F);
             this.groupBox10.ForeColor = System.Drawing.Color.White;
-            this.groupBox10.Location = new System.Drawing.Point(92, 564);
+            this.groupBox10.Location = new System.Drawing.Point(92, 540);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(381, 66);
             this.groupBox10.TabIndex = 81;
@@ -1004,7 +1005,7 @@
             this.groupBox9.Controls.Add(this.simetriaX);
             this.groupBox9.Font = new System.Drawing.Font("Leelawadee UI", 9.75F);
             this.groupBox9.ForeColor = System.Drawing.Color.White;
-            this.groupBox9.Location = new System.Drawing.Point(30, 370);
+            this.groupBox9.Location = new System.Drawing.Point(30, 347);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(159, 176);
             this.groupBox9.TabIndex = 80;
@@ -1059,7 +1060,7 @@
             this.groupBox3.Controls.Add(this.translacaoY);
             this.groupBox3.Font = new System.Drawing.Font("Leelawadee UI", 9.75F);
             this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(364, 370);
+            this.groupBox3.Location = new System.Drawing.Point(364, 347);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(159, 176);
             this.groupBox3.TabIndex = 52;
@@ -1114,18 +1115,18 @@
             this.btnLimparMatriz.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
             this.btnLimparMatriz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimparMatriz.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLimparMatriz.Location = new System.Drawing.Point(425, 44);
+            this.btnLimparMatriz.Location = new System.Drawing.Point(401, 42);
             this.btnLimparMatriz.Name = "btnLimparMatriz";
-            this.btnLimparMatriz.Size = new System.Drawing.Size(85, 23);
+            this.btnLimparMatriz.Size = new System.Drawing.Size(109, 23);
             this.btnLimparMatriz.TabIndex = 71;
-            this.btnLimparMatriz.Text = "LIMPAR";
+            this.btnLimparMatriz.Text = "LIMPAR MATRIZ";
             this.toolTip1.SetToolTip(this.btnLimparMatriz, "Limpa o campo de sua matriz");
             this.btnLimparMatriz.UseVisualStyleBackColor = false;
             this.btnLimparMatriz.Click += new System.EventHandler(this.btnLimparMatriz_Click);
             // 
             // txbFormulaMatrizGrafico
             // 
-            this.txbFormulaMatrizGrafico.Location = new System.Drawing.Point(295, 251);
+            this.txbFormulaMatrizGrafico.Location = new System.Drawing.Point(170, 310);
             this.txbFormulaMatrizGrafico.Name = "txbFormulaMatrizGrafico";
             this.txbFormulaMatrizGrafico.Size = new System.Drawing.Size(210, 20);
             this.txbFormulaMatrizGrafico.TabIndex = 69;
@@ -1144,7 +1145,7 @@
             this.btnCriarGrafico.Size = new System.Drawing.Size(104, 23);
             this.btnCriarGrafico.TabIndex = 53;
             this.btnCriarGrafico.Text = "DESENHAR";
-            this.toolTip1.SetToolTip(this.btnCriarGrafico, "Cria o gráfico a partir de sua matriz");
+            this.toolTip1.SetToolTip(this.btnCriarGrafico, "Desenha o objeto no plano cartesiano");
             this.btnCriarGrafico.UseVisualStyleBackColor = false;
             this.btnCriarGrafico.Click += new System.EventHandler(this.btnCriarGrafico_Click);
             // 
@@ -1152,7 +1153,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(215, 248);
+            this.label6.Location = new System.Drawing.Point(32, 245);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 13);
             this.label6.TabIndex = 51;
@@ -1222,7 +1223,7 @@
             // 
             this.numericUpDownColunasGrafico.BackColor = System.Drawing.SystemColors.HighlightText;
             this.numericUpDownColunasGrafico.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDownColunasGrafico.Location = new System.Drawing.Point(219, 218);
+            this.numericUpDownColunasGrafico.Location = new System.Drawing.Point(36, 215);
             this.numericUpDownColunasGrafico.Maximum = new decimal(new int[] {
             20,
             0,
@@ -1250,7 +1251,7 @@
             this.criarMatrizGrafico.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InfoText;
             this.criarMatrizGrafico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.criarMatrizGrafico.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.criarMatrizGrafico.Location = new System.Drawing.Point(295, 218);
+            this.criarMatrizGrafico.Location = new System.Drawing.Point(96, 219);
             this.criarMatrizGrafico.Name = "criarMatrizGrafico";
             this.criarMatrizGrafico.Size = new System.Drawing.Size(104, 23);
             this.criarMatrizGrafico.TabIndex = 45;
@@ -1285,8 +1286,17 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.tabPage3.Controls.Add(this.panel5);
+            this.tabPage3.Controls.Add(this.label10);
+            this.tabPage3.Controls.Add(this.linkLabel7);
             this.tabPage3.Controls.Add(this.label5);
+            this.tabPage3.Controls.Add(this.linkLabel6);
+            this.tabPage3.Controls.Add(this.linkLabel5);
+            this.tabPage3.Controls.Add(this.linkLabel4);
+            this.tabPage3.Controls.Add(this.linkLabel3);
+            this.tabPage3.Controls.Add(this.linkLabel2);
+            this.tabPage3.Controls.Add(this.linkLabel1);
+            this.tabPage3.Controls.Add(this.label9);
+            this.tabPage3.Controls.Add(this.panel5);
             this.tabPage3.Controls.Add(this.menuResumos);
             this.tabPage3.Controls.Add(this.pictureBox2);
             this.tabPage3.Controls.Add(this.pictureBox1);
@@ -1295,6 +1305,135 @@
             this.tabPage3.Size = new System.Drawing.Size(1346, 698);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Sobre";
+            // 
+            // linkLabel7
+            // 
+            this.linkLabel7.ActiveLinkColor = System.Drawing.Color.DimGray;
+            this.linkLabel7.AutoSize = true;
+            this.linkLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel7.LinkColor = System.Drawing.Color.White;
+            this.linkLabel7.Location = new System.Drawing.Point(152, 649);
+            this.linkLabel7.Name = "linkLabel7";
+            this.linkLabel7.Size = new System.Drawing.Size(77, 18);
+            this.linkLabel7.TabIndex = 14;
+            this.linkLabel7.TabStop = true;
+            this.linkLabel7.Text = "NAVE RIO";
+            this.linkLabel7.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.linkLabel7.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel7_LinkClicked);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(152, 583);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(87, 13);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "PROFESSORES";
+            // 
+            // linkLabel6
+            // 
+            this.linkLabel6.ActiveLinkColor = System.Drawing.Color.DimGray;
+            this.linkLabel6.AutoSize = true;
+            this.linkLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel6.LinkColor = System.Drawing.Color.White;
+            this.linkLabel6.Location = new System.Drawing.Point(213, 598);
+            this.linkLabel6.Name = "linkLabel6";
+            this.linkLabel6.Size = new System.Drawing.Size(104, 18);
+            this.linkLabel6.TabIndex = 12;
+            this.linkLabel6.TabStop = true;
+            this.linkLabel6.Text = "Cristina Neves";
+            this.linkLabel6.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.linkLabel6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel6_LinkClicked);
+            // 
+            // linkLabel5
+            // 
+            this.linkLabel5.ActiveLinkColor = System.Drawing.Color.DimGray;
+            this.linkLabel5.AutoSize = true;
+            this.linkLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel5.LinkColor = System.Drawing.Color.White;
+            this.linkLabel5.Location = new System.Drawing.Point(63, 598);
+            this.linkLabel5.Name = "linkLabel5";
+            this.linkLabel5.Size = new System.Drawing.Size(121, 18);
+            this.linkLabel5.TabIndex = 11;
+            this.linkLabel5.TabStop = true;
+            this.linkLabel5.Text = "Antoanne Pontes";
+            this.linkLabel5.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
+            // 
+            // linkLabel4
+            // 
+            this.linkLabel4.ActiveLinkColor = System.Drawing.Color.DimGray;
+            this.linkLabel4.AutoSize = true;
+            this.linkLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel4.LinkColor = System.Drawing.Color.White;
+            this.linkLabel4.Location = new System.Drawing.Point(339, 541);
+            this.linkLabel4.Name = "linkLabel4";
+            this.linkLabel4.Size = new System.Drawing.Size(84, 18);
+            this.linkLabel4.TabIndex = 10;
+            this.linkLabel4.TabStop = true;
+            this.linkLabel4.Text = "Thaís Dutra";
+            this.linkLabel4.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
+            // 
+            // linkLabel3
+            // 
+            this.linkLabel3.ActiveLinkColor = System.Drawing.Color.DimGray;
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel3.LinkColor = System.Drawing.Color.White;
+            this.linkLabel3.Location = new System.Drawing.Point(213, 541);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(120, 18);
+            this.linkLabel3.TabIndex = 9;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "Patrick Scoralick";
+            this.linkLabel3.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.ActiveLinkColor = System.Drawing.Color.DimGray;
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel2.LinkColor = System.Drawing.Color.White;
+            this.linkLabel2.Location = new System.Drawing.Point(128, 541);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(79, 18);
+            this.linkLabel2.TabIndex = 8;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Luca Alves";
+            this.linkLabel2.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.DimGray;
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.LinkColor = System.Drawing.Color.White;
+            this.linkLabel1.Location = new System.Drawing.Point(22, 541);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(100, 18);
+            this.linkLabel1.TabIndex = 7;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Lucas Soares";
+            this.toolTip1.SetToolTip(this.linkLabel1, "lucassoares.tk");
+            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(856, 572);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(177, 75);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "Descubra mais sobre Matrizes!\r\n\r\n\r\n\r\n\r\n";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.toolTip1.SetToolTip(this.label9, "As pessoas incríveis que fizeram esta linda calculadora");
             // 
             // panel5
             // 
@@ -1324,20 +1463,6 @@
             this.labelResumos.TabIndex = 0;
             this.labelResumos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(54, 526);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(344, 140);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Alunos: Lucas Soares, Luca Alves,\r\n Patrick Scoralick e Thais Dutra.\r\nProfessores" +
-    ": Antoanne Pontes e Cristina Neves\r\n2003\r\n\r\n\r\n\r\n";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.toolTip1.SetToolTip(this.label5, "As pessoas incríveis que fizeram esta linda calculadora");
-            // 
             // menuResumos
             // 
             this.menuResumos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
@@ -1351,12 +1476,20 @@
             "MULTIPLICAÇÃO",
             "SUBTRAÇÃO",
             "DETERMINANTE",
-            "INVERSA",
-            "TRANSPOSTA",
-            "OPOSTA"});
-            this.menuResumos.Location = new System.Drawing.Point(888, 548);
+            "MATRIZ INVERSA",
+            "MATRIZ TRANSPOSTA",
+            "MATRIZ OPOSTA",
+            "MATRIZ IDENTIDADE",
+            "MATRIZ COLUNA",
+            "MATRIZ LINHA",
+            "MATRIZ NULA",
+            "ELEMENTOS",
+            "SIMÉTRICA",
+            "MULTIPLICAÇÃO POR ESCALAR",
+            "MATRIZ INVERSA"});
+            this.menuResumos.Location = new System.Drawing.Point(859, 548);
             this.menuResumos.Name = "menuResumos";
-            this.menuResumos.Size = new System.Drawing.Size(115, 21);
+            this.menuResumos.Size = new System.Drawing.Size(174, 21);
             this.menuResumos.TabIndex = 2;
             this.toolTip1.SetToolTip(this.menuResumos, "Escolha uma opção para ler mais sobre ela");
             this.menuResumos.SelectedIndexChanged += new System.EventHandler(this.menuResumos_SelectedIndexChanged);
@@ -1374,6 +1507,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::Calculadora_de_Matrizes.Properties.Resources.logo;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::Calculadora_de_Matrizes.Properties.Resources.logo;
             this.pictureBox1.InitialImage = null;
             this.pictureBox1.Location = new System.Drawing.Point(45, 37);
@@ -1382,12 +1516,23 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox1, "Logo da calculadora");
+            this.toolTip1.SetToolTip(this.pictureBox1, "Clique para ler nossa mensagem");
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // toolTip1
             // 
             this.toolTip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
             this.toolTip1.ForeColor = System.Drawing.SystemColors.GrayText;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(141, 525);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(117, 13);
+            this.label10.TabIndex = 15;
+            this.label10.Text = "DESENVOLVEDORES";
             // 
             // Form1
             // 
@@ -1491,7 +1636,6 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label5;
         public System.Windows.Forms.ComboBox menuResumos;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Panel panel4GraficoMatriz;
@@ -1526,6 +1670,16 @@
         private System.Windows.Forms.Button btnGerarMenuGrafico;
         private System.Windows.Forms.ComboBox comboBoxDeterminantes;
         private System.Windows.Forms.Button btnGerarCalculosDet;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.LinkLabel linkLabel6;
+        private System.Windows.Forms.LinkLabel linkLabel5;
+        private System.Windows.Forms.LinkLabel linkLabel4;
+        private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel linkLabel7;
+        private System.Windows.Forms.Label label10;
     }
 }
 

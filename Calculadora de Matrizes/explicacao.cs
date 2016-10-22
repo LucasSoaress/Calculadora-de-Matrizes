@@ -26,8 +26,15 @@ namespace Calculadora_de_Matrizes
         "Matriz quadrada com os elementos da diagonal principal iguais a 1 e os demais nulos",
         "A obtida trocando os sinais de todos os elementos de A",
         "Matriz A^t obtida a partir de A,trocando , ordenamente, as linhas por colunas,ou as colunas por linhas",
-        "Elementos da Matriz i = representa a linha",
-        ""
+        "Cada componente de uma linha/coluna é um elemento da matriz;  i = representa a linha / j = representa a coluna",
+        "Tem a mesma quantidade de linhas e colunas",
+        "Para subtrair duas ou mais matrizes,subtraímos os termos da mesma posição em cada matriz,gerando uma nova (resultante)",
+        "Ao multiplicarmos um número real por uma matriz,multiplicamos cada termo desta matriz pelo número, gerando uma nova matriz (resultante)",
+        "A multiplicação de matrizes é feita através da soma dos produtos dos elementos de uma linha pelos de uma coluna",
+        "A inversa de uma matriz (A^-1) é aquele que,ao ser multiplicada por sua original resulta numa matriz identidade",
+        "Matriz quadrada onde A = A^t",
+        "A inversa de uma matriz (A^-1) é aquele que,ao ser multiplicada por sua original resulta numa matriz identidade"
+
         };
     }
 }

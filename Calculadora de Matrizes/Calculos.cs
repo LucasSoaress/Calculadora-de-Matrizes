@@ -83,9 +83,10 @@ namespace Calculadora_de_Matrizes
         /// <returns>Retorna a matriz resultante</returns>
         public static float[,] multiplicarPorNumeroQualquer(float[,] matriz, float numeroQualquer)
         {
+            float[,] matrizResultado = new float[matriz.GetLength(0), matriz.GetLength(1)];
             int linhas = matriz.GetLength(0);
             int colunas = matriz.GetLength(1);
-            float[,] matrizResultado = new float[linhas, colunas];
+            
 
             for (int x = 0; x < linhas; x++)
             {
@@ -149,6 +150,7 @@ namespace Calculadora_de_Matrizes
         public static float[,] GerarTransposta(float[,] matriz)
         {
             float[,] matrizTransposta = new float[matriz.GetLength(1), matriz.GetLength(0)];
+
             for (int x = 0; x < matrizTransposta.GetLength(0); x++)
             {
                 for (int y = 0; y < matrizTransposta.GetLength(1); y++)
@@ -400,6 +402,13 @@ namespace Calculadora_de_Matrizes
             return GerarTransposta(matrizResultante);
         }
 
+        /// <summary>
+        /// Método para fazer a soma de qualquer valor nos elementos da matriz
+        /// </summary>
+        /// <param name="matriz">Recebe a matriz</param>
+        /// <param name="valorX">Recebe o valor de x</param>
+        /// <param name="valorY">Recebe o valor de y</param>
+        /// <returns>Retorna a matriz final com os novos valores</returns>
         public static float[,] somar(float[,] matriz, float valorX, float valorY)
         {
             float[,] matrixfinal = matriz;

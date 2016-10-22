@@ -116,10 +116,10 @@ namespace Calculadora_de_Matrizes
         /// Método que percorre todo o painel indicado pelo parametro e adiciona os valores dos textbox no array
         /// </summary>
         /// <param name="panel">Recebe o painel o qual ira buscar os valores</param>
-        /// <param name="linhas">Recebe o número de linhas deste painel</param>
         /// <param name="colunas">Recebe o número de colunas deste painel</param>
+        /// <param name="linhas">Recebe o número de linhas deste painel</param>
         /// <returns>Retorna o array com todos os valores do painel indicado</returns>
-        public static float[,] resgatarNumeros(Panel panel, int linhas, int colunas)
+        public static float[,] resgatarNumeros(Panel panel, int colunas, int linhas)
         {
             float[,] matriz = new float[linhas, colunas];
             int x = 0;
