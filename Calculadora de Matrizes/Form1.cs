@@ -436,6 +436,7 @@ namespace Calculadora_de_Matrizes
             else if (linha1 == linha2 && coluna1 == coluna2)
             {
                 float[,] matrizResultante = Calculos.SubtraindoMatrizes(matriz1, matriz2);
+                panel3.Controls.Clear();
                 MatrizesInterface.instanciarTextBoxMatrizResultante(panel3, matrizResultante);
                 groupBoxResultado.Text = "Resultante da subtração";
             }
@@ -466,6 +467,7 @@ namespace Calculadora_de_Matrizes
             else if (coluna1 == linha2)
             {
                 matrizResultante = Calculos.MultiplicandoMatrizes(matriz1, matriz2);
+                panel3.Controls.Clear();
                 MatrizesInterface.instanciarTextBoxMatrizResultante(panel3, matrizResultante);
                 groupBoxResultado.Text = "Resultante da multiplicação";
             }
@@ -1033,7 +1035,7 @@ namespace Calculadora_de_Matrizes
         {
             try
             {
-                float[,] matrizInicial = MatrizesInterface.resgatarNumeros(panel4GraficoMatriz, 2, colunasPlano);
+                float[,] matrizInicial = MatrizesInterface.resgatarNumeros(panel4GraficoMatriz, colunasPlano, 2);
 
                 if (matrizInicial.Length == 0)
                 {
@@ -1287,7 +1289,7 @@ namespace Calculadora_de_Matrizes
         /// <param name="e"></param>
         private void limparGrafico_Click(object sender, EventArgs e)
         {
-            chart1.Controls.Clear();
+            chart1.Series["Objeto"].Points.Clear();
         }
 
         /// <summary>

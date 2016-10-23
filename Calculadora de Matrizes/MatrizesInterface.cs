@@ -119,9 +119,9 @@ namespace Calculadora_de_Matrizes
         /// <param name="colunas">Recebe o número de colunas deste painel</param>
         /// <param name="linhas">Recebe o número de linhas deste painel</param>
         /// <returns>Retorna o array com todos os valores do painel indicado</returns>
-        public static float[,] resgatarNumeros(Panel panel, int colunas, int linhas)
+        public static float[,] resgatarNumeros(Panel panel, int linhas, int colunas)
         {
-            float[,] matriz = new float[linhas, colunas];
+            float[,] matriz = new float[colunas, linhas];
             int x = 0;
             int y = 0;
 
@@ -129,7 +129,7 @@ namespace Calculadora_de_Matrizes
             {
                 matriz[x, y] = float.Parse(Matriz1.Text);
 
-                if (y == colunas - 1)
+                if (y == linhas - 1)
                 {
                     y = 0;
                     x++;
