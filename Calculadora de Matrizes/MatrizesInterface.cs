@@ -26,16 +26,16 @@ namespace Calculadora_de_Matrizes
         /// <param name="linhas">Números de linhas, oriundo do numericUpDown</param>
         /// <param name="colunas">Número de colunas, oriundo do numericUpDown</param>
         /// <param name="matrixFinal">Panel no qual serão instanciados os textBoxs</param>
-        public static void instanciarTextBox(int colunas, int linhas, Panel matrixFinal)
+        public static void instanciarTextBox(int linhas, int colunas, Panel matrixFinal)
         {
             int altura = 35;
             int largura = 50;
 
-            Matriz = new TextBox[colunas, linhas];
+            Matriz = new TextBox[linhas, colunas];
 
-            for (int x = 0; x < Matriz.GetLength(0); x++)
+            for (int x = 0; x < linhas; x++)
             {
-                for (int y = 0; y < Matriz.GetLength(1); y++)
+                for (int y = 0; y < colunas; y++)
                 {
                     Matriz[x, y] = new TextBox();
                     Matriz[x, y].Font = new Font("Microsoft Sans Serif", 10f);
@@ -57,6 +57,7 @@ namespace Calculadora_de_Matrizes
         /// <param name="matriz">Recebe a matriz para passar para o painel resultante</param>
         public static void instanciarTextBoxMatrizResultante(Panel panel, float[,] matriz)
         {
+            panel.Controls.Clear();
             int altura = 35;
             int largura = 50;
             matrizResultado = new TextBox[matriz.GetLength(0), matriz.GetLength(1)];
@@ -121,15 +122,15 @@ namespace Calculadora_de_Matrizes
         /// <returns>Retorna o array com todos os valores do painel indicado</returns>
         public static float[,] resgatarNumeros(Panel panel, int linhas, int colunas)
         {
-            float[,] matriz = new float[colunas, linhas];
+            float[,] matriz = new float[linhas, colunas];
             int x = 0;
             int y = 0;
 
-            foreach (TextBox Matriz1 in panel.Controls)
+            foreach (TextBox Matriz in panel.Controls)
             {
-                matriz[x, y] = float.Parse(Matriz1.Text);
+                matriz[x, y] = float.Parse(Matriz.Text);
 
-                if (y == linhas - 1)
+                if (y == colunas - 1)
                 {
                     y = 0;
                     x++;

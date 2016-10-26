@@ -61,14 +61,28 @@ namespace Calculadora_de_Matrizes
         public static float[,] MultiplicandoMatrizes(float[,] matriz1, float[,] matriz2)
         {
             float[,] matrizResultado = new float[matriz1.GetLength(0), matriz2.GetLength(1)];
-            for (int x = 0; x < matrizResultado.GetLength(0); x++)
+
+            for (int x = 0; x < matriz1.GetLength(0); x++)
             {
-                for (int y = 0; y < matrizResultado.GetLength(1); y++)
+                for (int y = 0; y < matriz2.GetLength(1); y++)
                 {
-                    for (int n = 0; n < matriz2.GetLength(0); n++)
+                    for (int n = 0; n < matriz2.GetLength(1); n++)
                     {
-                        string i = "" + matriz1[x, n];
                         matrizResultado[x, y] += matriz1[x, n] * matriz2[n, y];
+                    }
+
+                    if (Math.Round(matrizResultado[x,y]) == 1)
+                    {
+                        matrizResultado[x, y] = 1;
+                    }
+                    else if (Math.Round(matrizResultado[x,y]) == 0)
+                    {
+                        matrizResultado[x, y] = 0;
+                    }
+
+                    else
+                    {
+                        matrizResultado[x, y] = matrizResultado[x, y];
                     }
                 }
             }

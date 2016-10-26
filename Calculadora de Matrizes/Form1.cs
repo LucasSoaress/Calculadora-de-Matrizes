@@ -358,7 +358,7 @@ namespace Calculadora_de_Matrizes
             {
                 panel1.Controls.Clear();
                 panel3.Controls.Clear();
-                MatrizesInterface.instanciarTextBox(coluna1, linha1, panel1);
+                MatrizesInterface.instanciarTextBox(linha1, coluna1, panel1);
                 MatrizesInterface.nomeDosGroupBox(groupBox1, "A", linha1, coluna1);
             }
         }
@@ -454,8 +454,8 @@ namespace Calculadora_de_Matrizes
         /// <param name="e"></param>
         private void btnMultiplicar_Click_1(object sender, EventArgs e)
         {
-            float[,] matriz1 = MatrizesInterface.resgatarNumeros(panel1, linha1, coluna1);
-            float[,] matriz2 = MatrizesInterface.resgatarNumeros(panel2, linha2, coluna2);
+            float[,] matriz1 = MatrizesInterface.resgatarNumeros(panel1, coluna1, linha1);
+            float[,] matriz2 = MatrizesInterface.resgatarNumeros(panel2, coluna2, linha2);
 
             linhaResultante = linha1;
             colunaResultante = coluna2;
