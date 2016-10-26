@@ -31,7 +31,7 @@ namespace Calculadora_de_Matrizes
             int altura = 35;
             int largura = 50;
 
-            Matriz = new TextBox[linhas, colunas];
+            TextBox[,] Matriz = new TextBox[linhas, colunas];
 
             for (int x = 0; x < linhas; x++)
             {
@@ -42,7 +42,7 @@ namespace Calculadora_de_Matrizes
                     Matriz[x, y].Text = "0";
                     Matriz[x, y].BackColor = Color.Black;
                     Matriz[x, y].ForeColor = Color.White;
-                    Matriz[x, y].Location = new Point((40) * x, (30) * y);
+                    Matriz[x, y].Location = new Point((40) * y, (30) * x);
                     Matriz[x, y].KeyPress += new KeyPressEventHandler(naoMostrarLetras);
                     Matriz[x, y].Size = new Size(altura, largura);
                     matrixFinal.Controls.Add(Matriz[x, y]);
@@ -71,7 +71,7 @@ namespace Calculadora_de_Matrizes
                     matrizResultado[x, y].Font = new Font("Microsoft Sans Serif", 10f);
                     matrizResultado[x, y].BackColor = Color.Black;
                     matrizResultado[x, y].ForeColor = Color.White;
-                    matrizResultado[x, y].Location = new Point((40) * x, (30) * y);
+                    matrizResultado[x, y].Location = new Point((40) * y, (30) * x);
                     matrizResultado[x, y].KeyPress += new KeyPressEventHandler(naoMostrarLetras);
                     matrizResultado[x, y].Size = new Size(altura, largura);
                     matrizResultado[x,y].Text = ((float)matriz[x, y]).ToString();

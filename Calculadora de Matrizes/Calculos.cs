@@ -66,23 +66,9 @@ namespace Calculadora_de_Matrizes
             {
                 for (int y = 0; y < matriz2.GetLength(1); y++)
                 {
-                    for (int n = 0; n < matriz2.GetLength(1); n++)
+                    for (int n = 0; n < matriz1.GetLength(1); n++)
                     {
                         matrizResultado[x, y] += matriz1[x, n] * matriz2[n, y];
-                    }
-
-                    if (Math.Round(matrizResultado[x,y]) == 1)
-                    {
-                        matrizResultado[x, y] = 1;
-                    }
-                    else if (Math.Round(matrizResultado[x,y]) == 0)
-                    {
-                        matrizResultado[x, y] = 0;
-                    }
-
-                    else
-                    {
-                        matrizResultado[x, y] = matrizResultado[x, y];
                     }
                 }
             }

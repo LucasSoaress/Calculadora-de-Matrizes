@@ -46,8 +46,8 @@ namespace Calculadora_de_Matrizes
 
         }
 
-        private int linha1, coluna1;
-        private int linha2, coluna2;
+        private static int linha1, coluna1;
+        private static int linha2, coluna2;
         private int linhaResultante, colunaResultante;
         private int colunasPlano;
 
@@ -347,8 +347,8 @@ namespace Calculadora_de_Matrizes
         /// <param name="e"></param>
         private void btn_criarMatriz1_Click_1(object sender, EventArgs e)
         {
+            linha1 =  (int)numericUpDown1.Value;
             coluna1 = (int)numericUpDown2.Value;
-            linha1 = (int)numericUpDown1.Value;
 
             if (coluna1 == 0 || linha1 == 0)
             {
@@ -380,7 +380,7 @@ namespace Calculadora_de_Matrizes
             {
                 panel2.Controls.Clear();
                 panel3.Controls.Clear();
-                MatrizesInterface.instanciarTextBox(coluna2, linha2, panel2);
+                MatrizesInterface.instanciarTextBox(linha2, coluna2, panel2);
                 MatrizesInterface.nomeDosGroupBox(groupBox2, "B", linha2, coluna2);
             }
         }
@@ -454,8 +454,8 @@ namespace Calculadora_de_Matrizes
         /// <param name="e"></param>
         private void btnMultiplicar_Click_1(object sender, EventArgs e)
         {
-            float[,] matriz1 = MatrizesInterface.resgatarNumeros(panel1, coluna1, linha1);
-            float[,] matriz2 = MatrizesInterface.resgatarNumeros(panel2, coluna2, linha2);
+            float[,] matriz1 = MatrizesInterface.resgatarNumeros(panel1, linha1, coluna1);
+            float[,] matriz2 = MatrizesInterface.resgatarNumeros(panel2, linha2, coluna2);
 
             linhaResultante = linha1;
             colunaResultante = coluna2;
